@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group42.client.controllers.fx.RegistrationController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <HBox>
+               <children>
+                  <JFXTextField fx:id="firstNameField" focusColor="#6ca0dc" labelFloat="true" prefWidth="250.0" promptText="First name">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="lastFieldName" focusColor="#6ca0dc" labelFloat="true" prefWidth="250.0" promptText="Last name">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <JFXTextField fx:id="phoneNumbField" focusColor="#6ca0dc" labelFloat="true" prefWidth="250.0" promptText="Phone number">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <StackPane AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <JFXDatePicker fx:id="dateOfBirth" defaultColor="#6ca0dc" prefHeight="37.0" prefWidth="250.0" promptText="Date of Birth" style="-fx-font-size: 15;" />
+                     </children>
+                  </StackPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <JFXTextField fx:id="emailField" focusColor="#6ca0dc" labelFloat="true" promptText="Email">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="userNameField" focusColor="#6ca0dc" labelFloat="true" prefWidth="200.0" promptText="Username">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <JFXPasswordField fx:id="passwordField" focusColor="#6ca0dc" labelFloat="true" prefWidth="250.0" promptText="Password" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXPasswordField>
+                        <JFXPasswordField fx:id="confirmPasswordField" focusColor="#6ca0dc" prefWidth="250.0" promptText="Confirm password" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXPasswordField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0">
+               <children>
+                  <Label fx:id="errorLabel" prefWidth="260.0" textFill="#da2222" VBox.vgrow="SOMETIMES">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane>
+                     <children>
+                        <JFXButton fx:id="cancelButton" onMouseClicked="#cancelListener" prefWidth="250.0" ripplerFill="#8a8484" style="-fx-background-color: #dddddd;" text="Cancel" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="signUpButton" depthTest="ENABLE" onMouseClicked="#signUpListener" prefWidth="250.0" ripplerFill="#2b2b86" style="-fx-background-color: #6ca0dc; -fx-border-radius: 10;" text="Sign up" textFill="WHITE" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <HBox prefWidth="260.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

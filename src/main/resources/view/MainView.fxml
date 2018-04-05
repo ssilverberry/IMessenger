@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="mainWindow" minHeight="450.0" minWidth="850.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group42.client.controllers.fx.MainController">
+   <children>
+      <BorderPane layoutX="300.0" layoutY="165.0" minHeight="400.0" minWidth="750.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane fx:id="centerPane" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane style="-fx-background-color: #6ca0dc;">
+                           <children>
+                              <Label fx:id="chatName" minHeight="50.0" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Symbol" size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="15.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <HBox VBox.vgrow="SOMETIMES">
+                           <children>
+                              <VBox fx:id="chatHistoryBox" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane fx:id="chatHistoryPane" VBox.vgrow="SOMETIMES">
+                                       <children>
+                                          <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" VBox.vgrow="SOMETIMES">
+                                                   <content>
+                                                      <TextFlow fx:id="chatHistoryView" lineSpacing="10.0" style="-fx-background-color: #fcfcfc;">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                         <cursor>
+                                                            <Cursor fx:constant="TEXT" />
+                                                         </cursor>
+                                                      </TextFlow>
+                                                   </content>
+                                                </ScrollPane>
+                                                <HBox fx:id="writeBox" alignment="TOP_CENTER" fillHeight="false" maxHeight="100.0" minHeight="40.0">
+                                                   <children>
+                                                      <TextArea fx:id="messageField" focusTraversable="false" minHeight="30.0" onKeyReleased="#messageFieldListener" prefHeight="30.0" prefWidth="141.0" promptText="Write a message..." wrapText="true" HBox.hgrow="SOMETIMES">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                      <HBox>
+                                                         <children>
+                                                            <VBox fx:id="sendBox">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="10.0" />
+                                                               </HBox.margin>
+                                                               <children>
+                                                                  <ImageView fx:id="sendButton" fitHeight="25.0" fitWidth="23.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../icon/send.png" />
+                                                                     </image>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                     <effect>
+                                                                        <ColorAdjust contrast="0.2" hue="0.1" />
+                                                                     </effect>
+                                                                     <VBox.margin>
+                                                                        <Insets left="2.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="5.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="onlineListBox" prefWidth="175.0">
+                                 <children>
+                                    <JFXButton fx:id="addBtn" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minHeight="30.0" prefWidth="175.0" ripplerFill="#a8ccf4" style="-fx-background-color: #a8ccf4;" text="ADD MEMBER">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXButton>
+                                    <ListView fx:id="choiceList" fixedCellSize="30.0" minHeight="0.0" prefHeight="0.0" prefWidth="175.0" style="-fx-font-size: 14; -fx-background-color: #44ffae;" />
+                                    <ListView fx:id="generalUserListView" fixedCellSize="30.0" onMouseClicked="#generalListListener" style="-fx-font-size: 14;" VBox.vgrow="SOMETIMES" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </AnchorPane>
+         </center>
+         <left>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane minHeight="50.0" style="-fx-background-color: #6ca0dc;">
+                     <children>
+                        <ImageView fx:id="menuButton" fitHeight="30.0" fitWidth="40.0" nodeOrientation="INHERIT" opacity="0.8" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="11.0">
+                           <image>
+                              <Image url="@../icon/menu.png" />
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="0.8" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <ListView fx:id="chatListView" fixedCellSize="50.0" focusTraversable="false" onMouseClicked="#chatListListener" prefHeight="200.0" prefWidth="200.0" style="-fx-font-size: 16;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ListView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
