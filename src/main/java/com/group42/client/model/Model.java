@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.scene.text.Text;
-
 import java.util.List;
 
 public class Model {
@@ -20,7 +19,7 @@ public class Model {
     private ObservableMap<Chat, ObservableList<Text>> chatHistoryMap;
 
     /**
-     *
+     * Map with key by chat and values by list of chat users
      */
     private ObservableMap<Chat, ObservableList<String>> chatUsersMap;
 
@@ -36,6 +35,10 @@ public class Model {
         return instance;
     }
 
+    /**
+     * Constructs object with online/offline users list and
+     * maps for storage chats and it's histories and members
+     */
     private Model(){
         onlineUsers = FXCollections.observableArrayList();
         offlineUsers = FXCollections.observableArrayList();
@@ -43,6 +46,10 @@ public class Model {
         chatUsersMap = FXCollections.observableHashMap();
     }
 
+    /**
+     * setters and getters
+     * @param login
+     */
     public void setUser(String login){
         user = new User(login);
     }

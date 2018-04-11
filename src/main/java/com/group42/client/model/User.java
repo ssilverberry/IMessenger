@@ -1,33 +1,19 @@
 package com.group42.client.model;
 
-import java.time.LocalDate;
+/**
+ * Class for storage some user.
+ */
 
 public class User {
 
-    private int userId;
-    private String email, firstName, lastName, login;
-    private String phoneNumber, dateOfBirth;
-    private LocalDate lastSeenDate;
+    private String login;
 
-
-    public User(String login) {
+    /**
+     * Constructs some user.
+     * @param login
+     */
+    User(String login) {
         this.login = login;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getLogin() {
@@ -36,13 +22,5 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public LocalDate getLastSeenDate() {
-        return lastSeenDate;
-    }
-
-    public void setLastSeenDate(LocalDate lastSeenDate) {
-        this.lastSeenDate = lastSeenDate;
     }
 }

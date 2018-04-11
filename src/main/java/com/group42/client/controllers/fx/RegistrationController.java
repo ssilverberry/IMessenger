@@ -129,6 +129,12 @@ public class RegistrationController extends Controller {
         }
     }
 
+    /**
+     * checks phone number for valid. Uses regExp for check on
+     * right symbol in phone number.
+     * @param phoneNumber
+     * @return
+     */
     private String checkPhoneNumberForValid(String phoneNumber){
         String regex = "^\\(?(\\+38)\\)?[-\\s]?(050|063|06[6-8]{1}|09[1-9]{1})[-\\s]?([0-9]{3})[-\\s]?([0-9]{2})[-\\s]?([0-9]{2})$";
         Pattern pattern = Pattern.compile(regex);
