@@ -13,7 +13,8 @@ import java.util.List;
  *
  * Here we init server port and start infinite loop for maintaining
  * connections to our initialized server port.
- * Every new connection is a new thread.
+ * Every new connection is a new thread. Also here is protocol part.
+ * In a nutshell, we combined protocol and server part together.
  */
 public class Server extends Thread {
     private int serverPort = 3000;
