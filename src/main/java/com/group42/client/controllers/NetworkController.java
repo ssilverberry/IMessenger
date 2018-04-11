@@ -43,14 +43,17 @@ public class NetworkController {
     private ProtocolClient protocol;
 
     /**
+     * Default constructor
+     */
+    private NetworkController() {
+    }
+
+    /**
      * Returned instance of class.
      *
      */
     public static NetworkController getInstance() {
         return INSTANCE;
-    }
-
-    private NetworkController() {
     }
 
     /**
