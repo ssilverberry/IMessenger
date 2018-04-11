@@ -7,7 +7,7 @@ import com.group42.client.protocol.IncomingServerMessage;
 import com.group42.client.protocol.ProtocolClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.group42.client.encryption.StringCrypter;
+import com.group42.client.protocol.encryption.StringCrypter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -81,7 +81,8 @@ public class NetworkController {
     }
 
     /**
-     * Inner class create second thread to listen responses from server.
+     * Inner class create another thread to listen responses from server.
+     * Also, uses protocol which responsible for unpacking incoming msg.
      */
     private class ConnectionThread extends Thread {
         private BufferedReader inputStream;

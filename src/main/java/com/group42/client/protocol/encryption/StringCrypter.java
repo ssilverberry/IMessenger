@@ -1,4 +1,4 @@
-package com.group42.client.encryption;
+package com.group42.client.protocol.encryption;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

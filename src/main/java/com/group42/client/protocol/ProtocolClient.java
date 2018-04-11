@@ -6,7 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.group42.client.model.converter.ChatConverter;
 import com.group42.client.model.Chat;
-import com.group42.client.encryption.StringCrypter;
+import com.group42.client.protocol.encryption.StringCrypter;
 
 public class ProtocolClient {
 
