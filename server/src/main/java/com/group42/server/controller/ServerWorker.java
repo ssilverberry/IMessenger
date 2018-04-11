@@ -61,6 +61,7 @@ public class ServerWorker extends Thread {
     }
 
     /**
+     * It is a protocol side method.
      * The method is used for transforming object to string.
      * Method send encrypted string in Base64;
      *
@@ -73,6 +74,7 @@ public class ServerWorker extends Thread {
     }
 
     /**
+     * It is a protocol side method.
      * The method is used for converting input encrypted json string to object.
      *
      * @param response input encrypted json string.
