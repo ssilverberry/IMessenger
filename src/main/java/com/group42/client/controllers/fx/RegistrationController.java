@@ -130,10 +130,12 @@ public class RegistrationController extends Controller {
     }
 
     /**
-     * checks phone number for valid. Uses regExp for check on
-     * right symbol in phone number.
-     * @param phoneNumber
-     * @return
+     * This is a regular expression that is intended to check the entered phone number
+     * in the corresponding field at the registration stage. It includes the following checks:
+     * 1. Only numbers from 0 to 9 are entered;
+     * 2. The number of digits is no more than 13 (Ukrainian format);
+     * 3. Additional check on the operators of Ukraine
+     *    (the following codes are supported: 050, 063, 067, 068, 091, 092, 093, 094, 095, 096, 097, 098, 099).
      */
     private String checkPhoneNumberForValid(String phoneNumber){
         String regex = "^\\(?(\\+38)\\)?[-\\s]?(050|063|06[6-8]{1}|09[1-9]{1})[-\\s]?([0-9]{3})[-\\s]?([0-9]{2})[-\\s]?([0-9]{2})$";

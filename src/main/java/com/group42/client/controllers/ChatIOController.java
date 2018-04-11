@@ -61,15 +61,12 @@ public class ChatIOController {
     }
 
     /**
-     * setup file, which contains list of chats for current user.
+     * create file, which contains list of chats for current user.
      * @param file
      */
     private void setupChatListFile(File file){
         try {
             file.createNewFile();
-            Set<Chat> temp = new HashSet<>();
-            temp.add(new Chat(100000,"General chat", "general"));
-            writeChatsToFile(temp);
         } catch (IOException e) {
             logger.error("File wasn't create!");
         }

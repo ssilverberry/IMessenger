@@ -73,7 +73,12 @@ public class SceneManager {
     }
 
     /**
-     * set main scene
+     * This method creates the main chat window: with lists of chat rooms,
+     * users, history of messages and others. By analogy with other "scenes",
+     * the window with buttons, containers for displaying the list of chats
+     * and users (ListView), a container for displaying the history of messages
+     * (TextFlow), a field for entering messages, buttons and others is loaded
+     * with the file "MainView.fxml". Then listeners are connected.
      */
     public void setMainScene(){
         primaryStage.setTitle("Chat");

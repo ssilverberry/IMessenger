@@ -20,7 +20,7 @@ public class MenuListener implements EventHandler<MouseEvent> {
     private ImageView menuButton;
 
     /**
-     * Default constructor needs for initialize fxml form.
+     * Default constructor is needed to be for correct initialize fxml form.
      */
     public MenuListener() {
     }

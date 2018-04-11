@@ -89,7 +89,9 @@ public class AuthorisationController extends Controller {
     }
 
     /**
-     * Get data from fields and send request for authorization.
+     * This is the listener method in the authorization window. When the user
+     * clicks the "Sign in" button, this method will take its login and password
+     * from the corresponding fields and send an authorization request to the server.
      */
     @FXML
     private void signInListener(){

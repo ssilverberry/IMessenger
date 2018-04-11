@@ -46,7 +46,7 @@ public class CreateGroupListener {
     private JFXButton createButton;
 
     /**
-     * Default constructor needs to correct load scene.
+     * Default constructor is needed to be correct for scene loading.
      */
     CreateGroupListener() {
     }

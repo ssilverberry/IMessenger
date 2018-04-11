@@ -153,7 +153,7 @@ public class MainController extends Controller {
     }
 
     /**
-     * remove private chat, when one of two leaved it.
+     * remove private chat, when one of two left it.
      *
      * @param chatId
      */
@@ -215,7 +215,7 @@ public class MainController extends Controller {
     }
 
     /**
-     * Updates list of group members, when smth added or leaved group.
+     * Updates list of group members, when someone was added or left group.
      *
      * @param chatId
      * @param members

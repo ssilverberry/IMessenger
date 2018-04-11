@@ -10,6 +10,12 @@ import javafx.util.Callback;
 import com.group42.client.model.Chat;
 
 public class ChatListCellFactory implements Callback<ListView<Chat>, ListCell<Chat>> {
+
+    /**
+     * In general, this is the method that creates a new "ListCell" cell in the "ListView" list.
+     * The list consists of these cells, which can display objects in themselves. In this case,
+     * when you add a new Chat object to the ListView chat list, the user will only see the chat name.
+     */
     @Override
     public ListCell<Chat> call(ListView<Chat> param) {
         return new ListCell<Chat>() {
