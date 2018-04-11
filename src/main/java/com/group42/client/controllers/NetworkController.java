@@ -1,14 +1,13 @@
-package com.group42.client.network;
+package com.group42.client.controllers;
 
 
 import com.group42.client.controllers.fx.SceneManager;
 import com.group42.client.controllers.fx.Controller;
-import com.group42.client.model.ChatMessages;
-import com.group42.client.network.protocol.IncomingServerMessage;
-import com.group42.client.network.protocol.ProtocolClient;
+import com.group42.client.protocol.IncomingServerMessage;
+import com.group42.client.protocol.ProtocolClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.group42.client.security.StringCrypter;
+import com.group42.client.encryption.StringCrypter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,9 +41,6 @@ public class NetworkController {
      * Instance of protocol class
      */
     private ProtocolClient protocol;
-
-    public static ChatMessages chatMessages;
-
 
     /**
      * Returned instance of class.
@@ -96,7 +92,7 @@ public class NetworkController {
         public void run() {
             try(Socket socket = new Socket(InetAddress.getLocalHost(), socketPort);
                 BufferedReader inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
-                PrintWriter outputStream = new PrintWriter(socket.getOutputStream(), true);) {
+                PrintWriter outputStream = new PrintWriter(socket.getOutputStream(), true)) {
                 this.inputStream = inputStream;
                 this.outputStream = outputStream;
                 socket.setTcpNoDelay(true);
@@ -112,6 +108,7 @@ public class NetworkController {
                     } catch (IOException e) {
                         logger.error("Listener Thread interrupted ", e);
                         Thread.currentThread().interrupt();
+                        SceneManager.getInstance().connectionFailed();
                     }
                 }
             } catch (IOException e) {

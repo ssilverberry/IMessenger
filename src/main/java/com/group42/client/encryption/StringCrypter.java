@@ -1,4 +1,4 @@
-package com.group42.client.security;
+package com.group42.client.encryption;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -60,7 +60,7 @@ public class StringCrypter {
         /**
          * the key must be 8 bytes in length
          */
-        public DESSecretKey(byte[] key) {
+        DESSecretKey(byte[] key) {
             this.key = key;
         }
 

@@ -5,17 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.scene.text.Text;
 
+import java.util.List;
+
 public class Model {
 
     /**
      * instance of current user.
      */
     private User user;
-
-    /**
-     * list of online chat users.
-     */
-    private ObservableList<String> onlineUserList;
 
     /**
      * Map with key by chat and values by list of text messages
@@ -27,6 +24,12 @@ public class Model {
      */
     private ObservableMap<Chat, ObservableList<String>> chatUsersMap;
 
+    /**
+     * list of online and offline chat users
+     */
+    private List<String> onlineUsers;
+    private List<String> offlineUsers;
+
     private static final Model instance = new Model();
 
     public static Model getInstance() {
@@ -34,7 +37,8 @@ public class Model {
     }
 
     private Model(){
-        onlineUserList = FXCollections.observableArrayList();
+        onlineUsers = FXCollections.observableArrayList();
+        offlineUsers = FXCollections.observableArrayList();
         chatHistoryMap = FXCollections.observableHashMap();
         chatUsersMap = FXCollections.observableHashMap();
     }
@@ -47,12 +51,20 @@ public class Model {
         return user;
     }
 
-    public ObservableList<String> getOnlineUserList() {
-        return onlineUserList;
+    public List<String> getOnlineUsers() {
+        return onlineUsers;
     }
 
-    public void setOnlineUserList(ObservableList<String> onlineUserList) {
-        this.onlineUserList = onlineUserList;
+    public void setOnlineUsers(List<String> onlineUsers) {
+        this.onlineUsers = onlineUsers;
+    }
+
+    public List<String> getOfflineUsers() {
+        return offlineUsers;
+    }
+
+    public void setOfflineUsers(List<String> offlineUsers) {
+        this.offlineUsers = offlineUsers;
     }
 
     public ObservableMap<Chat, ObservableList<Text>> getChatHistoryMap() {

@@ -1,14 +1,14 @@
 package com.group42.client.controllers;
 
-/**
+/*
  * Class for send request to server.
  */
 
-import com.group42.client.network.NetworkController;
-import com.group42.client.network.protocol.OutputClientMessage;
+import com.group42.client.model.Model;
+import com.group42.client.protocol.OutputClientMessage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 public class RequestController {
@@ -38,7 +38,7 @@ public class RequestController {
      *
      */
     public void registrationRequest(String firstName, String lastName, String phoneNumber,
-                                    String dateOfBirth, String email, String login, String password) {
+                                    LocalDate dateOfBirth, String email, String login, String password) {
         OutputClientMessage outMsg = new OutputClientMessage(2, firstName, lastName, phoneNumber,
                                                                 dateOfBirth, email, login, password);
         NetworkController.getInstance().send(outMsg);
@@ -56,46 +56,31 @@ public class RequestController {
 
     /**
      * send request to get group chat history.
-     * @param groupName
+     *
+     * @param chatId
      */
-    public void getGroupChatHistoryRequest(String groupName) {
-        OutputClientMessage outMsg = new OutputClientMessage(36, groupName, new ArrayList<>());
+    public void getGroupChatHistoryRequest(Integer chatId) {
+        String currUser = Model.getInstance().getUser().getLogin();
+        OutputClientMessage outMsg = new OutputClientMessage(chatId, 36, currUser);
         NetworkController.getInstance().send(outMsg);
-        logger.info("GET CHAT HISTORY REQUEST: " + groupName);
+        logger.info("GET CHAT HISTORY REQUEST: " + chatId);
     }
 
     /**
-     * send message to group chat request.
-     */
-    public void messageToGroupRequest(String groupName, String fromUser, String msgBody) {
-        OutputClientMessage outMsg = new OutputClientMessage(39, groupName, fromUser, msgBody);
-        NetworkController.getInstance().send(outMsg);
-        logger.info("SEND MSG TO GROUP: " + groupName + " " + fromUser + " " + msgBody);
-    }
-
-    /**
-     * send message to general chat request.
-     */
-    public void messageToGeneralChat(String fromUser, String message){
-        OutputClientMessage outMsg = new OutputClientMessage("General chat", fromUser, 32, message);
-        NetworkController.getInstance().send(outMsg);
-        logger.info("SEND MESSAGE TO GENERAL CHAT REQUEST TO SERVER: " + fromUser + " " + message);
-    }
-
-    /**
-     * send message to private chat request.
+     * send message to chat request.
+     * @param chatId
      * @param fromUser
-     * @param toUser
-     * @param message
+     * @param msgBody
      */
-    public void messageToPrivateChat(String fromUser, String toUser, String message){
-        OutputClientMessage outMsg = new OutputClientMessage(fromUser, toUser, message, 33);
+    public void sendMsgToChatRequest(Integer chatId, String fromUser, String msgBody){
+        OutputClientMessage outMsg = new OutputClientMessage(chatId , fromUser, 32, msgBody);
         NetworkController.getInstance().send(outMsg);
-        logger.info("SEND MSG TO PRIVATE CHAT: " + fromUser + " " + toUser + " " + message);
+        logger.info("SEND MSG TO GROUP: " + chatId + " " + fromUser + " " + msgBody);
     }
 
     /**
      *  send create group request
+     *
      * @param groupName
      * @param members
      */
@@ -116,7 +101,7 @@ public class RequestController {
     }
 
     /**
-     * Get user info request.
+     * get user info request.
      * @param login
      */
     public void getUserInfoRequest(String login){
@@ -127,24 +112,33 @@ public class RequestController {
 
     /**
      * send leave group request.
-     * @param groupName
+     * @param chatId
      * @param login
      */
-    public void leaveGroupRequest(String groupName, String login) {
-        OutputClientMessage outMsg = new OutputClientMessage(groupName, 40, login, 40);
+    public void leaveGroupRequest(Integer chatId, String login) {
+        OutputClientMessage outMsg = new OutputClientMessage(chatId,  login, 40);
         NetworkController.getInstance().send(outMsg);
         logger.info("LEAVE GROUP INFO");
     }
 
     /**
      * send join group request.
-     * @param groupName
+     * @param chatId
      * @param login
      */
-    public void joinGroupRequest(String groupName, String login, Integer temp) {
-        OutputClientMessage outMsg = new OutputClientMessage(groupName, 42, login, 40);
+    public void joinGroupRequest(Integer chatId, String login) {
+        OutputClientMessage outMsg = new OutputClientMessage(chatId, 42, login);
         NetworkController.getInstance().send(outMsg);
-        logger.info("INVITE TO GROUP INFO: " + "group: " + groupName + " user: " + login);
+        logger.info("INVITE TO GROUP INFO: " + "group: " + chatId + " user: " + login);
+    }
+
+    /**
+     * get chat list request.
+     */
+    public void getChatListRequest(){
+        OutputClientMessage outMsg = new OutputClientMessage(43, Model.getInstance().getUser().getLogin());
+        NetworkController.getInstance().send(outMsg);
+        logger.info("GET CHAT LIST REQUEST");
     }
 
 

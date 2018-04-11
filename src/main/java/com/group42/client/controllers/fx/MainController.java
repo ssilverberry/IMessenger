@@ -1,14 +1,16 @@
 package com.group42.client.controllers.fx;
 
-import com.group42.client.controllers.ChatIO;
+import com.group42.client.controllers.ChatIOController;
 import com.group42.client.model.*;
 import com.group42.client.model.factory.*;
-import com.group42.client.network.protocol.IncomingServerMessage;
-import com.jfoenix.controls.JFXButton;
+import com.group42.client.protocol.IncomingServerMessage;
 import javafx.application.Platform;
 import javafx.collections.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -16,11 +18,12 @@ import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
+import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.group42.client.controllers.RequestController;
-
-import java.time.LocalTime;
+import org.controlsfx.control.Notifications;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -81,22 +84,29 @@ public class MainController extends Controller {
     private ListView<String> generalUserListView;
 
     /**
+     * containers for online/offline user lists.
+     */
+    @FXML
+    private ListView<String> onlineUserList;
+    @FXML
+    private ListView<String> offlineUserList;
+
+    /**
+     * this two tabs of tabPane which consists of users list. Uses for
+     * view online/offline users and also can view list of members for
+     * group chat and general list(online with offline users list) to
+     * add member.
+     */
+    @FXML
+    private Tab firstTab;
+    @FXML
+    private Tab secondTab;
+
+    /**
      * container for list of online chat users and choice list.
      */
     @FXML
     private VBox onlineListBox;
-
-    /**
-     * Addition button process request to add member to group
-     */
-    @FXML
-    private JFXButton addBtn;
-
-    /**
-     * list of
-     */
-    @FXML
-    private ListView<String> choiceList;
 
     public MainController() {
     }
@@ -109,65 +119,130 @@ public class MainController extends Controller {
         Platform.runLater(() -> {
             switch (message.getActionId()){
                 case 311:
-                    receiveOnlineUsers(message);
-                    break;
-                case 312:
-                    model.setOnlineUserList(null);
+                    receiveOnlineOfflineUsers(message);
                     break;
                 case 32:
-                    receiveMsgToGroupChat("General chat", message);
-                    break;
-                case 33:
-                    receiveMsgToPrivate(message);
+                    receiveMsgToChat(message.getChatId(), message);
                     break;
                 case 34:
-                    createPrivateRoom(message.getToUser());
+                    createPrivateRoom(message.getChatId(), message.getToUser());
                     break;
                 case 36:
-                    updateGroupChatHistory(message.getGroupName(), message.getGeneralChatHistory(), message.getMembers());
+                    updateGroupChatHistory(message.getChatId(), message.getGeneralChatHistory(), message.getMembers());
                     break;
                 case 37:
-                    createGroupRoom(message.getGroupName(), message.getMembers());
+                    createGroupRoom(message.getChatId(), message.getGroupName(), message.getMembers());
                     break;
                 case 38:
                     new UserInfoAlert(Alert.AlertType.INFORMATION, message);
                     break;
-                case 39:
-                    receiveMsgToGroupChat(message.getGroupName(), message);
-                    break;
                 case 40:
-                    updateGroupListOfMembers(message.getGroupName(), message.getMembers());
+                    updateGroupListOfMembers(message.getChatId(), message.getMembers());
+                    break;
+                case 41:
+                    leavePrivateChat(message.getChatId());
                     break;
                 case 42:
-                    createGroupRoom(message.getGroupName(), message.getMembers());
+                    createGroupRoom(message.getChatId(), message.getGroupName(), message.getMembers());
+                    break;
+                case 43:
+                    updateChatList(message.getLocalUsrChatList());
                     break;
             }
         });
     }
 
-    private void updateGroupListOfMembers(String groupName, List<String> members) {
-        Chat chat = getChatByName(groupName);
-        if (chat != null) {
-            ObservableList<String> tempList = FXCollections.observableArrayList(members);
-            model.getChatUsersMap().get(chat).setAll(tempList);
-            if (chatListView.getSelectionModel().getSelectedItem().equals(chat)) {
-                generalUserListView.setItems(model.getChatUsersMap().get(chat));
-            } chat.setHistoryFlag(false);
+    /**
+     * remove private chat, when one of two leaved it.
+     *
+     * @param chatId
+     */
+    private void leavePrivateChat(Integer chatId) {
+        Chat chat = getChatById(chatId);
+        if (chat != null){
+            chatList.remove(chat);
+            model.getChatHistoryMap().remove(chat);
+            ChatIOController.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
+            chatName.setVisible(false);
+            centerPane.setVisible(false);
         }
     }
 
     /**
-     * receive online users list.
+     * receive msg to chat by id.
+     * @param chatId
      * @param message
      */
-    private void receiveOnlineUsers(IncomingServerMessage message) {
+    private void receiveMsgToChat(Integer chatId, IncomingServerMessage message) {
+        Chat chat = getChatById(chatId);
+        if (chat != null) {
+            model.getChatHistoryMap().get(chat).add(parseMessage(message, chat.getChatName()));
+            if (chatListView.getSelectionModel().getSelectedItem().equals(chat)) {
+                chatHistoryView.getChildren().setAll(model.getChatHistoryMap().get(chat));
+            } else pushNotification(chat, parseMessage(message, chat.getChatName()).getText());
+            logger.info("receive message to chat" + message.getFromUser() + " " + message.getMsgBody());
+            if (chat.getIsPrivate().equals("private")){
+                ChatIOController.getInstance().writePrivateHistoryToFile(chat.getChatName(), model.getChatHistoryMap().get(chat));
+            }
+        }
+    }
+
+    /**
+     * show popup window to notify user about message in another chat.
+     * @param chat
+     * @param contentText
+     */
+    private void pushNotification(Chat chat, String contentText){
+        Notifications notificationBuilder = Notifications.create()
+                .title(chat.getChatName())
+                .text(contentText)
+                .hideAfter(Duration.seconds(5.0))
+                .position(Pos.BOTTOM_RIGHT)
+                .onAction(event -> chatListView.getSelectionModel().select(chat));
+        notificationBuilder.showConfirm();
+    }
+
+    /**
+     * update chat list after initialize main scene.
+     * @param usrChatList
+     */
+    private void updateChatList(Chat[] usrChatList) {
+        chatList.setAll(usrChatList);
+        for (Chat chat : usrChatList) {
+            model.getChatHistoryMap().put(chat, FXCollections.observableArrayList());
+        }
+        ChatIOController.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
+    }
+
+    /**
+     * Updates list of group members, when smth added or leaved group.
+     *
+     * @param chatId
+     * @param members
+     */
+    private void updateGroupListOfMembers(Integer chatId, List<String> members) {
+        Chat chat = getChatById(chatId);
+        if (chat != null) {
+            ObservableList<String> tempList = FXCollections.observableArrayList(members);
+            model.getChatUsersMap().get(chat).setAll(tempList);
+            if (chatListView.getSelectionModel().getSelectedItem().equals(chat)) {
+                onlineUserList.setItems(model.getChatUsersMap().get(chat));
+            }
+        }
+    }
+
+    /**
+     * receive list of online/offline users.
+     * @param message
+     */
+    private void receiveOnlineOfflineUsers(IncomingServerMessage message) {
         Chat chat = getChatByName("General chat");
-        ObservableList<String> onlineList = FXCollections.observableArrayList(message.getOnlineUsers());
-        model.getChatUsersMap().put(chat, onlineList);
-        model.setOnlineUserList(onlineList);
+        model.setOnlineUsers(message.getOnlineUsers());
+        model.setOfflineUsers(message.getOfflineUsers());
         if (chatListView.getSelectionModel().getSelectedItem() != null) {
             if (chatListView.getSelectionModel().getSelectedItem().equals(chat)) {
-                generalUserListView.setItems(model.getChatUsersMap().get(chat));
+                onlineUserList.setItems(FXCollections.observableArrayList(model.getOnlineUsers()));
+                offlineUserList.setItems(FXCollections.observableArrayList(model.getOfflineUsers()));
             }
         }
     }
@@ -178,32 +253,17 @@ public class MainController extends Controller {
     @FXML
     void initialize() {
         model = Model.getInstance();
-        setupChatList();
         chatList = FXCollections.observableArrayList();
-        chatList.setAll(model.getChatHistoryMap().keySet());
-        initializeFactories();
-        setOnlineListListener();
-        generalUserListView.setVisible(false);
+        setListenerOnUserList(onlineUserList);
+        setListenerOnUserList(offlineUserList);
         centerPane.setVisible(false);
         menuButton.setOnMouseClicked(new MenuListener(menuButton));
         chatListView.setOnContextMenuRequested(this::leaveGroupListener);
-        setListenerOnAddBtn();
         setIlluminateListener();
+        RequestController.getInstance().getChatListRequest();
         RequestController.getInstance().getOnlineUsersRequest();
+        initializeFactories();
         setLogOutListener();
-    }
-
-    /**
-     * method to read chatList from file and setup to view list.
-     */
-    private void setupChatList(){
-        Set<Chat> chatSet = new HashSet<>(ChatIO.getInstance().readChatsFromFile());
-        model.setChatHistoryMap(FXCollections.observableHashMap());
-        model.setChatUsersMap(FXCollections.observableHashMap());
-        for (Chat chat : chatSet) {
-            model.getChatHistoryMap().put(chat, FXCollections.observableArrayList());
-            model.getChatUsersMap().put(chat, FXCollections.observableArrayList());
-        }
     }
 
     /**
@@ -211,80 +271,57 @@ public class MainController extends Controller {
      */
     private void initializeFactories() {
         chatListView.setCellFactory(new ChatListCellFactory());
-        //generalUserListView.setCellFactory(new UserListCellFactory());
         chatListView.setItems(chatList);
-    }
-
-    /**
-     * set listener on button which responsible for add member to group chat.
-     */
-    private void setListenerOnAddBtn(){
-        addBtn.setOnAction(event -> {
-            Chat group =chatListView.getSelectionModel().getSelectedItem();
-            if(group != null){
-                if (choiceList.getPrefHeight() == 0) {
-                    addBtn.setText("ONLINE USERS");
-                    choiceList.setPrefHeight(300);
-                    choiceList.setItems(model.getOnlineUserList());
-                    choiceList.setOnMouseClicked(event1 -> {
-                        String choice = choiceList.getSelectionModel().getSelectedItem();
-                        if (choice != null){
-                            for (String user: model.getChatUsersMap().get(group)) {
-                                if (choice.equals(user)){
-                                    Alert alert = new Alert((Alert.AlertType.ERROR));
-                                    alert.setHeaderText("User is already here!");
-                                    alert.showAndWait();
-                                    return;
-                                }
-                            } RequestController.getInstance().joinGroupRequest(group.getChatName(), choice, 0);
-                            group.setHistoryFlag(false);
-                            choiceList.setPrefHeight(0);
-                        }
-                    });
-                } else {
-                    addBtn.setText("ADD MEMBER");
-                    choiceList.setPrefHeight(0.0);
-                }
-            }
-        });
+        onlineUserList.setItems(FXCollections.observableArrayList());
+        offlineUserList.setItems(FXCollections.observableArrayList());
     }
 
     /**
      * Process context menu request by right click of mouse. Context menu contains
      * possibility to create private with one of the online users and shows user info.
      */
-    private void setOnlineListListener(){
-        generalUserListView.setOnContextMenuRequested(event -> {
-            String toUser = generalUserListView.getSelectionModel().getSelectedItem();
+    private void setListenerOnUserList(ListView<String> userList){
+        userList.setOnContextMenuRequested(event -> {
+            String toUser = userList.getSelectionModel().getSelectedItem();
             if (toUser != null && !toUser.equals(model.getUser().getLogin())) {
                 ContextMenu contextMenu = new ContextMenu();
                 MenuItem newPrivate = new MenuItem("New Private");
                 MenuItem userInfo = new MenuItem("User Info");
                 contextMenu.getItems().addAll(newPrivate, userInfo);
                 newPrivate.setOnAction(newPrivateEvent -> {
-                    createPrivateRoom(toUser);
                     RequestController.getInstance().createPrivateRequest(model.getUser().getLogin(), toUser);
                 });
                 userInfo.setOnAction(infoEvent -> RequestController.getInstance().getUserInfoRequest(toUser));
                 contextMenu.show(menuButton, event.getScreenX(), event.getScreenY());
             }
         });
+        userList.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY){
+                String user = userList.getSelectionModel().getSelectedItem();
+                if (user != null) {
+                    if (!messageField.getText().contains(" " + user + ", ")) {
+                        messageField.setText(messageField.getText() + " " + user + ", ");
+                        messageField.positionCaret(messageField.getText().length());
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Creates new group room with list of members, <tt>members</tt>
+     * Creates new group room with list of <tt>members</tt>
      * @param groupName
      * @param members
      */
-    private void createGroupRoom(String groupName, List<String> members){
-        ObservableList<String> tempList = FXCollections.observableArrayList(members);
-        Chat chat = new Chat(groupName, "group");
+    private void createGroupRoom(Integer chatId, String groupName, List<String> members){
+        ObservableList<String> membersList = FXCollections.observableArrayList(members);
+        Chat chat = new Chat(chatId, groupName, "0");
         chatList.add(chat);
+        chatListView.setItems(chatList);
         model.getChatHistoryMap().put(chat, FXCollections.observableArrayList());
-        model.getChatUsersMap().put(chat, tempList);
-        if (groupName.equals(chatListView.getSelectionModel().getSelectedItem().getChatName())){
-            generalUserListView.setItems(tempList);
-        } ChatIO.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
+        model.getChatUsersMap().put(chat, membersList);
+        ChatIOController.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
+        pushNotification(chat, "You have been invited to a new group!");
         logger.info("2. GROUP CREATED!");
     }
 
@@ -292,42 +329,31 @@ public class MainController extends Controller {
      * Creates new private room with chosen user, <tt>toUser</tt>
      * @param userName is username of another user.
      */
-    private void createPrivateRoom(String userName){
-        Chat chat = new Chat(userName, "private");
+    private void createPrivateRoom(Integer chatId, String userName){
+        Chat chat = new Chat(chatId, userName, "1");
         chatList.add(chat);
         model.getChatHistoryMap().put(chat, FXCollections.observableArrayList());
-        ChatIO.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
-        ChatIO.getInstance().createFileForPrivateHistory(userName);
-    }
-
-    /**
-     * receive message in chat history for chat in <tt>chatName</tt>
-     */
-    private void receiveMsgToGroupChat (String chatName, IncomingServerMessage message) {
-        Chat chat = getChatByName(chatName);
-        if (chat != null) {
-            model.getChatHistoryMap().get(chat).add(parseMessage(message, chat.getChatName()));
-            logger.info("receive message to chat list" + message.getFromUser() + " " + message.getMsgBody());
-        }
-    }
-
-    /**
-     * receive message to private chat.
-     */
-    private void receiveMsgToPrivate(IncomingServerMessage message) {
-        String fromUser = message.getFromUser();
-        String toUser = message.getToUser();
-        for (ObservableMap.Entry<Chat, ObservableList<Text>> chatList : model.getChatHistoryMap().entrySet()) {
-            Chat chat = chatList.getKey();
-            if (fromUser.contains(chat.getChatName()) | toUser.contains(chat.getChatName())) {
-                model.getChatHistoryMap().get(chat).add(parseMessage(message, chat.getChatName()));
-                ChatIO.getInstance().writePrivateHistoryToFile(chat.getChatName(), model.getChatHistoryMap().get(chat));
-            }
-        }
+        ChatIOController.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
+        ChatIOController.getInstance().createFileForPrivateHistory(userName);
     }
 
     /**
      * Get chat by name.
+     * @param chatId
+     * @return
+     */
+    private Chat getChatById(Integer chatId){
+        Chat chat;
+        for (ObservableMap.Entry<Chat, ObservableList<Text>> chatList : model.getChatHistoryMap().entrySet()) {
+            chat = chatList.getKey();
+            if (chatId == chat.getChatId()) {
+                return chat;
+            }
+        } return null;
+    }
+
+    /**
+     * Return chat by id
      * @param chatName
      * @return
      */
@@ -335,19 +361,20 @@ public class MainController extends Controller {
         Chat chat;
         for (ObservableMap.Entry<Chat, ObservableList<Text>> chatList : model.getChatHistoryMap().entrySet()) {
             chat = chatList.getKey();
-            if (chatName.contains(chat.getChatName())) {
+            if (chatName.equals(chat.getChatName())) {
                 return chat;
             }
         } return null;
     }
 
     /**
-     * parse message to show it in chat
+     * parse message from String to Text object to show it in message container.
      */
     private Text parseMessage(IncomingServerMessage message, String chatName) {
-        Text text = new Text(message.getFromUser() + " > " + message.getMsgBody() + "\n");
+        String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yy HH:mm")) + " ";
+        Text text = new Text( dateTime + message.getFromUser() + " > " + message.getMsgBody() + "\n");
         text.setFont(new Font(14));
-        if (message.getFromUser().contains(model.getUser().getLogin())){
+        if (message.getFromUser().equals(model.getUser().getLogin())){
             text.setFill(Color.valueOf("#4357a3"));
         }
         if (chatName.equals(chatListView.getSelectionModel().getSelectedItem().getChatName())){
@@ -357,90 +384,93 @@ public class MainController extends Controller {
     }
 
     /**
-     * Update general chat history after sign in.
+     * parse history from string values to <tt>Text</tt> objects
+     * for display to user.
+     *
+     * @param chatHistory
+     * @return
+     */
+    private List<Text> parseChatHistoryToDisplay(List<String> chatHistory) {
+        List<Text> msgText = new ArrayList<>();
+        for (String msgString : chatHistory) {
+            Text text = new Text(msgString + "\n");
+            text.setFont(Font.font(14));
+            if (msgString.contains(model.getUser().getLogin())) {
+                text.setFill(Color.valueOf("#4357a3"));
+            } msgText.add(text);
+        } return msgText;
+    }
+
+    /**
+     * Update group chat history and members
      * @param historyList
      */
-    private void updateGroupChatHistory(String groupName, List<String> historyList, List<String> members){
-        logger.info("SIZE MEMBERS LIST: " + members.size());
-        Chat chat = getChatByName(groupName);
+    private void updateGroupChatHistory(Integer chatId, List<String> historyList, List<String> members){
+        Chat chat = getChatById(chatId);
         if (chat != null) {
-            List<Text> msgText = new ArrayList<>();
-            for (String msgString : historyList) {
-                Text text = new Text(msgString + "\n");
-                text.setFont(Font.font(14));
-                if (msgString.contains(model.getUser().getLogin())) {
-                    text.setFill(Color.valueOf("#4357a3"));
-                } msgText.add(text);
-            }
-            model.getChatHistoryMap().get(chat).setAll(msgText);
+            model.getChatHistoryMap().get(chat).setAll(parseChatHistoryToDisplay(historyList));
             ObservableList<String> tempList = FXCollections.observableArrayList(members);
-            model.getChatUsersMap().get(chat).setAll(tempList);
-            generalUserListView.setItems(tempList);
+            model.getChatUsersMap().put(chat, tempList);
+            if (chat.getChatName().equals("General chat")) {
+                onlineUserList.setItems(FXCollections.observableArrayList(model.getOnlineUsers()));
+                offlineUserList.setItems(FXCollections.observableArrayList(model.getOfflineUsers()));
+            } else if (chat.getIsPrivate().equals("0") & !chat.getChatName().equals("General chat")){
+                onlineUserList.setItems(FXCollections.observableArrayList(model.getChatUsersMap().get(chat)));
+            }
             chatHistoryView.getChildren().setAll(model.getChatHistoryMap().get(chat));
         }
     }
 
     /**
-     * leave group listener.
+     * listen to call context menu on chat list and process
+     * request to leave group.
      * @param event
      */
     private void leaveGroupListener(ContextMenuEvent event){
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem leaveGroup = new MenuItem("Leave group");
+        MenuItem leaveGroup = new MenuItem("Leave chat");
         contextMenu.getItems().add(leaveGroup);
-        contextMenu.show(chatListView, event.getScreenX(), event.getScreenY());
-        leaveGroup.setOnAction(leaveEvent -> {
-            String currUser = Model.getInstance().getUser().getLogin();
-            Chat chat = chatListView.getSelectionModel().getSelectedItem();
-            if (chat != null) {
-                if (!chat.getChatType().equals("general")) {
-                    RequestController.getInstance().leaveGroupRequest(chat.getChatName(), currUser);
+        if (!contextMenu.isShowing()) {
+            contextMenu.show(chatListView, event.getScreenX(), event.getScreenY());
+            leaveGroup.setOnAction(leaveEvent -> {
+                String currUser = Model.getInstance().getUser().getLogin();
+                Chat chat = chatListView.getSelectionModel().getSelectedItem();
+                if (chat != null) {
+                    RequestController.getInstance().leaveGroupRequest(chat.getChatId(), currUser);
                     chatList.remove(chat);
                     model.getChatHistoryMap().remove(chat);
                     model.getChatUsersMap().remove(chat);
-                    ChatIO.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
+                    chatName.setVisible(false);
+                    centerPane.setVisible(false);
+                    chatListView.setFocusModel(null);
                 }
-            }
-        });
-    }
-
-    /**
-     * listen to get username from user list and insert into message field.
-     */
-    @FXML
-    private void generalListListener() {
-        String user = generalUserListView.getSelectionModel().getSelectedItem();
-        if (user != null) {
-            if (!messageField.getText().contains(" " + user + ", ")) {
-                messageField.setText(messageField.getText() + " " + user + ", ");
-                messageField.positionCaret(messageField.getText().length());
-            }
+            });
         }
     }
 
     /**
-     * listen to select chat and set chat history for current chat
+     * listen to select chat and set chat view for different type of chats.
      */
     @FXML
     private void chatListListener() {
         if (chatListView.getSelectionModel().getSelectedItem() != null) {
             Chat chat = chatListView.getSelectionModel().getSelectedItem();
-            chatName.setText(chat.getChatName() + "(" + model.getUser().getLogin() + ")");
-            if (chat.getChatType().equals("group") | chat.getChatType().equals("general")){
+            chatName.setText(chat.getChatName() + " (" + model.getUser().getLogin() + ")");
+            if (chat.getIsPrivate().equals("0")){
                 setGroupChatView(chat);
-            } else if (chat.getChatType().equals("private")){
+            } else {
                 setPrivateChatView(chat);
             }
             chatHistoryView.getChildren().setAll(model.getChatHistoryMap().get(chat));
             addSendingMessages(chat);
+            RequestController.getInstance().getGroupChatHistoryRequest(chat.getChatId());
+            chatName.setVisible(true);
+            centerPane.setVisible(true);
         }
-        chatName.setVisible(true);
-        generalUserListView.setVisible(true);
-        centerPane.setVisible(true);
     }
 
     /**
-     * enable sending message listener for each chat.
+     * enable sending message listener for parametr <tt>chat</tt>.
      * @param chat is current chat
      */
     private void addSendingMessages(Chat chat) {
@@ -456,65 +486,72 @@ public class MainController extends Controller {
     }
 
     /**
-     * change center pane of main scene to group chat.
+     * change center pane of main scene to set group chat view.
      * @param chat
      */
     private void setGroupChatView(Chat chat) {
-        generalUserListView.setItems(model.getChatUsersMap().get(chat));
         onlineListBox.setPrefWidth(175.0);
         onlineListBox.setVisible(true);
-        chat.setHistoryFlag(false);
-        if (!chat.getHistoryFlag()) {
-            RequestController.getInstance().getGroupChatHistoryRequest(chat.getChatName());
-            chat.setHistoryFlag(true);
-        }
-        if (!chat.getChatType().equals("private")){
-            if (chat.getChatType().equals("general")){
-                choiceList.setPrefHeight(0.0);
-                addBtn.setOnAction(null);
-                addBtn.setText("ONLINE USERS");
-            } else {
-                addBtn.setText("ADD MEMBER");
-                setListenerOnAddBtn();
-            }
-
+        if (chat.getChatName().equals("General chat")) {
+            firstTab.setText("online users");
+            secondTab.setText("offline users");
+            onlineUserList.setItems(FXCollections.observableArrayList(model.getOnlineUsers()));
+            offlineUserList.setItems(FXCollections.observableArrayList(model.getOfflineUsers()));
+            offlineUserList.setOnContextMenuRequested(null);
         } else {
-            addBtn.setMinHeight(0.0);
-            addBtn.setPrefHeight(0.0);
+            firstTab.setText("members");
+            secondTab.setText("add member");
+            onlineUserList.setItems(model.getChatUsersMap().get(chat));
+            ObservableList<String> tempList = FXCollections.observableArrayList(model.getOnlineUsers());
+            tempList.addAll(model.getOfflineUsers());
+            offlineUserList.getItems().setAll(tempList);
+            listenForAddMemberReq();
         }
     }
 
     /**
-     * change center pane of main scene to private chat.
+     * listen when user want to add member to group.
+     */
+    private void listenForAddMemberReq(){
+        offlineUserList.setOnContextMenuRequested(event -> {
+            Chat group = chatListView.getSelectionModel().getSelectedItem();
+            if(group != null){
+                String choice = offlineUserList.getSelectionModel().getSelectedItem();
+                if (choice != null) {
+                    for (String user : model.getChatUsersMap().get(group)) {
+                        if (choice.equals(user)) {
+                            Alert alert = new Alert((Alert.AlertType.ERROR));
+                            alert.setHeaderText("User is already here!");
+                            alert.showAndWait();
+                            return;
+                        }
+                    } RequestController.getInstance().joinGroupRequest(group.getChatId(), choice);
+                }
+            }
+        });
+    }
+
+    /**
+     * change center pane of main scene to set private chat view.
      * @param chat
      */
     private void setPrivateChatView(Chat chat) {
-        List<Text> historyList = ChatIO.getInstance().readChatHistoryFromFile(chat.getChatName());
-        model.getChatHistoryMap().get(chat).setAll(historyList);
         onlineListBox.setPrefWidth(0.0);
         onlineListBox.setVisible(false);
+        List<Text> historyList = ChatIOController.getInstance().readChatHistoryFromFile(chat.getChatName());
+        model.getChatHistoryMap().get(chat).setAll(historyList);
+
     }
 
     /**
-     * send request with message to specific chat.
+     * send request with message to parameter <tt>chat</tt>.
      */
     private void sendMsgToChat(Chat chat) {
         String message = messageField.getText();
-        String chatName = chat.getChatName();
+        Integer chatId = chat.getChatId();
         if (!message.isEmpty()){
-            String time = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")) + " ";
             String currUser = model.getUser().getLogin();
-            switch (chat.getChatType()) {
-                case "general":
-                    RequestController.getInstance().messageToGeneralChat(time + currUser, message);
-                    break;
-                case "private":
-                    RequestController.getInstance().messageToPrivateChat(time + currUser, chatName, message);
-                    break;
-                default:
-                    RequestController.getInstance().messageToGroupRequest(chatName, time + currUser, message);
-                    break;
-            }
+            RequestController.getInstance().sendMsgToChatRequest(chatId, currUser, message);
             reduceToDefaultSize();
         }
     }
@@ -570,6 +607,7 @@ public class MainController extends Controller {
      */
     private void setLogOutListener() {
         SceneManager.getInstance().getPrimaryStage().setOnCloseRequest(event -> {
+
             RequestController.getInstance().logOutRequest(model.getUser().getLogin());
         });
     }

@@ -1,6 +1,6 @@
 package com.group42.client.controllers.fx;
 
-/**
+/*
  * Class controller for load <tt>CreateGroupView</tt> form
  * and creates group room.
  */
@@ -11,11 +11,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,7 +48,7 @@ public class CreateGroupListener {
     /**
      * Default constructor needs to correct load scene.
      */
-    public CreateGroupListener() {
+    CreateGroupListener() {
     }
 
     /**
@@ -70,8 +72,10 @@ public class CreateGroupListener {
      */
     @FXML
     void initialize() {
-        createButton.setOnMouseClicked(event -> { process(); });
-        ObservableList<String> userList = FXCollections.observableArrayList(Model.getInstance().getOnlineUserList());
+        createButton.setOnMouseClicked(event -> process());
+        ObservableList<String> userList = FXCollections.observableArrayList();
+        userList.addAll(Model.getInstance().getOnlineUsers());
+        userList.addAll(Model.getInstance().getOfflineUsers());
         String currUser = null;
         for (String user: userList) {
             if (user.equals(Model.getInstance().getUser().getLogin())){
@@ -97,7 +101,7 @@ public class CreateGroupListener {
     }
 
     /**
-     * close create group scene
+     * close scene for create group.
      */
     @FXML
     private  void closeRequest() {

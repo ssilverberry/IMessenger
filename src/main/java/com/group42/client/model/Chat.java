@@ -1,22 +1,22 @@
 package com.group42.client.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Chat {
 
+    private IntegerProperty chatId;
     private StringProperty chatName;
-    private StringProperty chatType;
+    private StringProperty isPrivate;
     private Boolean historyFlag;
 
-    public Chat(String chatName, String chatType) {
+    public Chat(Integer chatId, String chatName, String isPrivate) {
+        this.chatId = new SimpleIntegerProperty(chatId);
         this.chatName = new SimpleStringProperty(chatName);
-        this.chatType = new SimpleStringProperty(chatType);
+        this.isPrivate = new SimpleStringProperty(isPrivate);
         this.historyFlag = false;
-    }
-
-    public static void main(String[] args) {
-
     }
 
     public String getChatName() {
@@ -39,24 +39,22 @@ public class Chat {
         this.historyFlag = banFlag;
     }
 
-    public String getChatType() {
-        return chatType.get();
+    public String getIsPrivate() {
+        return isPrivate.get();
     }
 
-    public StringProperty chatTypeProperty() {
-        return chatType;
+    public StringProperty isPrivateProperty() {
+        return isPrivate;
     }
 
-    public Boolean getHistoryFlag() {
-        return historyFlag;
-    }
+    public int getChatId() { return chatId.get(); }
 
-    public void setHistoryFlag(Boolean historyFlag) {
-        this.historyFlag = historyFlag;
+    public IntegerProperty chatIdProperty() {
+        return chatId;
     }
 
     @Override
     public String toString() {
-        return  chatName.getValue() + " " + chatType.getValue() + "\n";
+        return  chatName.getValue() + " " + isPrivate.getValue() + "\n";
     }
 }

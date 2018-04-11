@@ -1,6 +1,6 @@
 package com.group42.client.controllers.fx;
 
-import com.group42.client.network.protocol.IncomingServerMessage;
+import com.group42.client.protocol.IncomingServerMessage;
 import java.util.function.Consumer;
 
 /**

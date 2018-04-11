@@ -1,16 +1,21 @@
-package com.group42.client.network.protocol;
+package com.group42.client.protocol;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * Modified by Yura 23.03.18
+ * Modified by Yura 04.04.18
  */
 public class OutputClientMessage {
 
-    private Integer actionId;
-    private String firstName, lastName, phoneNumber, dateOfBirth, email, login, password;
-    private String fromUser, toUser, msgBody;
     private String groupName;
+    private Integer chatId;
+    private LocalDateTime date;
+    private Integer actionId;
+    private String firstName, lastName, phoneNumber, email, login, password;
+    private LocalDate dateOfBirth;
+    private String fromUser, toUser, msgBody;
     private List<String> members;
 
 
@@ -24,15 +29,12 @@ public class OutputClientMessage {
 
     3 - Main chat:
         request: 31                                     - get online users
-        request: 32  "fromUser", "message"              - message to general chat.
-
-        request: 33  "fromUser", "toUser", "message"    - message to private
+        request: 32  "fromUser", "message"              - send message to chat.
         request: 34  "fromUser", "toUser"               - create private chat
-        request: 35  "fromUser"                         - log out
+        request: 35  "fromUser"                         - log out and get chat list.
         request: 36  "groupName"                        - get general chat history
         request: 37 "groupName", List<String> members   - create group room
         request: 38 "login"                             - get user info
-        request: 39: "groupName", "fromUser", "message" - message to group
 
      *************************************************************************/
 
@@ -58,7 +60,7 @@ public class OutputClientMessage {
      * @param password - password to sign up
      */
     public OutputClientMessage(Integer actionId, String firstName, String lastName, String phoneNumber,
-                               String dateOfBirth, String email, String login, String password) {
+                               LocalDate dateOfBirth, String email, String login, String password) {
         this.actionId = actionId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -92,32 +94,17 @@ public class OutputClientMessage {
     }
 
     /**
-     * Request from main chat window to send message from current user to general chat
+     * Request from main chat window to send message from current user to general chat (WORKING!)
      *
      * @param fromUser - user name of writer
      * @param actionId - id operation for send message to general chat request, use <tt>32</tt>.
      * @param msgBody - content of message
      */
-    public OutputClientMessage(String groupName, String fromUser, Integer actionId, String msgBody) {
-        this.groupName = groupName;
+    public OutputClientMessage(Integer chatId, String fromUser, Integer actionId, String msgBody) {
+        this.chatId = chatId;
         this.fromUser = fromUser;
         this.actionId = actionId;
         this.msgBody = msgBody;
-    }
-
-    /**
-     * Request from main chat window to send message from current user to private chat
-     *
-     * @param fromUser - user name of writer
-     * @param toUser - user name of consumer
-     * @param msgBody - content of message
-     * @param actionId - id operation for send message to private chat request, use <tt>33</tt>.
-     */
-    public OutputClientMessage(String fromUser, String toUser, String msgBody, Integer actionId) {
-        this.fromUser = fromUser;
-        this.toUser = toUser;
-        this.msgBody = msgBody;
-        this.actionId = actionId;
     }
 
     /**
@@ -131,7 +118,7 @@ public class OutputClientMessage {
     }
 
     /**
-     * Request from main window to create group chat, use <tt>37</tt>
+     * Request from main window to get chat history, use <tt>37</tt>
      * @param actionId
      * @param groupName
      * @param members
@@ -143,32 +130,32 @@ public class OutputClientMessage {
     }
 
     /**
-     * Request from main window to send message to group chat, use <tt>39</tt>
-     * @param groupName
-     * @param fromUser
-     * @param msgBody
-     */
-    public OutputClientMessage(Integer actionId, String groupName, String fromUser, String msgBody) {
-        this.actionId = actionId;
-        this.groupName = groupName;
-        this.fromUser = fromUser;
-        this.msgBody = msgBody;
-    }
-
-    /**
      * Request from main window to leave group, uses <tt>40</tt>
-     * @param groupName
+     * @param chatId
      * @param actionId
      * @param login
      */
-    public OutputClientMessage(String groupName, Integer actionId, String login, Integer action) {
-        this.groupName = groupName;
+    public OutputClientMessage(Integer chatId, String login, Integer actionId) {
+        this.chatId = chatId;
         this.actionId = actionId;
         this.login = login;
     }
 
     /**
-     * Request from main chat window to log out.
+     * Request for get chat history, uses <tt>36</tt>
+     * And add member to group <tt>42</tt>.
+     * @param chatId
+     * @param actionId
+     * @param fromUser
+     */
+    public OutputClientMessage(Integer chatId, Integer actionId, String fromUser){
+        this.chatId = chatId;
+        this.actionId = actionId;
+        this.fromUser = fromUser;
+    }
+
+    /**
+     * Request from main chat window to log out or get chatList) uses<tt>35 or 43</tt>
      *
      * @param actionId - id operation to  log out request, use <tt>35</tt>.
      * @param fromUser - user name which wanna log out.

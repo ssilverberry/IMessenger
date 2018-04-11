@@ -12,7 +12,7 @@ import com.group42.client.model.Chat;
 public class ChatListCellFactory implements Callback<ListView<Chat>, ListCell<Chat>> {
     @Override
     public ListCell<Chat> call(ListView<Chat> param) {
-        return new ListCell<Chat>(){
+        return new ListCell<Chat>() {
             @Override
             protected void updateItem(Chat item, boolean empty) {
                 super.updateItem(item, empty);
@@ -23,7 +23,7 @@ public class ChatListCellFactory implements Callback<ListView<Chat>, ListCell<Ch
                 }
             }
         };
-    };
+    }
 
 
 }

@@ -43,9 +43,6 @@
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
             </ListView>
             <AnchorPane prefHeight="200.0">
                <children>
@@ -53,11 +50,17 @@
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton fx:id="createButton" text="CREATE" textFill="#6ca0dc" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                </children>
             </AnchorPane>

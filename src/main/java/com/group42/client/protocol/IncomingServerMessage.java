@@ -1,24 +1,25 @@
-package com.group42.client.network.protocol;
+package com.group42.client.protocol;
 
-import com.group42.client.model.ChatMessages;
-import javafx.collections.FXCollections;
-
-import java.util.ArrayList;
+import com.group42.client.model.Chat;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Modified by Yura on 22.03.2018.
+ * Modified by Yura on 04.04.2018.
  */
 public class IncomingServerMessage {
 
-   private Integer roomId;
+   private List<String> offlineUsers;
+   private Chat[] localUsrChatList;
+   private Integer chatId;
    private Integer actionId;
    private String login, fromUser, toUser, msgBody;
    private String groupName;
    private List<String> members;
    private List<String> onlineUsers;
    private List<String> generalChatHistory;
-   private String email, firstName, lastName, birthday, phoneNumber;
+   private String email, firstName, lastName, phoneNumber;
+   private LocalDate birthday;
 
    /******************************************************************************************
       Authorisation
@@ -32,20 +33,18 @@ public class IncomingServerMessage {
       Main chat:
 
             response: 311  List<String> onlineUsers,
-                           List<String> chatHistory       - returns list of online users and general chat history
+                           List<String> offlineUsers            - returns list of online/offline users
 
-            response: 312                                   - no online users
-            response: 32  "fromUser", "message"             - message to general chat
-
-            response: 33  "fromUser", "message"             - message to private
-            response: 34  "toUser"                          - create private chat
-            response: 36   List<String> generalChatHistory  - get general history
-            response: 37  "groupName", List<String> members - create group chat
+            response: 32  "fromUser", "message"                 - message to chat
+            response: 34  "toUser"                              - create private chat
+            response: 36   List<String> historyList, members    - get chat history and chat users.
+            response: 37  "groupName", List<String> members     - create group chat
 
             response: 38   String email, String firstName,
                            String secondName, String birthday,
-                           String phoneNumber               - get user info
-            response: 39   "groupName", "fromUser", "msgBody" - message to group chat
+                           String phoneNumber                   - get user info
+
+            response: 43   Chat[] localUsrChatList              - get chat list
     ******************************************************************************************/
 
    public IncomingServerMessage() {
@@ -69,16 +68,15 @@ public class IncomingServerMessage {
    }
 
    /**
-    * Receive list of online users
+    * Receive list of online/offline users
     *
     * @param actionId - 311
     * @param onlineUsers - list if user names
     */
-   public IncomingServerMessage(Integer actionId, List<String> onlineUsers) {
+   public IncomingServerMessage(Integer actionId, List<String> onlineUsers, List<String> offlineUsers) {
       this.actionId = actionId;
-      this.onlineUsers = FXCollections.observableArrayList();
       this.onlineUsers = onlineUsers;
-      this.generalChatHistory = generalChatHistory;
+      this.offlineUsers = offlineUsers;
    }
 
    /**
@@ -86,38 +84,25 @@ public class IncomingServerMessage {
     * @param historyList
     * @param actionId
     */
-   public IncomingServerMessage(List<String> historyList, Integer actionId, String groupName, List<String> members){
+   public IncomingServerMessage(List<String> historyList, Integer actionId, Integer chatId, List<String> members){
       this.generalChatHistory = historyList;
       this.actionId = actionId;
-      this.groupName = groupName;
+      this.chatId = chatId;
       this.members = members;
    }
 
    /**
-    * Receive message from general chat
+    * Receive message from chat
     *
     * @param actionId - 32
-    * @param fromUser - user name of writer
-    * @param msgBody - content of message
+    * @param fromUser - who write msg
+    * @param msgBody - what write in msg
     */
-   public IncomingServerMessage(Integer actionId, String fromUser, String msgBody){
+   public IncomingServerMessage(Integer actionId, Integer chatId, String fromUser, String msgBody){
       this.actionId = actionId;
+      this.chatId = chatId;
       this.fromUser = fromUser;
       this.msgBody = msgBody;
-   }
-
-   /**
-    * Receive message from private chat
-    *
-    * @param fromUser - user name of writer
-    * @param msgBody - content of message
-    * @param actionId - 33
-    */
-   public IncomingServerMessage(String fromUser, String toUser, String msgBody, Integer actionId){
-      this.fromUser = fromUser;
-      this.toUser = toUser;
-      this.msgBody = msgBody;
-      this.actionId = actionId;
    }
 
    /**
@@ -126,9 +111,10 @@ public class IncomingServerMessage {
     * @param toUser - username with whom private chat will be created
     * @param actionId - id operation for this <tt>34</tt>
     */
-   public IncomingServerMessage(String toUser, Integer actionId){
+   public IncomingServerMessage(String toUser, Integer actionId, Integer chatId){
        this.toUser = toUser;
        this.actionId = actionId;
+       this.chatId = chatId;
    }
 
    /**
@@ -141,7 +127,7 @@ public class IncomingServerMessage {
     * @param phoneNumber
     */
    public IncomingServerMessage(Integer actionId, String email, String firstName,
-                                String secondName, String birthday, String phoneNumber){
+                                String secondName, LocalDate birthday, String phoneNumber){
       this.actionId = actionId;
       this.email = email;
       this.firstName = firstName;
@@ -156,36 +142,47 @@ public class IncomingServerMessage {
     * @param groupName
     * @param members
     */
-   public IncomingServerMessage(Integer actionId, String groupName, List<String> members) {
+   public IncomingServerMessage(Integer actionId, String groupName, Integer chatId, List<String> members) {
       this.actionId = actionId;
       this.groupName = groupName;
+      this.chatId = chatId;
       this.members = members;
-   }
-
-   /**
-    * Receive msg to group chat, uses<tt>39</tt>
-    * @param groupName
-    * @param actionId
-    * @param fromUser
-    * @param msgBody
-    */
-   public IncomingServerMessage(String groupName, Integer actionId, String fromUser, String msgBody){
-      this.groupName = groupName;
-      this.actionId = actionId;
-      this.fromUser = fromUser;
-      this.msgBody = msgBody;
    }
 
    /**
     * Update list of members in group chat after someone left group
     * or join in group, uses<tt>40</tt>
-    * @param groupName
+    * @param chatId
     * @param members
     */
-   public IncomingServerMessage(List<String> members, String groupName, Integer actionId) {
+   public IncomingServerMessage(Integer chatId, Integer actionId, List<String> members) {
       this.actionId = actionId;
-      this.groupName = groupName;
+      this.chatId = chatId;
       this.members = members;
+   }
+
+   /**
+    * TEST LEAVE PRIVATE. uses <tt>41</tt>
+    * @param actionId
+    * @param chatId
+    */
+   public IncomingServerMessage(Integer actionId, Integer chatId) {
+      this.actionId = actionId;
+      this.chatId = chatId;
+   }
+
+   /**
+    * receive update chat list, uses <tt>43</tt>
+    * @param actionId
+    * @param localUsrChatList
+    */
+   public IncomingServerMessage (Integer actionId, Chat[] localUsrChatList) {
+      this.actionId = actionId;
+      this.localUsrChatList = localUsrChatList;
+   }
+
+   public Chat[] getLocalUsrChatList() {
+      return localUsrChatList;
    }
 
    public String getGroupName() {
@@ -224,8 +221,8 @@ public class IncomingServerMessage {
         return toUser;
     }
 
-   public Integer getRoomId() {
-      return roomId;
+   public Integer getChatId() {
+      return chatId;
    }
 
    public String getEmail() {
@@ -240,11 +237,15 @@ public class IncomingServerMessage {
       return lastName;
    }
 
-   public String getBirthday() {
+   public LocalDate getBirthday() {
       return birthday;
    }
 
    public String getPhoneNumber() {
       return phoneNumber;
+   }
+
+   public List<String> getOfflineUsers() {
+      return offlineUsers;
    }
 }

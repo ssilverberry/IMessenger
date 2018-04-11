@@ -4,7 +4,7 @@ package com.group42.client.controllers.fx;
   User registration class controller for RegistrationView.fxml form
  */
 
-import com.group42.client.network.protocol.IncomingServerMessage;
+import com.group42.client.protocol.IncomingServerMessage;
 import com.jfoenix.controls.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -13,7 +13,10 @@ import com.group42.client.controllers.RequestController;
 import com.group42.client.model.Model;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrationController extends Controller {
 
@@ -71,6 +74,7 @@ public class RegistrationController extends Controller {
                 case 21:
                     model.setUser(incomingServerMessage.getLogin());
                     SceneManager.getInstance().setAuthorisationScene();
+                    clearRegistrationFields();
                     logger.info("user successful registered!");
                     break;
                 case 22:
@@ -81,10 +85,21 @@ public class RegistrationController extends Controller {
         });
     }
 
+    /**
+     * init model instance, set locale to default view names
+     * of all elements and sets some listeners.
+     */
     @FXML
     void initialize() {
         model = Model.getInstance();
+        Locale.setDefault(Locale.US);
         cancelButton.setOnAction(event -> SceneManager.getInstance().setAuthorisationScene());
+        phoneNumbField.setOnMouseClicked(event -> {
+            if (phoneNumbField.getText().isEmpty()){
+                phoneNumbField.setText("+38");
+                phoneNumbField.positionCaret("+38".length());
+            }
+        });
     }
 
     /**
@@ -98,23 +113,47 @@ public class RegistrationController extends Controller {
             if (!checkEmailForValid()) {
                 String firsName = firstNameField.getText();
                 String lastName = lastFieldName.getText();
-                String phoneNumber = phoneNumbField.getText();
-                String birthDate = dateOfBirth.getValue().format(DateTimeFormatter.ofPattern("dd LLLL yyyy"));
-                String email = emailField.getText();
-                String login = userNameField.getText();
-                String password = passwordField.getText();
-                String confirmPassword = confirmPasswordField.getText();
-                if (!password.equals(confirmPassword)){
-                    errorLabel.setText("Passwords do not match!");
-                    passwordField.setStyle("-fx-border-color: #d62f2f;");
-                    confirmPasswordField.setStyle("-fx-border-color: #d62f2f;");
-                } else {
-                    RequestController.getInstance().registrationRequest(firsName, lastName, phoneNumber,
-                            birthDate, email, login, password);
-                    clearRegistrationFields();
+                String phoneNumber = checkPhoneNumberForValid(phoneNumbField.getText());
+                if (phoneNumber != null) {
+                    LocalDate birthDate = dateOfBirth.getValue();
+                    String email = emailField.getText();
+                    String login = userNameField.getText();
+                    String password = passwordField.getText();
+                    String confirmPassword = confirmPasswordField.getText();
+                    if (checkConfirmPassword(password, confirmPassword)) {
+                        RequestController.getInstance().registrationRequest(firsName, lastName, phoneNumber,
+                                birthDate, email, login, password);
+                    }
                 }
             }
         }
+    }
+
+    private String checkPhoneNumberForValid(String phoneNumber){
+        String regex = "^\\(?(\\+38)\\)?[-\\s]?(050|063|06[6-8]{1}|09[1-9]{1})[-\\s]?([0-9]{3})[-\\s]?([0-9]{2})[-\\s]?([0-9]{2})$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        if (matcher.find() && matcher.group().equals(phoneNumber)){
+            return matcher.replaceFirst("($1)-$2-$3-$4-$5");
+        } else {
+            errorLabel.setText("Phone number is incorrect!");
+            phoneNumbField.setStyle("-fx-border-color: #d62f2f;");
+            return null;
+        }
+    }
+
+    /**
+     * Checks if the password is correctly confirmed.
+     * @param password
+     * @param confirmPassword
+     */
+    private boolean checkConfirmPassword(String password, String confirmPassword){
+        if (!password.equals(confirmPassword)) {
+            errorLabel.setText("Passwords do not match!");
+            passwordField.setStyle("-fx-border-color: #d62f2f;");
+            confirmPasswordField.setStyle("-fx-border-color: #d62f2f;");
+            return false;
+        } else return true;
     }
 
     /**
@@ -167,8 +206,16 @@ public class RegistrationController extends Controller {
             phoneNumbField.setStyle("-fx-border-color: #d62f2f;");
             emptyFlag = true;
         }
-        if (dateOfBirth.getValue().toString().isEmpty()){
-            dateOfBirth.setStyle("-fx-border-color: #d62f2f;");
+        if (dateOfBirth.getValue() != null) {
+            if (dateOfBirth.getValue().toString().isEmpty()) {
+                dateOfBirth.setStyle("-fx-border-color: #d62f2f;");
+                emptyFlag = true;
+            } else if (dateOfBirth.getValue().compareTo(LocalDate.now()) > 0){
+                dateOfBirth.setStyle("-fx-border-color: #d62f2f;");
+                emptyFlag = true;
+            }
+        } else {
+            dateOfBirth.setStyle(dateOfBirth.getStyle() + "-fx-border-color: #d62f2f;");
             emptyFlag = true;
         }
         return emptyFlag;

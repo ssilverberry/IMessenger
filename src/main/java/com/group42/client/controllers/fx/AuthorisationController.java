@@ -6,7 +6,7 @@ package com.group42.client.controllers.fx;
  */
 
 import com.group42.client.controllers.RequestController;
-import com.group42.client.network.protocol.IncomingServerMessage;
+import com.group42.client.protocol.IncomingServerMessage;
 import com.jfoenix.controls.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -63,6 +63,9 @@ public class AuthorisationController extends Controller {
                     invalidUser();
                     logger.info("user failed log in!");
                     break;
+                case 13:
+                    userAlreadyOnline();
+                    break;
             }
         });
     }
@@ -99,7 +102,7 @@ public class AuthorisationController extends Controller {
     }
 
     /**
-     * listen to click "register now" link.
+     * listen to click "register now" link, after that go to registration scene.
      */
     @FXML
     private void registerNowListener(){
@@ -126,6 +129,14 @@ public class AuthorisationController extends Controller {
      */
     private void invalidUser(){
         errorLabel.setText("! Username or password are invalid!");
+        errorLabel.setPrefHeight(20);
+    }
+
+    /**
+     * View warning when user already online.
+     */
+    private void userAlreadyOnline(){
+        errorLabel.setText("! User is already online!");
         errorLabel.setPrefHeight(20);
     }
 }

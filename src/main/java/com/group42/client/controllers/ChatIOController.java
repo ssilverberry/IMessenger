@@ -9,6 +9,7 @@ import com.google.gson.stream.JsonReader;
 import com.group42.client.model.Chat;
 import com.group42.client.model.ChatMessages;
 import com.group42.client.model.Model;
+import com.group42.client.model.converter.ChatConverter;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -18,17 +19,17 @@ import org.apache.logging.log4j.Logger;
 import java.io.*;
 import java.util.*;
 
-public class ChatIO {
+public class ChatIOController {
 
     /**
      * Logging for exception trace.
      */
-    private final Logger logger = LogManager.getLogger(ChatIO.class);
+    private final Logger logger = LogManager.getLogger(ChatIOController.class);
 
     /**
      * Instance of class.
      */
-    private static final ChatIO instance = new ChatIO();
+    private static final ChatIOController instance = new ChatIOController();
 
     /**
      * Instances of Gson class for read/write objects.
@@ -39,15 +40,14 @@ public class ChatIO {
     /**
      * Default constructor initialize <tt>gsonForHistory</tt>
      */
-    private ChatIO() {
+    private ChatIOController() {
         gsonForHistory = new GsonBuilder().setPrettyPrinting().create();
     }
 
     /**
      * Returns instance of this class.
-     * @return
      */
-    public static ChatIO getInstance() {
+    public static ChatIOController getInstance() {
         return instance;
     }
 
@@ -68,7 +68,7 @@ public class ChatIO {
         try {
             file.createNewFile();
             Set<Chat> temp = new HashSet<>();
-            temp.add(new Chat("General chat", "general"));
+            temp.add(new Chat(100000,"General chat", "general"));
             writeChatsToFile(temp);
         } catch (IOException e) {
             logger.error("File wasn't create!");
@@ -93,6 +93,7 @@ public class ChatIO {
      * @param chats
      */
     public void writeChatsToFile(Set<Chat> chats) {
+        initGsonForChatList();
         String currUser = Model.getInstance().getUser().getLogin();
         File file = new File("./Chats/" + currUser + " chat list.json");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
@@ -135,7 +136,6 @@ public class ChatIO {
     /**
      * reads private history from file.
      * @param chatName
-     * @return
      */
     public List<Text> readChatHistoryFromFile(String chatName) {
         List<Text> chatHistory = new ArrayList<>();

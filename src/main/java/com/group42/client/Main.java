@@ -1,6 +1,6 @@
 package com.group42.client;
 
-import com.group42.client.network.NetworkController;
+import com.group42.client.controllers.NetworkController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import com.group42.client.controllers.fx.SceneManager;
@@ -13,7 +13,7 @@ public class Main extends Application {
 
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         NetworkController.getInstance().openConnection();
     }
 
@@ -23,7 +23,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         NetworkController.getInstance().closeConnection();
     }
 
