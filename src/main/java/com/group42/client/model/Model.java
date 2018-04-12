@@ -6,6 +6,10 @@ import javafx.collections.ObservableMap;
 import javafx.scene.text.Text;
 import java.util.List;
 
+/**
+ * This class stores folders with chats, their stories
+ * and members, and also creates the current user
+ */
 public class Model {
 
     /**

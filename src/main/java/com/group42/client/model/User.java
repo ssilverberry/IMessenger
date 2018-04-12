@@ -1,7 +1,7 @@
 package com.group42.client.model;
 
 /**
- * Class for storage some user.
+ * This class creates the object of the current user.
  */
 
 public class User {

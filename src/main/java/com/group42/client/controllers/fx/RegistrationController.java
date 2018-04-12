@@ -1,8 +1,5 @@
 package com.group42.client.controllers.fx;
 
-/*
-  User registration class controller for RegistrationView.fxml form
- */
 
 import com.group42.client.protocol.IncomingServerMessage;
 import com.jfoenix.controls.*;
@@ -18,6 +15,10 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * This class handles user input at the registration stage. It takes data from
+ * the fields, validates it sends a registration request and processes the response.
+ */
 public class RegistrationController extends Controller {
 
     /**
@@ -135,7 +136,7 @@ public class RegistrationController extends Controller {
      * 1. Only numbers from 0 to 9 are entered;
      * 2. The number of digits is no more than 13 (Ukrainian format);
      * 3. Additional check on the operators of Ukraine
-     *    (the following codes are supported: 050, 063, 067, 068, 091, 092, 093, 094, 095, 096, 097, 098, 099).
+     * (the following codes are supported: 050, 063, 067, 068, 091, 092, 093, 094, 095, 096, 097, 098, 099).
      */
     private String checkPhoneNumberForValid(String phoneNumber){
         String regex = "^\\(?(\\+38)\\)?[-\\s]?(050|063|06[6-8]{1}|09[1-9]{1})[-\\s]?([0-9]{3})[-\\s]?([0-9]{2})[-\\s]?([0-9]{2})$";

@@ -1,8 +1,5 @@
 package com.group42.client.controllers.fx;
 
-/*
- * Class for process action on menu button
- */
 
 import com.group42.client.controllers.RequestController;
 import com.group42.client.model.Model;
@@ -12,6 +9,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.util.Optional;
 
+/**
+ * This class handles actions in the context menu window. Has the following
+ * functions: create a group (sends control to the controller to create a
+ * group chat) show information about the current user and exit the account.
+ */
 public class MenuListener implements EventHandler<MouseEvent> {
 
     /**
@@ -41,8 +43,12 @@ public class MenuListener implements EventHandler<MouseEvent> {
         MenuItem userInfo = new MenuItem("User Info");
         MenuItem newGroup = new MenuItem("New Group");
         MenuItem logOut = new MenuItem("Log Out");
-        userInfo.setOnAction(event1 -> RequestController.getInstance().getUserInfoRequest(Model.getInstance().getUser().getLogin()));
-        newGroup.setOnAction(newGroupEvent -> { new CreateGroupListener().setCreateGroupScene(); });
+        userInfo.setOnAction(event1 -> {
+            String currUser = Model.getInstance().getUser().getLogin();
+            RequestController.getInstance().getUserInfoRequest(currUser);
+        }
+        );
+        newGroup.setOnAction(newGroupEvent -> new CreateGroupListener().setCreateGroupScene());
         logOut.setOnAction(logOutEvent -> processLogOutRequest());
         contextMenu.getItems().addAll(newGroup, userInfo, logOut);
         contextMenu.show(menuButton, event.getScreenX(), event.getScreenY());

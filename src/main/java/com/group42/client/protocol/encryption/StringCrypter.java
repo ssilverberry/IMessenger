@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Class for encrypting and decrypting strings
+ * Class for encrypting and decrypting messages to exchange with the server
  */
 public class StringCrypter {
 

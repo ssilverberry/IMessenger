@@ -1,9 +1,5 @@
 package com.group42.client.controllers;
 
-/*
- * Class for send request to server.
- */
-
 import com.group42.client.model.Model;
 import com.group42.client.protocol.OutputClientMessage;
 import org.apache.logging.log4j.LogManager;
@@ -11,6 +7,10 @@ import org.apache.logging.log4j.Logger;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * This class forms a request to the server, and then
+ * and then sends it using NetworkController.
+ */
 public class RequestController {
 
     /**

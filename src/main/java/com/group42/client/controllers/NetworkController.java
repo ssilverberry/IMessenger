@@ -15,6 +15,11 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
+/**
+ * This class is responsible for connecting to the server, sending
+ * encrypted messages to the server, receiving responses from the
+ * server, closing the connection after the chat is closed.
+ */
 public class NetworkController {
 
     /**

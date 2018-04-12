@@ -1,7 +1,8 @@
 package com.group42.client.controllers;
 
 /*
- * Class for manage history of private chats.
+ * The class writes / reads the list of user chats
+ * and the history of private chat rooms
  */
 
 import com.google.gson.*;

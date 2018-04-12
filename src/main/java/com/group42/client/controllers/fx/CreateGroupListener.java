@@ -1,8 +1,8 @@
 package com.group42.client.controllers.fx;
 
 /*
- * Class controller for load <tt>CreateGroupView</tt> form
- * and creates group room.
+ * This is a class controller for handling user input when creating a group
+ * chat room. Retrieves data from fields and sends a request to create a room
  */
 
 import com.group42.client.controllers.RequestController;
@@ -11,13 +11,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

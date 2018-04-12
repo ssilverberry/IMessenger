@@ -6,8 +6,6 @@ import com.group42.client.model.factory.*;
 import com.group42.client.protocol.IncomingServerMessage;
 import javafx.application.Platform;
 import javafx.collections.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -27,8 +25,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * This is the class controller for the main chat window. It is necessary for such
+ * purposes: selecting a chat from the chat list, writing messages, viewing online/offline
+ * users, creating private chats, adding users to the group, viewing user information,
+ * logging out of the group, and also transferring control to additional controllers.
+ */
 public class MainController extends Controller {
-
 
     /**
      * instance of model

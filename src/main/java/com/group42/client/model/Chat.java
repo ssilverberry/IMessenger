@@ -5,6 +5,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * This class creates a chat room object with id, name, and chat type.
+ */
 public class Chat {
 
     private IntegerProperty chatId;

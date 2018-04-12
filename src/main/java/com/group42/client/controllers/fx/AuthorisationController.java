@@ -1,10 +1,5 @@
 package com.group42.client.controllers.fx;
 
-/*
-  Class for organize user authorisation. Controller for
-  AuthorisationView.fxml form
- */
-
 import com.group42.client.controllers.RequestController;
 import com.group42.client.protocol.IncomingServerMessage;
 import com.jfoenix.controls.*;
@@ -16,6 +11,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.group42.client.model.Model;
 
+/**
+ * This class is the controller for the authorization window. It handles user input,
+ * sends a login request to the server, and processes the response from the server.
+ */
 public class AuthorisationController extends Controller {
 
     /**
@@ -65,6 +64,7 @@ public class AuthorisationController extends Controller {
                     break;
                 case 13:
                     userAlreadyOnline();
+                    logger.info("user is already online!");
                     break;
             }
         });

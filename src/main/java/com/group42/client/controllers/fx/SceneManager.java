@@ -1,10 +1,5 @@
 package com.group42.client.controllers.fx;
 
-/*
-  This class manage windows startup.
-  Shows authorisation, registration and main window
- */
-
 import com.group42.client.Main;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +12,10 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This class loads 3 main application windows: authorization,
+ * registration and main application window.
+ */
 public class SceneManager {
 
     private static final SceneManager INSTANCE = new SceneManager();

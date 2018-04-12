@@ -1,14 +1,14 @@
 package com.group42.client.controllers.fx;
 
-/*
- * Class for view user info. Views in alert window
- */
 
 import com.group42.client.protocol.IncomingServerMessage;
 import javafx.scene.control.Alert;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+/**
+ * A class that displays a pop-up window with information about the user.
+ */
 class UserInfoAlert extends Alert {
 
     /**

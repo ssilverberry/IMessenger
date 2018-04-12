@@ -4,9 +4,9 @@ import com.group42.client.protocol.IncomingServerMessage;
 import java.util.function.Consumer;
 
 /**
- * Abstract class for receive callback from server.
+ * An abstract class that passes a response from the server to the
+ * handler method, which is implemented in the child classes.
  */
-
 public abstract class Controller {
 
     public static Consumer<IncomingServerMessage> onReceiveCallback;
