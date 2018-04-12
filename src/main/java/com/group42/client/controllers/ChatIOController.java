@@ -42,13 +42,16 @@ public class ChatIOController {
      */
     private ChatIOController() {
         gsonForHistory = new GsonBuilder().setPrettyPrinting().create();
+        initGsonForChatList();
     }
 
     /**
      * Returns instance of this class.
      */
     public static ChatIOController getInstance() {
-        return instance;
+        if (instance != null) {
+            return instance;
+        } else return new ChatIOController();
     }
 
     /**
@@ -64,11 +67,11 @@ public class ChatIOController {
      * create file, which contains list of chats for current user.
      * @param file
      */
-    private void setupChatListFile(File file){
+    private void createChatListFile(File file){
         try {
             file.createNewFile();
         } catch (IOException e) {
-            logger.error("File wasn't create!");
+            logger.error("File wasn't created!");
         }
     }
 
@@ -81,7 +84,7 @@ public class ChatIOController {
         try {
             file.createNewFile();
         } catch (IOException e) {
-            logger.error("File wasn't create!");
+            logger.error("File wasn't created!");
         }
     }
 
@@ -90,7 +93,6 @@ public class ChatIOController {
      * @param chats
      */
     public void writeChatsToFile(Set<Chat> chats) {
-        initGsonForChatList();
         String currUser = Model.getInstance().getUser().getLogin();
         File file = new File("./Chats/" + currUser + " chat list.json");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
@@ -104,7 +106,9 @@ public class ChatIOController {
             writer.write(jsonData);
             writer.flush();
         } catch (IOException ex) {
-            logger.error("IN CHATS WRITE TO FILE: ", ex);
+            logger.error("IOException in writeChatsToFile()", ex);
+            createChatListFile(file);
+            writeChatsToFile(chats);
         }
     }
 
@@ -113,19 +117,17 @@ public class ChatIOController {
      * @return
      */
     public Set<Chat> readChatsFromFile(){
-        initGsonForChatList();
         Set<Chat> chatSet = new HashSet<>();
         Chat[] chats;
         String currUser = Model.getInstance().getUser().getLogin();
         File file = new File("./Chats/" + currUser + " chat list.json");
-        if (!file.exists()) {
-            setupChatListFile(file);
-        }
         try (JsonReader reader = new JsonReader(new FileReader(file))){
             chats = gsonForChats.fromJson(reader, Chat[].class);
             chatSet.addAll(Arrays.asList(chats));
         } catch (IOException e) {
-            logger.error("exception to read chats from file!");
+            logger.error("IOException in readChatsFromFile()", e);
+            createChatListFile(file);
+            readChatsFromFile();
         } return chatSet;
     }
 
@@ -151,7 +153,9 @@ public class ChatIOController {
                 }
             }
         } catch (IOException e) {
-            logger.error("exception to read chats from file!", e);
+            logger.error("IOException in readChatHistoryFromFile(): ", e);
+            createFileForPrivateHistory(chatName);
+            readChatHistoryFromFile(chatName);
         } return chatHistory;
     }
 
@@ -161,7 +165,6 @@ public class ChatIOController {
      * @param history
      */
     public void writePrivateHistoryToFile(String privateName, ObservableList<Text> history) {
-        initGsonForChatList();
         File file = new File ("./Chats/ChatLogs/" + privateName + ".json");
         ChatMessages[] messages = new ChatMessages[history.size()];
         int i = 0;
@@ -174,7 +177,9 @@ public class ChatIOController {
             fileWriter.write(String.valueOf(line));
             fileWriter.flush();
         } catch (IOException e) {
-            logger.error (privateName + ".txt file could not be found or written");
+            logger.error("IOException in readChatHistoryFromFile(): ", e);
+            createFileForPrivateHistory(privateName);
+            writePrivateHistoryToFile(privateName, history);
         }
     }
 }
