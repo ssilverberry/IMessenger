@@ -445,7 +445,6 @@ public class MainController extends Controller {
                     model.getChatUsersMap().remove(chat);
                     chatName.setVisible(false);
                     centerPane.setVisible(false);
-                    chatListView.setFocusModel(null);
                 }
             });
         }

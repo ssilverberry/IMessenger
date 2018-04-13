@@ -81,7 +81,7 @@ public class ChatIOController {
      * @param toUser
      */
     public void createFileForPrivateHistory(String toUser){
-        File file = new File("./Chats/ChatLogs/" + toUser + ".json");
+        File file = new File("./chats/chatLogs/" + toUser + ".json");
         try {
             file.createNewFile();
         } catch (IOException e) {
@@ -95,7 +95,7 @@ public class ChatIOController {
      */
     public void writeChatsToFile(Set<Chat> chats) {
         String currUser = Model.getInstance().getUser().getLogin();
-        File file = new File("./Chats/" + currUser + " chat list.json");
+        File file = new File("./chats/" + currUser + " chat list.json");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             Chat[] tempChats = new Chat[chats.size()];
             int i = 0;
@@ -121,7 +121,7 @@ public class ChatIOController {
         Set<Chat> chatSet = new HashSet<>();
         Chat[] chats;
         String currUser = Model.getInstance().getUser().getLogin();
-        File file = new File("./Chats/" + currUser + " chat list.json");
+        File file = new File("./chats/" + currUser + " chat list.json");
         try (JsonReader reader = new JsonReader(new FileReader(file))){
             chats = gsonForChats.fromJson(reader, Chat[].class);
             chatSet.addAll(Arrays.asList(chats));
@@ -139,7 +139,7 @@ public class ChatIOController {
      */
     public List<Text> readChatHistoryFromFile(String chatName) {
         List<Text> chatHistory = new ArrayList<>();
-        File file = new File("./Chats/ChatLogs/" + chatName + ".json");
+        File file = new File("./chats/chatLogs/" + chatName + ".json");
         ChatMessages[] chatMessages;
         try (JsonReader reader = new JsonReader(new FileReader(file))){
             chatMessages = gsonForHistory.fromJson(reader, ChatMessages[].class);
@@ -166,7 +166,7 @@ public class ChatIOController {
      * @param history
      */
     public void writePrivateHistoryToFile(String privateName, ObservableList<Text> history) {
-        File file = new File ("./Chats/ChatLogs/" + privateName + ".json");
+        File file = new File ("./chats/chatLogs/" + privateName + ".json");
         ChatMessages[] messages = new ChatMessages[history.size()];
         int i = 0;
         for (Text text: history) {
