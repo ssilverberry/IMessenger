@@ -6,7 +6,7 @@
 
     <groupId>com.group42.client</groupId>
     <artifactId>Client</artifactId>
-    <version>0.8</version>
+    <version>1.0</version>
     <build>
         <plugins>
             <plugin>
