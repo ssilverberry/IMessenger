@@ -1,0 +1,1444 @@
+2018-04-05 12:34:06 INFO  ServerWorker:389 - Login  eboy null
+2018-04-05 12:34:06 INFO  Handler:51 - case 1
+2018-04-05 12:34:07 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 12:34:07 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 12:34:07 INFO  ServerWorker:104 - access eboy
+2018-04-05 12:34:07 INFO  ServerWorker:110 - Thread Name as usernameeboy
+2018-04-05 12:34:07 INFO  ServerWorker:438 - threadName : eboyclientName : eboy
+2018-04-05 12:34:07 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 12:34:08 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:34:08 INFO  Handler:76 - case 31
+2018-04-05 12:34:08 INFO  ServerWorker:104 - activeList
+2018-04-05 12:34:08 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 12:34:12 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:34:12 INFO  Handler:80 - case 36
+2018-04-05 12:34:12 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:34:29 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:34:29 INFO  Handler:80 - case 36
+2018-04-05 12:34:29 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:35:03 INFO  ServerWorker:389 - Login  ivantus null
+2018-04-05 12:35:03 INFO  Handler:51 - case 1
+2018-04-05 12:35:03 DEBUG Handler:137 - password from database: 1234 password from client 1234
+2018-04-05 12:35:03 INFO  ServerWorker:104 - access ivantus
+2018-04-05 12:35:03 INFO  ServerWorker:110 - Thread Name as usernameivantus
+2018-04-05 12:35:03 INFO  ServerWorker:438 - threadName : ivantusclientName : ivantus
+2018-04-05 12:35:03 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 12:35:03 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:35:03 INFO  Handler:76 - case 31
+2018-04-05 12:35:03 INFO  ServerWorker:104 - activeList
+2018-04-05 12:35:03 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 12:35:19 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:35:19 INFO  Handler:80 - case 36
+2018-04-05 12:35:19 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:37:20 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 12:37:20 INFO  Handler:56 - case 2
+2018-04-05 12:37:20 DEBUG Handler:117 - pasha 1234 pasha@gmail.com Hot 06 Ñונןוםü 1997 +38012345 Paul
+2018-04-05 12:37:20 INFO  ServerWorker:104 - regUser pasha
+2018-04-05 12:37:20 INFO  ServerWorker:125 - << User is registered >> pasha
+2018-04-05 12:37:31 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 12:37:31 INFO  Handler:51 - case 1
+2018-04-05 12:37:31 DEBUG Handler:137 - password from database: 1234 password from client 1234
+2018-04-05 12:37:31 INFO  ServerWorker:104 - access pasha
+2018-04-05 12:37:31 INFO  ServerWorker:110 - Thread Name as usernamepasha
+2018-04-05 12:37:31 INFO  ServerWorker:438 - threadName : pashaclientName : pasha
+2018-04-05 12:37:31 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 12:37:31 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:37:31 INFO  Handler:76 - case 31
+2018-04-05 12:37:31 INFO  ServerWorker:104 - activeList
+2018-04-05 12:37:31 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 12:37:38 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:37:38 INFO  Handler:80 - case 36
+2018-04-05 12:37:38 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:37:44 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:37:44 INFO  Handler:68 - case 34
+2018-04-05 12:37:44 INFO  ServerWorker:104 - createPrivateChatRoom
+2018-04-05 12:37:44 INFO  ServerWorker:151 - << Create private chat room step. Chat created. >>
+2018-04-05 12:37:56 INFO  ServerWorker:389 - Login  null  eboy, privet ot pashai
+2018-04-05 12:37:56 INFO  Handler:64 - case 33
+2018-04-05 12:37:56 INFO  ServerWorker:104 - messagePrivate
+2018-04-05 12:37:56 INFO  ServerWorker:133 - << Message Private step >>12:37 pasha eboy  eboy, privet ot pashai
+2018-04-05 12:38:15 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:38:15 INFO  Handler:80 - case 36
+2018-04-05 12:38:15 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:38:17 INFO  ServerWorker:389 - Login  eboy null
+2018-04-05 12:38:17 INFO  Handler:88 - case 38
+2018-04-05 12:38:17 INFO  ServerWorker:104 - userInfo
+2018-04-05 12:38:25 INFO  ServerWorker:389 - Login  ivantus null
+2018-04-05 12:38:25 INFO  Handler:88 - case 38
+2018-04-05 12:38:25 INFO  ServerWorker:104 - userInfo
+2018-04-05 12:38:36 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 12:38:36 INFO  Handler:88 - case 38
+2018-04-05 12:38:36 INFO  ServerWorker:104 - userInfo
+2018-04-05 12:39:18 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:39:18 INFO  Handler:84 - case 37
+2018-04-05 12:39:18 INFO  ServerWorker:104 - createGroupChat
+2018-04-05 12:39:18 INFO  ServerWorker:244 - 7IF66zt3cNJbGt9yFQr6jFD0tEMcC8t/Nm5BZm+GYDv7NTPNIY5StUuXszaS8M6HihD8qfivi4ugXLUHXKYPMKnGrJz6w1MNzlNUPz8VvVI=
+2018-04-05 12:39:19 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:39:19 INFO  Handler:80 - case 36
+2018-04-05 12:39:19 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:39:32 INFO  ServerWorker:389 - Login  null  eboy,  ivantus,  privet rebzya
+2018-04-05 12:39:32 INFO  Handler:92 - case 39
+2018-04-05 12:39:32 INFO  ServerWorker:104 - messageToGroup
+2018-04-05 12:39:35 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:39:35 INFO  Handler:80 - case 36
+2018-04-05 12:39:35 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:39:43 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:39:43 INFO  Handler:80 - case 36
+2018-04-05 12:39:43 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:39:45 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:39:45 INFO  Handler:80 - case 36
+2018-04-05 12:39:45 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:45:25 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 12:45:25 INFO  Handler:56 - case 2
+2018-04-05 12:45:25 DEBUG Handler:117 - nokia 123 nokla@gmail.com nokla 30 Êג³עוםü 1976 1234567890 nokia
+2018-04-05 12:45:25 INFO  ServerWorker:104 - regUser nokia
+2018-04-05 12:45:25 INFO  ServerWorker:125 - << User is registered >> nokia
+2018-04-05 12:45:32 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 12:45:32 INFO  Handler:51 - case 1
+2018-04-05 12:45:32 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 12:45:32 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 12:45:32 INFO  ServerWorker:104 - access nokia
+2018-04-05 12:45:32 INFO  ServerWorker:110 - Thread Name as usernamenokia
+2018-04-05 12:45:32 INFO  ServerWorker:438 - threadName : nokiaclientName : nokia
+2018-04-05 12:45:32 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 12:45:33 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:45:33 INFO  Handler:76 - case 31
+2018-04-05 12:45:33 INFO  ServerWorker:104 - activeList
+2018-04-05 12:45:33 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 12:45:34 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:45:34 INFO  Handler:80 - case 36
+2018-04-05 12:45:34 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:45:37 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:45:37 INFO  Handler:68 - case 34
+2018-04-05 12:45:37 INFO  ServerWorker:104 - createPrivateChatRoom
+2018-04-05 12:45:38 INFO  ServerWorker:151 - << Create private chat room step. Chat created. >>
+2018-04-05 12:45:59 INFO  ServerWorker:389 - Login  null  pasha, ןנטגוע הנףזטשו ))
+2018-04-05 12:45:59 INFO  Handler:64 - case 33
+2018-04-05 12:45:59 INFO  ServerWorker:104 - messagePrivate
+2018-04-05 12:45:59 INFO  ServerWorker:133 - << Message Private step >>12:45 nokia pasha  pasha, ןנטגוע הנףזטשו ))
+2018-04-05 12:46:18 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:46:18 INFO  Handler:80 - case 36
+2018-04-05 12:46:18 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:46:33 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 12:46:33 INFO  Handler:104 - case 42
+2018-04-05 12:46:33 INFO  ServerWorker:104 - addMemberToGroup
+2018-04-05 12:46:41 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:46:41 INFO  Handler:80 - case 36
+2018-04-05 12:46:41 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:47:58 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:47:58 INFO  Handler:72 - case 35
+2018-04-05 12:47:58 INFO  ServerWorker:104 - logOut
+2018-04-05 12:47:58 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:47:58 INFO  ServerWorker:325 - pasha: removed user
+2018-04-05 12:48:09 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 12:48:09 INFO  Handler:51 - case 1
+2018-04-05 12:48:09 DEBUG Handler:137 - password from database: 1234 password from client 1234
+2018-04-05 12:48:09 INFO  ServerWorker:104 - access pasha
+2018-04-05 12:48:09 INFO  ServerWorker:110 - Thread Name as usernamepasha
+2018-04-05 12:48:09 INFO  ServerWorker:438 - threadName : pashaclientName : pasha
+2018-04-05 12:48:09 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 12:48:09 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:09 INFO  Handler:76 - case 31
+2018-04-05 12:48:09 INFO  ServerWorker:104 - activeList
+2018-04-05 12:48:09 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 12:48:13 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:13 INFO  Handler:80 - case 36
+2018-04-05 12:48:13 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:48:14 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:14 INFO  Handler:80 - case 36
+2018-04-05 12:48:14 INFO  ServerWorker:104 - chatHistory
+2018-04-05 12:48:20 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:20 INFO  Handler:72 - case 35
+2018-04-05 12:48:20 INFO  ServerWorker:104 - logOut
+2018-04-05 12:48:20 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:20 INFO  ServerWorker:325 - pasha: removed user
+2018-04-05 12:48:21 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 12:48:22 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:22 INFO  Handler:72 - case 35
+2018-04-05 12:48:22 INFO  ServerWorker:104 - logOut
+2018-04-05 12:48:22 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:22 INFO  ServerWorker:325 - nokia: removed user
+2018-04-05 12:48:22 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 12:48:24 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:24 INFO  Handler:72 - case 35
+2018-04-05 12:48:24 INFO  ServerWorker:104 - logOut
+2018-04-05 12:48:24 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:24 INFO  ServerWorker:325 - eboy: removed user
+2018-04-05 12:48:24 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 12:48:26 INFO  ServerWorker:389 - Login  null null
+2018-04-05 12:48:26 INFO  Handler:72 - case 35
+2018-04-05 12:48:26 INFO  ServerWorker:104 - logOut
+2018-04-05 12:48:26 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 12:48:26 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 12:48:26 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 12:48:26 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 12:48:26 INFO  ServerWorker:325 - ivantus: removed user
+2018-04-05 12:48:26 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 12:51:55 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:00:22 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:00:22 INFO  Handler:56 - case 2
+2018-04-05 13:00:22 DEBUG Handler:117 - nokia 123 kolya@gmail.com ivanov 20 Êג³עוםü 1989 +38068789878 kolya
+2018-04-05 13:00:22 ERROR UsersDAOimpl:156 - Something wrong with DB
+2018-04-05 13:00:22 INFO  ServerWorker:104 - regUser nokia
+2018-04-05 13:00:22 INFO  ServerWorker:125 - << User is registered >> nokia
+2018-04-05 13:01:02 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:01:02 INFO  Handler:51 - case 1
+2018-04-05 13:01:02 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:01:02 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:01:02 INFO  ServerWorker:104 - access nokia
+2018-04-05 13:01:02 INFO  ServerWorker:110 - Thread Name as usernamenokia
+2018-04-05 13:01:02 INFO  ServerWorker:438 - threadName : nokiaclientName : nokia
+2018-04-05 13:01:02 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:01:03 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:01:03 INFO  Handler:76 - case 31
+2018-04-05 13:01:03 INFO  ServerWorker:104 - activeList
+2018-04-05 13:01:03 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:01:05 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:01:05 INFO  Handler:80 - case 36
+2018-04-05 13:01:05 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:01:12 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:01:12 INFO  Handler:72 - case 35
+2018-04-05 13:01:12 INFO  ServerWorker:104 - logOut
+2018-04-05 13:01:12 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:01:12 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:01:12 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:01:12 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:01:12 INFO  ServerWorker:325 - nokia: removed user
+2018-04-05 13:01:13 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:03:23 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:03:23 INFO  Handler:56 - case 2
+2018-04-05 13:03:23 DEBUG Handler:117 - nokia 1111 pasd@gmail.com asdf 11 Ëטסעמןאה 1998 asdfhgsajgfjadsgf asdf
+2018-04-05 13:03:23 ERROR UsersDAOimpl:156 - Something wrong with DB
+2018-04-05 13:03:23 INFO  ServerWorker:104 - regUser nokia
+2018-04-05 13:03:23 INFO  ServerWorker:125 - << User is registered >> nokia
+2018-04-05 13:03:29 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:03:29 INFO  Handler:51 - case 1
+2018-04-05 13:03:29 DEBUG Handler:137 - password from database: 1234 password from client 1111
+2018-04-05 13:03:29 DEBUG Handler:137 - password from database: 123 password from client 1111
+2018-04-05 13:03:29 DEBUG Handler:137 - password from database: 1234 password from client 1111
+2018-04-05 13:03:29 DEBUG Handler:137 - password from database: 123 password from client 1111
+2018-04-05 13:03:29 INFO  ServerWorker:104 - noRegUser
+2018-04-05 13:03:29 INFO  ServerWorker:119 - << User is not registered >>
+2018-04-05 13:03:48 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:03:48 INFO  Handler:51 - case 1
+2018-04-05 13:03:48 DEBUG Handler:137 - password from database: 1234 password from client 1111
+2018-04-05 13:03:48 DEBUG Handler:137 - password from database: 123 password from client 1111
+2018-04-05 13:03:48 DEBUG Handler:137 - password from database: 1234 password from client 1111
+2018-04-05 13:03:48 DEBUG Handler:137 - password from database: 123 password from client 1111
+2018-04-05 13:03:48 INFO  ServerWorker:104 - noRegUser
+2018-04-05 13:03:48 INFO  ServerWorker:119 - << User is not registered >>
+2018-04-05 13:03:56 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:03:56 INFO  Handler:51 - case 1
+2018-04-05 13:03:56 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:03:56 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:03:56 INFO  ServerWorker:104 - access nokia
+2018-04-05 13:03:56 INFO  ServerWorker:110 - Thread Name as usernamenokia
+2018-04-05 13:03:56 INFO  ServerWorker:438 - threadName : nokiaclientName : nokia
+2018-04-05 13:03:56 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:03:56 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:03:56 INFO  Handler:76 - case 31
+2018-04-05 13:03:56 INFO  ServerWorker:104 - activeList
+2018-04-05 13:03:56 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:04:24 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 13:04:24 INFO  Handler:51 - case 1
+2018-04-05 13:04:24 DEBUG Handler:137 - password from database: 1234 password from client 1234
+2018-04-05 13:04:24 INFO  ServerWorker:104 - access pasha
+2018-04-05 13:04:24 INFO  ServerWorker:110 - Thread Name as usernamepasha
+2018-04-05 13:04:24 INFO  ServerWorker:438 - threadName : pashaclientName : pasha
+2018-04-05 13:04:24 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:04:25 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:04:25 INFO  Handler:76 - case 31
+2018-04-05 13:04:25 INFO  ServerWorker:104 - activeList
+2018-04-05 13:04:25 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:04:30 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:04:30 INFO  Handler:80 - case 36
+2018-04-05 13:04:30 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:04:31 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:04:31 INFO  Handler:80 - case 36
+2018-04-05 13:04:31 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:04:41 INFO  ServerWorker:389 - Login  null ןנטגוע 
+2018-04-05 13:04:41 INFO  Handler:60 - case 32
+2018-04-05 13:04:41 INFO  ServerWorker:104 - messageAll
+2018-04-05 13:04:41 INFO  ServerWorker:477 - << Message to All step >> ןנטגוע 
+2018-04-05 13:04:53 INFO  ServerWorker:389 - Login  null privet otvet
+2018-04-05 13:04:53 INFO  Handler:60 - case 32
+2018-04-05 13:04:53 INFO  ServerWorker:104 - messageAll
+2018-04-05 13:04:53 INFO  ServerWorker:477 - << Message to All step >> privet otvet
+2018-04-05 13:05:01 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:05:01 INFO  Handler:88 - case 38
+2018-04-05 13:05:01 INFO  ServerWorker:104 - userInfo
+2018-04-05 13:05:09 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 13:05:09 INFO  Handler:88 - case 38
+2018-04-05 13:05:09 INFO  ServerWorker:104 - userInfo
+2018-04-05 13:05:38 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 13:05:38 INFO  Handler:88 - case 38
+2018-04-05 13:05:38 INFO  ServerWorker:104 - userInfo
+2018-04-05 13:06:29 INFO  ServerWorker:389 - Login  eboy null
+2018-04-05 13:06:29 INFO  Handler:51 - case 1
+2018-04-05 13:06:29 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:06:29 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:06:29 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:06:29 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:06:29 INFO  ServerWorker:104 - access eboy
+2018-04-05 13:06:29 INFO  ServerWorker:110 - Thread Name as usernameeboy
+2018-04-05 13:06:29 INFO  ServerWorker:438 - threadName : eboyclientName : eboy
+2018-04-05 13:06:29 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:06:30 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:06:30 INFO  Handler:76 - case 31
+2018-04-05 13:06:30 INFO  ServerWorker:104 - activeList
+2018-04-05 13:06:30 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:06:34 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:06:34 INFO  Handler:80 - case 36
+2018-04-05 13:06:34 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:06:53 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:06:53 INFO  Handler:68 - case 34
+2018-04-05 13:06:53 INFO  ServerWorker:104 - createPrivateChatRoom
+2018-04-05 13:06:53 INFO  ServerWorker:151 - << Create private chat room step. Chat created. >>
+2018-04-05 13:06:58 INFO  ServerWorker:389 - Login  null  nokia, ןנטגוע
+2018-04-05 13:06:58 INFO  Handler:64 - case 33
+2018-04-05 13:06:58 INFO  ServerWorker:104 - messagePrivate
+2018-04-05 13:06:58 INFO  ServerWorker:133 - << Message Private step >>13:06 eboy nokia  nokia, ןנטגוע
+2018-04-05 13:07:40 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:07:40 INFO  Handler:80 - case 36
+2018-04-05 13:07:40 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:07:41 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:07:41 INFO  Handler:80 - case 36
+2018-04-05 13:07:41 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:07:43 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:07:43 INFO  Handler:80 - case 36
+2018-04-05 13:07:43 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:07:52 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:07:52 INFO  Handler:80 - case 36
+2018-04-05 13:07:52 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:07:58 INFO  ServerWorker:389 - Login  null חשפûחגשאחפûשגא
+2018-04-05 13:07:58 INFO  Handler:64 - case 33
+2018-04-05 13:07:58 INFO  ServerWorker:104 - messagePrivate
+2018-04-05 13:07:58 INFO  ServerWorker:133 - << Message Private step >>13:07 eboy nokia חשפûחגשאחפûשגא
+2018-04-05 13:08:24 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:08:24 INFO  Handler:80 - case 36
+2018-04-05 13:08:24 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:08:37 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:08:37 INFO  Handler:72 - case 35
+2018-04-05 13:08:37 INFO  ServerWorker:104 - logOut
+2018-04-05 13:08:37 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:08:37 INFO  ServerWorker:325 - nokia: removed user
+2018-04-05 13:08:38 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:09:03 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:09:03 INFO  Handler:84 - case 37
+2018-04-05 13:09:03 INFO  ServerWorker:104 - createGroupChat
+2018-04-05 13:09:03 INFO  ServerWorker:244 - 7IF66zt3cNLaJAmyrLPYxk4cMa3Q3242hqmk2z2CTvxHuxbSbC/lBXyOv3RtUnOJiisHq4L+jbEulJG1iniyNjblJJduxHOdn3kHuS/pCAw=
+2018-04-05 13:10:32 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:10:32 INFO  Handler:80 - case 36
+2018-04-05 13:10:32 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:10:34 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:10:34 INFO  Handler:80 - case 36
+2018-04-05 13:10:34 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:10:44 INFO  ServerWorker:389 - Login  null qrweirugsdfjagsdgfasf
+2018-04-05 13:10:44 INFO  Handler:92 - case 39
+2018-04-05 13:10:44 INFO  ServerWorker:104 - messageToGroup
+2018-04-05 13:11:03 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:11:03 INFO  Handler:80 - case 36
+2018-04-05 13:11:03 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:11:16 INFO  ServerWorker:389 - Login  null ןנטגועפûגאפûאג
+2018-04-05 13:11:16 INFO  Handler:64 - case 33
+2018-04-05 13:11:16 INFO  ServerWorker:104 - messagePrivate
+2018-04-05 13:11:16 INFO  ServerWorker:133 - << Message Private step >>13:11 eboy nokia ןנטגועפûגאפûאג
+2018-04-05 13:11:41 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:11:41 INFO  Handler:51 - case 1
+2018-04-05 13:11:41 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:11:41 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:11:41 INFO  ServerWorker:104 - access nokia
+2018-04-05 13:11:41 INFO  ServerWorker:110 - Thread Name as usernamenokia
+2018-04-05 13:11:41 INFO  ServerWorker:438 - threadName : nokiaclientName : nokia
+2018-04-05 13:11:41 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:11:42 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:11:42 INFO  Handler:76 - case 31
+2018-04-05 13:11:42 INFO  ServerWorker:104 - activeList
+2018-04-05 13:11:42 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:13:01 INFO  ServerWorker:389 - Login  null jsdfhgjdshfjk
+2018-04-05 13:13:01 INFO  Handler:64 - case 33
+2018-04-05 13:13:01 INFO  ServerWorker:104 - messagePrivate
+2018-04-05 13:13:01 INFO  ServerWorker:133 - << Message Private step >>13:13 nokia eboy jsdfhgjdshfjk
+2018-04-05 13:13:50 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:13:50 INFO  Handler:80 - case 36
+2018-04-05 13:13:50 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:15:52 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:15:52 INFO  Handler:80 - case 36
+2018-04-05 13:15:52 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:15:52 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:15:52 INFO  Handler:80 - case 36
+2018-04-05 13:15:52 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:15:53 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:15:53 INFO  Handler:80 - case 36
+2018-04-05 13:15:53 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:15:53 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:15:53 INFO  Handler:80 - case 36
+2018-04-05 13:15:53 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:15:53 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:15:53 INFO  Handler:80 - case 36
+2018-04-05 13:15:53 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:15:53 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:15:53 INFO  Handler:80 - case 36
+2018-04-05 13:15:53 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:16:17 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:16:17 INFO  Handler:80 - case 36
+2018-04-05 13:16:17 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:16:17 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:16:17 INFO  Handler:80 - case 36
+2018-04-05 13:16:17 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:16:22 INFO  ServerWorker:389 - Login  eboy null
+2018-04-05 13:16:22 INFO  Handler:96 - case 40
+2018-04-05 13:16:22 INFO  ServerWorker:104 - leaveGroup
+2018-04-05 13:17:33 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:17:33 INFO  Handler:72 - case 35
+2018-04-05 13:17:33 INFO  ServerWorker:104 - logOut
+2018-04-05 13:17:33 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:17:33 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:17:34 INFO  ServerWorker:325 - nokia: removed user
+2018-04-05 13:17:34 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:17:36 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:17:36 INFO  Handler:72 - case 35
+2018-04-05 13:17:36 INFO  ServerWorker:104 - logOut
+2018-04-05 13:17:36 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:17:36 INFO  ServerWorker:325 - eboy: removed user
+2018-04-05 13:17:37 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:17:42 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:17:42 INFO  Handler:72 - case 35
+2018-04-05 13:17:42 INFO  ServerWorker:104 - logOut
+2018-04-05 13:17:42 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:17:42 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:17:42 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:17:42 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:17:42 INFO  ServerWorker:325 - pasha: removed user
+2018-04-05 13:17:42 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:18:09 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 13:18:09 INFO  Handler:51 - case 1
+2018-04-05 13:18:09 DEBUG Handler:137 - password from database: 1234 password from client 1234
+2018-04-05 13:18:09 INFO  ServerWorker:104 - access pasha
+2018-04-05 13:18:09 INFO  ServerWorker:110 - Thread Name as usernamepasha
+2018-04-05 13:18:09 INFO  ServerWorker:438 - threadName : pashaclientName : pasha
+2018-04-05 13:18:09 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:18:10 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:18:10 INFO  Handler:76 - case 31
+2018-04-05 13:18:10 INFO  ServerWorker:104 - activeList
+2018-04-05 13:18:10 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:18:17 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:18:17 INFO  Handler:80 - case 36
+2018-04-05 13:18:17 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:19:08 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:19:08 INFO  Handler:72 - case 35
+2018-04-05 13:19:08 INFO  ServerWorker:104 - logOut
+2018-04-05 13:19:08 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:19:08 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:19:08 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:19:08 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:19:08 INFO  ServerWorker:325 - pasha: removed user
+2018-04-05 13:19:09 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:19:26 INFO  ServerWorker:389 - Login  pasha null
+2018-04-05 13:19:26 INFO  Handler:51 - case 1
+2018-04-05 13:19:26 DEBUG Handler:137 - password from database: 1234 password from client 1234
+2018-04-05 13:19:26 INFO  ServerWorker:104 - access pasha
+2018-04-05 13:19:26 INFO  ServerWorker:110 - Thread Name as usernamepasha
+2018-04-05 13:19:26 INFO  ServerWorker:438 - threadName : pashaclientName : pasha
+2018-04-05 13:19:26 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:19:27 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:19:27 INFO  Handler:76 - case 31
+2018-04-05 13:19:27 INFO  ServerWorker:104 - activeList
+2018-04-05 13:19:27 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:20:49 INFO  ServerWorker:389 - Login  eboy null
+2018-04-05 13:20:49 INFO  Handler:51 - case 1
+2018-04-05 13:20:49 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:20:49 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:20:49 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:20:49 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:20:49 INFO  ServerWorker:104 - access eboy
+2018-04-05 13:20:49 INFO  ServerWorker:110 - Thread Name as usernameeboy
+2018-04-05 13:20:49 INFO  ServerWorker:438 - threadName : eboyclientName : eboy
+2018-04-05 13:20:49 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:20:50 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:20:50 INFO  Handler:76 - case 31
+2018-04-05 13:20:50 INFO  ServerWorker:104 - activeList
+2018-04-05 13:20:50 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:21:14 INFO  ServerWorker:389 - Login  nokia null
+2018-04-05 13:21:14 INFO  Handler:51 - case 1
+2018-04-05 13:21:14 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:21:14 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:21:14 INFO  ServerWorker:104 - access nokia
+2018-04-05 13:21:14 INFO  ServerWorker:110 - Thread Name as usernamenokia
+2018-04-05 13:21:14 INFO  ServerWorker:438 - threadName : nokiaclientName : nokia
+2018-04-05 13:21:14 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:21:15 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:21:15 INFO  Handler:76 - case 31
+2018-04-05 13:21:15 INFO  ServerWorker:104 - activeList
+2018-04-05 13:21:15 INFO  ServerWorker:140 - << Online users list was sent >>
+2018-04-05 13:21:23 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:21:23 INFO  Handler:80 - case 36
+2018-04-05 13:21:23 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:21:24 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:21:24 INFO  Handler:80 - case 36
+2018-04-05 13:21:24 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:21:29 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:21:29 INFO  Handler:80 - case 36
+2018-04-05 13:21:29 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:21:55 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:21:55 INFO  Handler:84 - case 37
+2018-04-05 13:21:55 INFO  ServerWorker:104 - createGroupChat
+2018-04-05 13:21:55 INFO  ServerWorker:244 - 7IF66zt3cNI99RrMgqeeUxQk6Da3tUAf8bOMKnsM0mNHuxbSbC/lBXyOv3RtUnOJiisHq4L+jbF74wu4mG9eJzRropxpzTOe/9T1Xh958uY=
+2018-04-05 13:22:02 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:02 INFO  Handler:80 - case 36
+2018-04-05 13:22:02 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:22:03 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:03 INFO  Handler:80 - case 36
+2018-04-05 13:22:03 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:22:04 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:04 INFO  Handler:80 - case 36
+2018-04-05 13:22:04 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:22:43 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:43 INFO  Handler:80 - case 36
+2018-04-05 13:22:43 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:22:44 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:44 INFO  Handler:80 - case 36
+2018-04-05 13:22:44 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:22:45 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:45 INFO  Handler:80 - case 36
+2018-04-05 13:22:45 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:22:45 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:22:45 INFO  Handler:80 - case 36
+2018-04-05 13:22:45 INFO  ServerWorker:104 - chatHistory
+2018-04-05 13:23:15 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:23:15 INFO  Handler:72 - case 35
+2018-04-05 13:23:15 INFO  ServerWorker:104 - logOut
+2018-04-05 13:23:15 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:23:15 INFO  ServerWorker:325 - pasha: removed user
+2018-04-05 13:23:20 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:23:20 INFO  Handler:72 - case 35
+2018-04-05 13:23:20 INFO  ServerWorker:104 - logOut
+2018-04-05 13:23:20 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:23:20 INFO  ServerWorker:325 - pasha: removed user
+2018-04-05 13:23:20 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:23:44 INFO  ServerWorker:389 - Login  eboy null
+2018-04-05 13:23:44 INFO  Handler:51 - case 1
+2018-04-05 13:23:45 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:23:45 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:23:45 DEBUG Handler:137 - password from database: 1234 password from client 123
+2018-04-05 13:23:45 DEBUG Handler:137 - password from database: 123 password from client 123
+2018-04-05 13:23:45 INFO  ServerWorker:104 - access eboy
+2018-04-05 13:23:45 INFO  ServerWorker:110 - Thread Name as usernameeboy
+2018-04-05 13:23:45 INFO  ServerWorker:113 - << Access step >>
+2018-04-05 13:32:12 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:33:15 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:33:15 INFO  Handler:72 - case 35
+2018-04-05 13:33:15 INFO  ServerWorker:104 - logOut
+2018-04-05 13:33:15 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:33:15 INFO  ServerWorker:325 - nokia: removed user
+2018-04-05 13:33:16 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-05 13:33:18 INFO  ServerWorker:389 - Login  null null
+2018-04-05 13:33:18 INFO  Handler:72 - case 35
+2018-04-05 13:33:18 INFO  ServerWorker:104 - logOut
+2018-04-05 13:33:18 INFO  ServerWorker:316 - pasha user.getName null nameFromUser
+2018-04-05 13:33:18 INFO  ServerWorker:316 - nokia user.getName null nameFromUser
+2018-04-05 13:33:18 INFO  ServerWorker:316 - ivantus user.getName null nameFromUser
+2018-04-05 13:33:18 INFO  ServerWorker:316 - eboy user.getName null nameFromUser
+2018-04-05 13:33:18 INFO  ServerWorker:325 - eboy: removed user
+2018-04-05 13:33:18 ERROR ServerWorker:62 - Connection was closed unexpectedly !
+2018-04-09 01:00:27 INFO  ServerWorker:436 - Login  test null
+2018-04-09 01:00:27 INFO  ServerHandler:51 - case 1
+2018-04-09 01:00:27 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:00:27 INFO  ServerWorker:108 - access test
+2018-04-09 01:00:27 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 01:00:27 INFO  ServerWorker:474 - threadName : testclientName : test
+2018-04-09 01:00:27 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 01:00:27 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:00:27 INFO  ServerHandler:108 - case 43
+2018-04-09 01:00:27 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 01:00:27 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:00:27 INFO  ServerHandler:76 - case 31
+2018-04-09 01:00:27 INFO  ServerWorker:108 - activeList
+2018-04-09 01:00:27 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 01:00:29 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:00:29 INFO  ServerHandler:80 - case 36
+2018-04-09 01:00:29 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:00:37 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:00:37 INFO  ServerHandler:80 - case 36
+2018-04-09 01:00:37 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:00:38 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:00:38 INFO  ServerHandler:80 - case 36
+2018-04-09 01:00:38 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:00:39 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:00:39 INFO  ServerHandler:80 - case 36
+2018-04-09 01:00:40 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:01:43 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 01:02:06 INFO  ServerWorker:436 - Login  test1 null
+2018-04-09 01:02:06 INFO  ServerHandler:51 - case 1
+2018-04-09 01:02:06 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:02:06 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:02:06 INFO  ServerWorker:108 - access test1
+2018-04-09 01:02:06 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-09 01:02:06 INFO  ServerWorker:474 - threadName : test1clientName : test1
+2018-04-09 01:02:06 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 01:02:07 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:02:07 INFO  ServerHandler:108 - case 43
+2018-04-09 01:02:07 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 01:02:07 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:02:07 INFO  ServerHandler:76 - case 31
+2018-04-09 01:02:07 INFO  ServerWorker:108 - activeList
+2018-04-09 01:02:07 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 01:02:09 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:02:09 INFO  ServerHandler:80 - case 36
+2018-04-09 01:02:09 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:02:12 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:02:12 INFO  ServerHandler:80 - case 36
+2018-04-09 01:02:12 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:02:33 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:02:33 INFO  ServerHandler:68 - case 34
+2018-04-09 01:02:33 INFO  ServerWorker:108 - createPrivateChatRoom
+2018-04-09 01:02:33 ERROR UsersDAOimpl:233 - Problem with getting data from chats
+2018-04-09 01:02:33 INFO  ServerWorker:157 - << Create private chat room step. Chat created. >>
+2018-04-09 01:03:32 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:03:32 INFO  ServerHandler:80 - case 36
+2018-04-09 01:03:32 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:03:33 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:03:33 INFO  ServerHandler:80 - case 36
+2018-04-09 01:03:33 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:03:34 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:03:34 INFO  ServerHandler:80 - case 36
+2018-04-09 01:03:34 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:03:36 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:03:36 INFO  ServerHandler:80 - case 36
+2018-04-09 01:03:36 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:03:45 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:03:45 INFO  ServerHandler:80 - case 36
+2018-04-09 01:03:45 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:03:47 INFO  ServerWorker:436 - Login  test1 null
+2018-04-09 01:03:47 INFO  ServerHandler:96 - case 40
+2018-04-09 01:03:47 INFO  ServerWorker:108 - leaveGroup
+2018-04-09 01:03:55 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:03:55 INFO  ServerHandler:72 - case 35
+2018-04-09 01:03:55 INFO  ServerWorker:108 - logOut
+2018-04-09 01:03:55 INFO  ServerWorker:369 - test user.getName null nameFromUser
+2018-04-09 01:03:55 INFO  ServerWorker:369 - test1 user.getName null nameFromUser
+2018-04-09 01:03:55 INFO  ServerWorker:369 - test user.getName null nameFromUser
+2018-04-09 01:03:55 INFO  ServerWorker:369 - test1 user.getName null nameFromUser
+2018-04-09 01:03:55 INFO  ServerWorker:379 - test1: removed user
+2018-04-09 01:03:55 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 01:07:22 INFO  ServerWorker:436 - Login  test1 null
+2018-04-09 01:07:22 INFO  ServerHandler:51 - case 1
+2018-04-09 01:07:22 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:07:22 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:07:22 INFO  ServerWorker:108 - access test1
+2018-04-09 01:07:22 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-09 01:07:22 INFO  ServerWorker:474 - threadName : test1clientName : test1
+2018-04-09 01:07:22 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 01:07:22 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:07:22 INFO  ServerHandler:108 - case 43
+2018-04-09 01:07:22 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 01:07:22 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:07:22 INFO  ServerHandler:76 - case 31
+2018-04-09 01:07:22 INFO  ServerWorker:108 - activeList
+2018-04-09 01:07:22 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 01:07:37 INFO  ServerWorker:436 - Login  test1 null
+2018-04-09 01:07:37 INFO  ServerHandler:88 - case 38
+2018-04-09 01:07:37 INFO  ServerWorker:108 - userInfo
+2018-04-09 01:07:53 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:07:53 INFO  ServerHandler:84 - case 37
+2018-04-09 01:07:53 INFO  ServerWorker:108 - createGroupChat
+2018-04-09 01:07:53 ERROR UsersDAOimpl:233 - Problem with getting data from chats
+2018-04-09 01:08:04 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:08:04 INFO  ServerHandler:80 - case 36
+2018-04-09 01:08:04 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:08:21 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 01:13:22 INFO  ServerWorker:436 - Login  test null
+2018-04-09 01:13:22 INFO  ServerHandler:56 - case 2
+2018-04-09 01:13:22 DEBUG ServerHandler:121 - test 123 1@gm.com poptest 1980-04-02 (+38)-098-674-44-44 test
+2018-04-09 01:13:22 INFO  ServerWorker:108 - regUser test
+2018-04-09 01:13:22 INFO  ServerWorker:140 - << User is registered >> test
+2018-04-09 01:13:28 INFO  ServerWorker:436 - Login  test null
+2018-04-09 01:13:28 INFO  ServerHandler:51 - case 1
+2018-04-09 01:13:28 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:13:28 INFO  ServerWorker:108 - access test
+2018-04-09 01:13:28 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 01:13:28 INFO  ServerWorker:474 - threadName : testclientName : test
+2018-04-09 01:13:28 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 01:13:29 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:13:29 INFO  ServerHandler:108 - case 43
+2018-04-09 01:13:29 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 01:13:29 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:13:29 INFO  ServerHandler:76 - case 31
+2018-04-09 01:13:29 INFO  ServerWorker:108 - activeList
+2018-04-09 01:13:29 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 01:13:31 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:13:31 INFO  ServerHandler:80 - case 36
+2018-04-09 01:13:31 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:13:35 INFO  ServerWorker:436 - Login  test null
+2018-04-09 01:13:35 INFO  ServerHandler:88 - case 38
+2018-04-09 01:13:35 INFO  ServerWorker:108 - userInfo
+2018-04-09 01:14:51 INFO  ServerWorker:436 - Login  test2 null
+2018-04-09 01:14:51 INFO  ServerHandler:56 - case 2
+2018-04-09 01:14:51 DEBUG ServerHandler:121 - test2 123 pol@qwe.com popteset 1992-04-25 (+38)-067-654-22-11 test2
+2018-04-09 01:14:51 INFO  ServerWorker:108 - regUser test2
+2018-04-09 01:14:51 INFO  ServerWorker:140 - << User is registered >> test2
+2018-04-09 01:14:56 INFO  ServerWorker:436 - Login  test2 null
+2018-04-09 01:14:56 INFO  ServerHandler:51 - case 1
+2018-04-09 01:14:56 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:14:56 INFO  ServerWorker:108 - access test2
+2018-04-09 01:14:56 INFO  ServerWorker:114 - Thread Name as usernametest2
+2018-04-09 01:14:56 INFO  ServerWorker:474 - threadName : test2clientName : test2
+2018-04-09 01:14:56 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 01:14:57 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:14:57 INFO  ServerHandler:108 - case 43
+2018-04-09 01:14:57 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 01:14:57 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:14:57 INFO  ServerHandler:76 - case 31
+2018-04-09 01:14:57 INFO  ServerWorker:108 - activeList
+2018-04-09 01:14:57 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 01:14:58 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:14:58 INFO  ServerHandler:80 - case 36
+2018-04-09 01:14:58 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:15:18 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:15:18 INFO  ServerHandler:68 - case 34
+2018-04-09 01:15:18 INFO  ServerWorker:108 - createPrivateChatRoom
+2018-04-09 01:15:18 ERROR UsersDAOimpl:233 - Problem with getting data from chats
+2018-04-09 01:15:18 INFO  ServerWorker:157 - << Create private chat room step. Chat created. >>
+2018-04-09 01:17:08 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:17:08 INFO  ServerHandler:80 - case 36
+2018-04-09 01:17:08 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:17:09 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:17:09 INFO  ServerHandler:80 - case 36
+2018-04-09 01:17:09 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:17:11 INFO  ServerWorker:436 - Login  null qwer
+2018-04-09 01:17:11 INFO  ServerHandler:60 - case 32
+2018-04-09 01:17:11 INFO  ServerWorker:108 - messageAll
+2018-04-09 01:17:12 INFO  ServerWorker:512 - << Message to chat step >> qwer; ChatId: 1001005
+2018-04-09 01:17:13 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:17:13 INFO  ServerHandler:80 - case 36
+2018-04-09 01:17:13 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:17:17 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:17:17 INFO  ServerHandler:80 - case 36
+2018-04-09 01:17:17 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:19:26 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:19:26 INFO  ServerHandler:80 - case 36
+2018-04-09 01:19:26 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:19:27 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:19:27 INFO  ServerHandler:80 - case 36
+2018-04-09 01:19:27 INFO  ServerWorker:108 - chatHistory
+2018-04-09 01:19:31 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:19:31 INFO  ServerHandler:72 - case 35
+2018-04-09 01:19:31 INFO  ServerWorker:108 - logOut
+2018-04-09 01:19:31 INFO  ServerWorker:369 - test2 user.getName null nameFromUser
+2018-04-09 01:19:31 INFO  ServerWorker:369 - test user.getName null nameFromUser
+2018-04-09 01:19:31 INFO  ServerWorker:369 - test2 user.getName null nameFromUser
+2018-04-09 01:19:31 INFO  ServerWorker:369 - test user.getName null nameFromUser
+2018-04-09 01:19:31 INFO  ServerWorker:379 - test: removed user
+2018-04-09 01:19:31 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 01:19:44 INFO  ServerWorker:436 - Login  test null
+2018-04-09 01:19:44 INFO  ServerHandler:51 - case 1
+2018-04-09 01:19:44 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:19:44 DEBUG ServerHandler:159 - password from database: 123 password from client 123
+2018-04-09 01:19:44 INFO  ServerWorker:108 - access test
+2018-04-09 01:19:44 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 01:19:44 INFO  ServerWorker:474 - threadName : testclientName : test
+2018-04-09 01:19:44 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 01:19:45 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:19:45 INFO  ServerHandler:108 - case 43
+2018-04-09 01:19:45 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 01:19:45 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:19:45 INFO  ServerHandler:76 - case 31
+2018-04-09 01:19:45 INFO  ServerWorker:108 - activeList
+2018-04-09 01:19:45 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 01:19:47 INFO  ServerWorker:436 - Login  null null
+2018-04-09 01:19:47 INFO  ServerHandler:80 - case 36
+2018-04-09 01:19:47 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:37:11 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:37:11 INFO  ServerHandler:51 - case 1
+2018-04-09 22:37:11 INFO  ServerWorker:108 - noRegUser
+2018-04-09 22:37:11 INFO  ServerWorker:128 - << User is not registered >>
+2018-04-09 22:38:28 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:38:28 INFO  ServerHandler:56 - case 2
+2018-04-09 22:38:28 DEBUG ServerHandler:113 - test 123 qwer@sdg.com qwer 1999-04-11 (+38)-097-321-55-44 qwer
+2018-04-09 22:38:28 ERROR UsersDAOimpl:185 - Inserting to db failed
+java.sql.SQLIntegrityConstraintViolationException: ORA-02291: integrity constraint (PAUL.CHATUSERS_FK_CHAT_ID) violated - parent key not found
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:226) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:59) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:910) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1119) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3780) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1343) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3822) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1165) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at com.group42.server.controller.ChatRoomsDAOimpl.insertIntoChatUsers(ChatRoomsDAOimpl.java:182) [server-1.0.jar:?]
+	at com.group42.server.controller.ServerHandler.registration(ServerHandler.java:136) [server-1.0.jar:?]
+	at com.group42.server.controller.ServerHandler.registered(ServerHandler.java:182) [server-1.0.jar:?]
+	at com.group42.server.controller.ServerHandler.start(ServerHandler.java:57) [server-1.0.jar:?]
+	at com.group42.server.controller.ServerWorker.preAccess(ServerWorker.java:451) [server-1.0.jar:?]
+	at com.group42.server.controller.ServerWorker.handleClientSocket(ServerWorker.java:105) [server-1.0.jar:?]
+	at com.group42.server.controller.ServerWorker.run(ServerWorker.java:62) [server-1.0.jar:?]
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-02291: integrity constraint (PAUL.CHATUSERS_FK_CHAT_ID) violated - parent key not found
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	... 20 more
+2018-04-09 22:38:28 INFO  ServerWorker:108 - regUser test
+2018-04-09 22:38:28 INFO  ServerWorker:140 - << User is registered >> test
+2018-04-09 22:38:34 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:38:34 INFO  ServerHandler:51 - case 1
+2018-04-09 22:38:34 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:38:34 INFO  ServerWorker:108 - access test
+2018-04-09 22:38:34 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 22:38:34 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-09 22:38:34 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 22:38:34 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:38:34 INFO  ServerHandler:100 - case 43
+2018-04-09 22:38:34 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 22:38:34 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:38:34 INFO  ServerHandler:72 - case 31
+2018-04-09 22:38:34 INFO  ServerWorker:108 - activeList
+2018-04-09 22:38:34 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 22:48:40 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:48:40 INFO  ServerHandler:56 - case 2
+2018-04-09 22:48:40 DEBUG ServerHandler:113 - test 123 asdf@gmail.com test 2018-04-10 (+38)-068-967-88-99 qwerty
+2018-04-09 22:48:40 INFO  ServerWorker:108 - regUser test
+2018-04-09 22:48:40 INFO  ServerWorker:140 - << User is registered >> test
+2018-04-09 22:49:25 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:49:25 INFO  ServerHandler:51 - case 1
+2018-04-09 22:49:25 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:49:25 INFO  ServerWorker:108 - access test
+2018-04-09 22:49:25 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 22:49:25 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-09 22:49:25 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 22:49:25 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:49:25 INFO  ServerHandler:100 - case 43
+2018-04-09 22:49:25 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 22:49:25 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:49:25 INFO  ServerHandler:72 - case 31
+2018-04-09 22:49:25 INFO  ServerWorker:108 - activeList
+2018-04-09 22:49:25 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 22:49:29 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:49:29 INFO  ServerHandler:76 - case 36
+2018-04-09 22:49:29 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:51:16 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:51:16 INFO  ServerHandler:56 - case 2
+2018-04-09 22:51:16 DEBUG ServerHandler:113 - test 123 qwerty@gmail.com test1 2018-04-20 (+38)-068-789-45-65 test1
+2018-04-09 22:51:16 INFO  ServerWorker:108 - regFailed
+2018-04-09 22:51:16 INFO  ServerWorker:134 - << User already exists >>
+2018-04-09 22:52:00 INFO  ServerWorker:450 - Login  test1 null
+2018-04-09 22:52:00 INFO  ServerHandler:56 - case 2
+2018-04-09 22:52:00 DEBUG ServerHandler:113 - test1 123 asdf@gmail.com test1 2018-04-20 (+38)-068-789-45-65 test1
+2018-04-09 22:52:00 INFO  ServerWorker:108 - regUser test1
+2018-04-09 22:52:00 INFO  ServerWorker:140 - << User is registered >> test1
+2018-04-09 22:52:08 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:52:08 INFO  ServerHandler:51 - case 1
+2018-04-09 22:52:08 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:52:08 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:52:08 INFO  ServerWorker:108 - accessDenied
+2018-04-09 22:52:08 INFO  ServerWorker:122 - << User is not registered >>
+2018-04-09 22:52:14 INFO  ServerWorker:450 - Login  test1 null
+2018-04-09 22:52:14 INFO  ServerHandler:51 - case 1
+2018-04-09 22:52:14 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:52:14 INFO  ServerWorker:108 - access test1
+2018-04-09 22:52:14 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-09 22:52:14 INFO  ServerWorker:488 - threadName : test1clientName : test1
+2018-04-09 22:52:14 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 22:52:15 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:52:15 INFO  ServerHandler:100 - case 43
+2018-04-09 22:52:15 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 22:52:15 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:52:15 INFO  ServerHandler:72 - case 31
+2018-04-09 22:52:15 INFO  ServerWorker:108 - activeList
+2018-04-09 22:52:15 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 22:52:19 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:52:19 INFO  ServerHandler:76 - case 36
+2018-04-09 22:52:19 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:52:27 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:52:27 INFO  ServerHandler:68 - case 35
+2018-04-09 22:52:27 INFO  ServerWorker:108 - logOut
+2018-04-09 22:52:27 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 22:52:27 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 22:52:27 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 22:52:27 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 22:52:27 INFO  ServerWorker:393 - test: removed user
+2018-04-09 22:52:28 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 22:53:35 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:53:35 INFO  ServerHandler:68 - case 35
+2018-04-09 22:53:35 INFO  ServerWorker:108 - logOut
+2018-04-09 22:53:35 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 22:53:35 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 22:53:35 INFO  ServerWorker:393 - test1: removed user
+2018-04-09 22:53:36 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 22:53:50 INFO  ServerWorker:450 - Login  test null
+2018-04-09 22:53:50 INFO  ServerHandler:51 - case 1
+2018-04-09 22:53:50 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:53:50 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:53:50 INFO  ServerWorker:108 - access test
+2018-04-09 22:53:50 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 22:53:50 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-09 22:53:50 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 22:53:51 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:53:51 INFO  ServerHandler:100 - case 43
+2018-04-09 22:53:51 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 22:53:51 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:53:51 INFO  ServerHandler:72 - case 31
+2018-04-09 22:53:51 INFO  ServerWorker:108 - activeList
+2018-04-09 22:53:51 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 22:53:53 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:53:53 INFO  ServerHandler:76 - case 36
+2018-04-09 22:53:53 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:54:26 INFO  ServerWorker:450 - Login  test1 null
+2018-04-09 22:54:26 INFO  ServerHandler:51 - case 1
+2018-04-09 22:54:26 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:54:26 INFO  ServerWorker:108 - access test1
+2018-04-09 22:54:26 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-09 22:54:26 INFO  ServerWorker:488 - threadName : test1clientName : test1
+2018-04-09 22:54:26 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 22:54:27 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:54:27 INFO  ServerHandler:100 - case 43
+2018-04-09 22:54:27 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 22:54:27 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:54:27 INFO  ServerHandler:72 - case 31
+2018-04-09 22:54:27 INFO  ServerWorker:108 - activeList
+2018-04-09 22:54:27 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 22:54:28 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:54:28 INFO  ServerHandler:76 - case 36
+2018-04-09 22:54:28 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:54:43 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:54:43 INFO  ServerHandler:64 - case 34
+2018-04-09 22:54:43 INFO  ServerWorker:108 - createPrivateChatRoom
+2018-04-09 22:54:43 INFO  ServerWorker:156 - << Create private chat room step. Chat created. >>
+2018-04-09 22:54:44 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:54:44 INFO  ServerHandler:76 - case 36
+2018-04-09 22:54:44 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:54:47 INFO  ServerWorker:450 - Login  null privet
+2018-04-09 22:54:47 INFO  ServerHandler:60 - case 32
+2018-04-09 22:54:47 INFO  ServerWorker:108 - messageAll
+2018-04-09 22:54:47 INFO  ServerWorker:526 - << Message to chat step >> privet; ChatId: 1002031
+2018-04-09 22:55:02 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:55:02 INFO  ServerHandler:76 - case 36
+2018-04-09 22:55:02 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:55:15 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:55:15 INFO  ServerHandler:76 - case 36
+2018-04-09 22:55:15 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:55:19 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:55:19 INFO  ServerHandler:76 - case 36
+2018-04-09 22:55:19 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:55:25 INFO  ServerWorker:450 - Login  null qwerqwer
+2018-04-09 22:55:25 INFO  ServerHandler:60 - case 32
+2018-04-09 22:55:25 INFO  ServerWorker:108 - messageAll
+2018-04-09 22:55:25 INFO  ServerWorker:526 - << Message to chat step >> qwerqwer; ChatId: 1002031
+2018-04-09 22:55:32 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:55:32 INFO  ServerHandler:76 - case 36
+2018-04-09 22:55:32 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:56:18 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:56:18 INFO  ServerHandler:76 - case 36
+2018-04-09 22:56:18 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:58:25 INFO  ServerWorker:450 - Login  test2 null
+2018-04-09 22:58:25 INFO  ServerHandler:56 - case 2
+2018-04-09 22:58:25 DEBUG ServerHandler:113 - test2 123 qwerty@gmail.com test2 2018-04-30 (+38)-067-896-88-99 test2
+2018-04-09 22:58:25 INFO  ServerWorker:108 - regUser test2
+2018-04-09 22:58:25 INFO  ServerWorker:140 - << User is registered >> test2
+2018-04-09 22:58:30 INFO  ServerWorker:450 - Login  test2 null
+2018-04-09 22:58:30 INFO  ServerHandler:51 - case 1
+2018-04-09 22:58:30 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:58:30 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:58:30 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 22:58:30 INFO  ServerWorker:108 - access test2
+2018-04-09 22:58:30 INFO  ServerWorker:114 - Thread Name as usernametest2
+2018-04-09 22:58:31 INFO  ServerWorker:488 - threadName : test2clientName : test2
+2018-04-09 22:58:31 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 22:58:31 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:58:31 INFO  ServerHandler:100 - case 43
+2018-04-09 22:58:31 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 22:58:31 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:58:31 INFO  ServerHandler:72 - case 31
+2018-04-09 22:58:31 INFO  ServerWorker:108 - activeList
+2018-04-09 22:58:31 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 22:58:34 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:58:34 INFO  ServerHandler:76 - case 36
+2018-04-09 22:58:34 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:58:53 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:58:53 INFO  ServerHandler:80 - case 37
+2018-04-09 22:58:53 INFO  ServerWorker:108 - createGroupChat
+2018-04-09 22:58:58 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:58:58 INFO  ServerHandler:76 - case 36
+2018-04-09 22:58:58 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:59:06 INFO  ServerWorker:450 - Login  null jkashdfkjhaskghakjsdhgkjahsghadfg
+2018-04-09 22:59:06 INFO  ServerHandler:60 - case 32
+2018-04-09 22:59:06 INFO  ServerWorker:108 - messageAll
+2018-04-09 22:59:06 INFO  ServerWorker:526 - << Message to chat step >> jkashdfkjhaskghakjsdhgkjahsghadfg; ChatId: 1002030
+2018-04-09 22:59:11 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:59:11 INFO  ServerHandler:76 - case 36
+2018-04-09 22:59:11 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:59:14 INFO  ServerWorker:450 - Login  null asjdhfjadsgfjasghdfas
+2018-04-09 22:59:14 INFO  ServerHandler:60 - case 32
+2018-04-09 22:59:14 INFO  ServerWorker:108 - messageAll
+2018-04-09 22:59:14 INFO  ServerWorker:526 - << Message to chat step >> asjdhfjadsgfjasghdfas; ChatId: 1002032
+2018-04-09 22:59:16 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:59:16 INFO  ServerHandler:76 - case 36
+2018-04-09 22:59:16 INFO  ServerWorker:108 - chatHistory
+2018-04-09 22:59:26 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:59:26 INFO  ServerHandler:68 - case 35
+2018-04-09 22:59:26 INFO  ServerWorker:108 - logOut
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 22:59:26 INFO  ServerWorker:393 - test: removed user
+2018-04-09 22:59:27 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 22:59:34 INFO  ServerWorker:450 - Login  null fasjdgfjhasgdfjgasdfasgdf
+2018-04-09 22:59:34 INFO  ServerHandler:60 - case 32
+2018-04-09 22:59:34 INFO  ServerWorker:108 - messageAll
+2018-04-09 22:59:34 INFO  ServerWorker:526 - << Message to chat step >> fasjdgfjhasgdfjgasdfasgdf; ChatId: 1002032
+2018-04-09 22:59:55 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:59:55 INFO  ServerHandler:64 - case 34
+2018-04-09 22:59:55 INFO  ServerWorker:108 - createPrivateChatRoom
+2018-04-09 22:59:55 INFO  ServerWorker:156 - << Create private chat room step. Chat created. >>
+2018-04-09 22:59:56 INFO  ServerWorker:450 - Login  null null
+2018-04-09 22:59:56 INFO  ServerHandler:76 - case 36
+2018-04-09 22:59:56 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:00:01 INFO  ServerWorker:450 - Login  null  test, פûגנןאפûגןנאמנפûןגאמנןמנן
+2018-04-09 23:00:01 INFO  ServerHandler:60 - case 32
+2018-04-09 23:00:01 INFO  ServerWorker:108 - messageAll
+2018-04-09 23:00:01 INFO  ServerWorker:526 - << Message to chat step >>  test, פûגנןאפûגןנאמנפûןגאמנןמנן; ChatId: 1002033
+2018-04-09 23:00:12 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:00:12 INFO  ServerHandler:76 - case 36
+2018-04-09 23:00:12 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:00:47 INFO  ServerWorker:450 - Login  test null
+2018-04-09 23:00:47 INFO  ServerHandler:51 - case 1
+2018-04-09 23:00:47 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 23:00:47 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-09 23:00:47 INFO  ServerWorker:108 - access test
+2018-04-09 23:00:47 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-09 23:00:47 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-09 23:00:47 INFO  ServerWorker:116 - << Access step >>
+2018-04-09 23:00:48 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:00:48 INFO  ServerHandler:100 - case 43
+2018-04-09 23:00:48 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-09 23:00:48 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:00:48 INFO  ServerHandler:72 - case 31
+2018-04-09 23:00:48 INFO  ServerWorker:108 - activeList
+2018-04-09 23:00:48 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-09 23:00:54 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:00:54 INFO  ServerHandler:76 - case 36
+2018-04-09 23:00:54 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:01:02 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:01:02 INFO  ServerHandler:76 - case 36
+2018-04-09 23:01:02 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:01:31 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:01:31 INFO  ServerHandler:76 - case 36
+2018-04-09 23:01:31 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:01:48 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:01:48 INFO  ServerHandler:76 - case 36
+2018-04-09 23:01:48 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:03:01 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:03:01 INFO  ServerHandler:80 - case 37
+2018-04-09 23:03:01 INFO  ServerWorker:108 - createGroupChat
+2018-04-09 23:03:05 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:03:05 INFO  ServerHandler:76 - case 36
+2018-04-09 23:03:05 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:06:40 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:06:40 INFO  ServerHandler:80 - case 37
+2018-04-09 23:06:40 INFO  ServerWorker:108 - createGroupChat
+2018-04-09 23:06:41 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:06:41 INFO  ServerHandler:76 - case 36
+2018-04-09 23:06:41 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:07:00 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:07:00 INFO  ServerHandler:96 - case 42
+2018-04-09 23:07:00 INFO  ServerWorker:108 - addMemberToGroup
+2018-04-09 23:07:12 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:07:12 INFO  ServerHandler:76 - case 36
+2018-04-09 23:07:12 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:07:40 INFO  ServerWorker:450 - Login  test null
+2018-04-09 23:07:40 INFO  ServerHandler:84 - case 38
+2018-04-09 23:07:40 INFO  ServerWorker:108 - userInfo
+2018-04-09 23:08:05 INFO  ServerWorker:450 - Login  test2 null
+2018-04-09 23:08:05 INFO  ServerHandler:84 - case 38
+2018-04-09 23:08:05 INFO  ServerWorker:108 - userInfo
+2018-04-09 23:08:14 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:08:14 INFO  ServerHandler:76 - case 36
+2018-04-09 23:08:14 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:08:17 INFO  ServerWorker:450 - Login  test2 null
+2018-04-09 23:08:17 INFO  ServerHandler:92 - case 40
+2018-04-09 23:08:17 INFO  ServerWorker:108 - leaveChat
+2018-04-09 23:08:18 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:08:18 INFO  ServerHandler:76 - case 36
+2018-04-09 23:08:18 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:08:19 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:08:19 INFO  ServerHandler:76 - case 36
+2018-04-09 23:08:19 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:08:21 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:08:21 INFO  ServerHandler:76 - case 36
+2018-04-09 23:08:21 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:08:27 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:08:27 INFO  ServerHandler:76 - case 36
+2018-04-09 23:08:27 INFO  ServerWorker:108 - chatHistory
+2018-04-09 23:08:29 INFO  ServerWorker:450 - Login  test2 null
+2018-04-09 23:08:29 INFO  ServerHandler:92 - case 40
+2018-04-09 23:08:29 INFO  ServerWorker:108 - leaveChat
+2018-04-09 23:08:38 INFO  ServerWorker:450 - Login  null jdsfhgjhsdfjghdsjfhjhdg
+2018-04-09 23:08:38 INFO  ServerHandler:60 - case 32
+2018-04-09 23:08:38 INFO  ServerWorker:108 - messageAll
+2018-04-09 23:08:38 INFO  ServerWorker:526 - << Message to chat step >> jdsfhgjhsdfjghdsjfhjhdg; ChatId: 1002034
+2018-04-09 23:09:13 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:09:13 INFO  ServerHandler:68 - case 35
+2018-04-09 23:09:13 INFO  ServerWorker:108 - logOut
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 23:09:13 INFO  ServerWorker:393 - test: removed user
+2018-04-09 23:09:13 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 23:09:14 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:09:14 INFO  ServerHandler:68 - case 35
+2018-04-09 23:09:14 INFO  ServerWorker:108 - logOut
+2018-04-09 23:09:14 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 23:09:14 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 23:09:14 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 23:09:14 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 23:09:14 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 23:09:14 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 23:09:14 INFO  ServerWorker:393 - test2: removed user
+2018-04-09 23:09:14 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-09 23:09:16 INFO  ServerWorker:450 - Login  null null
+2018-04-09 23:09:16 INFO  ServerHandler:68 - case 35
+2018-04-09 23:09:16 INFO  ServerWorker:108 - logOut
+2018-04-09 23:09:16 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-09 23:09:16 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-09 23:09:16 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-09 23:09:16 INFO  ServerWorker:393 - test1: removed user
+2018-04-09 23:09:16 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 21:51:45 INFO  ServerWorker:450 - Login  test null
+2018-04-10 21:51:45 INFO  ServerHandler:51 - case 1
+2018-04-10 21:51:45 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 21:51:45 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 21:51:45 INFO  ServerWorker:108 - access test
+2018-04-10 21:51:45 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-10 21:51:45 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-10 21:51:45 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 21:51:45 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:51:45 INFO  ServerHandler:100 - case 43
+2018-04-10 21:51:45 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 21:51:45 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:51:45 INFO  ServerHandler:72 - case 31
+2018-04-10 21:51:45 INFO  ServerWorker:108 - activeList
+2018-04-10 21:51:45 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 21:51:52 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:51:52 INFO  ServerHandler:76 - case 36
+2018-04-10 21:51:52 INFO  ServerWorker:108 - chatHistory
+2018-04-10 21:52:12 INFO  ServerWorker:450 - Login  test1 null
+2018-04-10 21:52:12 INFO  ServerHandler:51 - case 1
+2018-04-10 21:52:12 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 21:52:12 INFO  ServerWorker:108 - access test1
+2018-04-10 21:52:12 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-10 21:52:12 INFO  ServerWorker:488 - threadName : test1clientName : test1
+2018-04-10 21:52:12 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 21:52:13 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:52:13 INFO  ServerHandler:100 - case 43
+2018-04-10 21:52:13 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 21:52:13 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:52:13 INFO  ServerHandler:72 - case 31
+2018-04-10 21:52:13 INFO  ServerWorker:108 - activeList
+2018-04-10 21:52:13 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 21:52:24 INFO  ServerWorker:450 - Login  null asd
+2018-04-10 21:52:24 INFO  ServerHandler:60 - case 32
+2018-04-10 21:52:24 INFO  ServerWorker:108 - messageAll
+2018-04-10 21:52:24 INFO  ServerWorker:526 - << Message to chat step >> asd; ChatId: 1002031
+2018-04-10 21:52:37 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 21:52:38 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 21:53:13 INFO  ServerWorker:450 - Login  test null
+2018-04-10 21:53:13 INFO  ServerHandler:51 - case 1
+2018-04-10 21:53:13 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 21:53:13 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 21:53:13 INFO  ServerWorker:108 - access test
+2018-04-10 21:53:13 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-10 21:53:13 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-10 21:53:13 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 21:53:14 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:53:14 INFO  ServerHandler:100 - case 43
+2018-04-10 21:53:14 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 21:53:14 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:53:14 INFO  ServerHandler:72 - case 31
+2018-04-10 21:53:14 INFO  ServerWorker:108 - activeList
+2018-04-10 21:53:14 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 21:53:21 INFO  ServerWorker:450 - Login  null null
+2018-04-10 21:53:21 INFO  ServerHandler:76 - case 36
+2018-04-10 21:53:21 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:01:46 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:01:46 INFO  ServerHandler:68 - case 35
+2018-04-10 22:01:46 INFO  ServerWorker:108 - logOut
+2018-04-10 22:01:46 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:01:46 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:01:46 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:01:46 INFO  ServerWorker:393 - test: removed user
+2018-04-10 22:01:47 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 22:02:00 INFO  ServerWorker:450 - Login  test null
+2018-04-10 22:02:00 INFO  ServerHandler:51 - case 1
+2018-04-10 22:02:00 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:02:00 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:02:00 INFO  ServerWorker:108 - access test
+2018-04-10 22:02:00 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-10 22:02:01 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-10 22:02:01 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 22:02:01 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:02:01 INFO  ServerHandler:100 - case 43
+2018-04-10 22:02:01 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 22:02:01 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:02:01 INFO  ServerHandler:72 - case 31
+2018-04-10 22:02:01 INFO  ServerWorker:108 - activeList
+2018-04-10 22:02:01 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 22:02:20 INFO  ServerWorker:450 - Login  test1 null
+2018-04-10 22:02:20 INFO  ServerHandler:51 - case 1
+2018-04-10 22:02:20 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:02:20 INFO  ServerWorker:108 - access test1
+2018-04-10 22:02:20 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-10 22:02:20 INFO  ServerWorker:488 - threadName : test1clientName : test1
+2018-04-10 22:02:20 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 22:02:21 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:02:21 INFO  ServerHandler:100 - case 43
+2018-04-10 22:02:21 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 22:02:21 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:02:21 INFO  ServerHandler:72 - case 31
+2018-04-10 22:02:21 INFO  ServerWorker:108 - activeList
+2018-04-10 22:02:21 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 22:02:50 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:02:50 INFO  ServerHandler:76 - case 36
+2018-04-10 22:02:50 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:02:51 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:02:51 INFO  ServerHandler:76 - case 36
+2018-04-10 22:02:51 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:03:48 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:03:48 INFO  ServerHandler:64 - case 34
+2018-04-10 22:03:48 INFO  ServerWorker:108 - createPrivateChatRoom
+2018-04-10 22:03:48 INFO  ServerWorker:156 - << Create private chat room step. Chat created. >>
+2018-04-10 22:03:50 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:03:50 INFO  ServerHandler:76 - case 36
+2018-04-10 22:03:50 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:03:55 INFO  ServerWorker:450 - Login  null privet
+2018-04-10 22:03:55 INFO  ServerHandler:60 - case 32
+2018-04-10 22:03:55 INFO  ServerWorker:108 - messageAll
+2018-04-10 22:03:55 INFO  ServerWorker:526 - << Message to chat step >> privet; ChatId: 1002036
+2018-04-10 22:09:37 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:09:37 INFO  ServerHandler:68 - case 35
+2018-04-10 22:09:37 INFO  ServerWorker:108 - logOut
+2018-04-10 22:09:37 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:09:37 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:09:37 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:09:37 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:09:37 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:09:37 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:09:37 INFO  ServerWorker:393 - test: removed user
+2018-04-10 22:09:37 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 22:09:39 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:09:39 INFO  ServerHandler:68 - case 35
+2018-04-10 22:09:39 INFO  ServerWorker:108 - logOut
+2018-04-10 22:09:39 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:09:39 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:09:39 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:09:39 INFO  ServerWorker:393 - test1: removed user
+2018-04-10 22:09:39 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 22:11:17 INFO  ServerWorker:450 - Login  test null
+2018-04-10 22:11:17 INFO  ServerHandler:51 - case 1
+2018-04-10 22:11:17 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:11:17 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:11:17 INFO  ServerWorker:108 - access test
+2018-04-10 22:11:17 INFO  ServerWorker:114 - Thread Name as usernametest
+2018-04-10 22:11:17 INFO  ServerWorker:488 - threadName : testclientName : test
+2018-04-10 22:11:17 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 22:11:17 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:11:17 INFO  ServerHandler:100 - case 43
+2018-04-10 22:11:17 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 22:11:17 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:11:17 INFO  ServerHandler:72 - case 31
+2018-04-10 22:11:17 INFO  ServerWorker:108 - activeList
+2018-04-10 22:11:17 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 22:11:43 INFO  ServerWorker:450 - Login  test1 null
+2018-04-10 22:11:43 INFO  ServerHandler:51 - case 1
+2018-04-10 22:11:43 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:11:43 INFO  ServerWorker:108 - access test1
+2018-04-10 22:11:43 INFO  ServerWorker:114 - Thread Name as usernametest1
+2018-04-10 22:11:43 INFO  ServerWorker:488 - threadName : test1clientName : test1
+2018-04-10 22:11:43 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 22:11:44 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:11:44 INFO  ServerHandler:100 - case 43
+2018-04-10 22:11:44 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 22:11:44 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:11:44 INFO  ServerHandler:72 - case 31
+2018-04-10 22:11:44 INFO  ServerWorker:108 - activeList
+2018-04-10 22:11:44 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 22:11:51 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:11:51 INFO  ServerHandler:76 - case 36
+2018-04-10 22:11:51 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:11:52 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:11:52 INFO  ServerHandler:76 - case 36
+2018-04-10 22:11:52 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:12:39 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:12:39 INFO  ServerHandler:80 - case 37
+2018-04-10 22:12:39 INFO  ServerWorker:108 - createGroupChat
+2018-04-10 22:15:30 INFO  ServerWorker:450 - Login  test2 null
+2018-04-10 22:15:30 INFO  ServerHandler:51 - case 1
+2018-04-10 22:15:30 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:15:30 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:15:30 DEBUG ServerHandler:151 - password from database: 123 password from client 123
+2018-04-10 22:15:30 INFO  ServerWorker:108 - access test2
+2018-04-10 22:15:30 INFO  ServerWorker:114 - Thread Name as usernametest2
+2018-04-10 22:15:30 INFO  ServerWorker:488 - threadName : test2clientName : test2
+2018-04-10 22:15:30 INFO  ServerWorker:116 - << Access step >>
+2018-04-10 22:15:31 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:15:31 INFO  ServerHandler:100 - case 43
+2018-04-10 22:15:31 INFO  ServerWorker:108 - sendUserChatsList
+2018-04-10 22:15:31 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:15:31 INFO  ServerHandler:72 - case 31
+2018-04-10 22:15:31 INFO  ServerWorker:108 - activeList
+2018-04-10 22:15:31 INFO  ServerWorker:152 - << Online users list was sent >>
+2018-04-10 22:15:34 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:15:34 INFO  ServerHandler:76 - case 36
+2018-04-10 22:15:34 INFO  ServerWorker:108 - chatHistory
+2018-04-10 22:19:25 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:19:25 INFO  ServerHandler:68 - case 35
+2018-04-10 22:19:25 INFO  ServerWorker:108 - logOut
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:19:25 INFO  ServerWorker:393 - test2: removed user
+2018-04-10 22:19:26 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 22:19:28 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:19:28 INFO  ServerHandler:68 - case 35
+2018-04-10 22:19:28 INFO  ServerWorker:108 - logOut
+2018-04-10 22:19:28 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:19:28 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:19:28 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:19:28 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:19:28 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:19:28 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:19:28 INFO  ServerWorker:393 - test1: removed user
+2018-04-10 22:19:28 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-10 22:19:31 INFO  ServerWorker:450 - Login  null null
+2018-04-10 22:19:31 INFO  ServerHandler:68 - case 35
+2018-04-10 22:19:31 INFO  ServerWorker:108 - logOut
+2018-04-10 22:19:31 INFO  ServerWorker:383 - test1 user.getName null nameFromUser
+2018-04-10 22:19:31 INFO  ServerWorker:383 - test user.getName null nameFromUser
+2018-04-10 22:19:31 INFO  ServerWorker:383 - test2 user.getName null nameFromUser
+2018-04-10 22:19:31 INFO  ServerWorker:393 - test: removed user
+2018-04-10 22:19:31 ERROR ServerWorker:64 - Connection was closed unexpectedly !
+2018-04-13 16:35:04 ERROR DAOHandler:42 - Reading from properties file failed
+2018-04-13 16:35:04 ERROR DAOHandler:62 - Connection failed
