@@ -33,7 +33,7 @@ public class DAOHandler implements DAO {
         Properties props = new Properties();
 
         try  {
-            String path = "src/main/resources/db.properties";
+            String path = "resources/db.properties";
             props.load(new FileInputStream(path));
             name = props.getProperty("user");
             password = props.getProperty("password");
