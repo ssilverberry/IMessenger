@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group42.client.controllers.fx.CreateGroupListener">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="groupNamePane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label text="Group name" textFill="#6ca0dc" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="groupNameField" focusColor="#6ca0dc" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </AnchorPane>
+            <Label alignment="CENTER" text="Add members" textFill="#6ca0dc">
+               <VBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView fx:id="chatUsersListView" fixedCellSize="30.0" prefHeight="400.0" VBox.vgrow="SOMETIMES">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </ListView>
+            <AnchorPane prefHeight="200.0">
+               <children>
+                  <JFXButton fx:id="cancelButton" onAction="#closeRequest" prefWidth="50.0" text="CANCEL" textFill="#6ca0dc" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="createButton" text="CREATE" textFill="#6ca0dc" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
