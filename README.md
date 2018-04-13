@@ -52,15 +52,15 @@ Client-server application for real-time messaging
 ## UI:
 #### Main window
 
-![main](https://github.com/YuraLampak/IMessenger/tree/master/client/src/main/resources/icons/preview/Main.jpg)
+![main](https://github.com/YuraLampak/IMessenger/blob/master/client/src/main/resources/icons/preview/Main.jpg)
 
 #### Authorization window
 
-![main](https://github.com/YuraLampak/IMessenger/tree/master/client/src/main/resources/icons/preview/authorization.jpg)
+![main](https://github.com/YuraLampak/IMessenger/blob/master/client/src/main/resources/icons/preview/authorization.jpg)
 
 #### Registration window
 
-![main](https://github.com/YuraLampak/IMessenger/tree/master/client/src/main/resources/icons/preview/registration.jpg)
+![main](https://github.com/YuraLampak/IMessenger/blob/master/client/src/main/resources/icons/preview/registration.jpg)
 
 
 
