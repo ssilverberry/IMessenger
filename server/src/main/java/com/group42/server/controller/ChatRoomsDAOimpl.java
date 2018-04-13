@@ -5,9 +5,6 @@ import com.group42.server.model.ChatRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
@@ -15,89 +12,40 @@ import java.util.*;
  * The class is used for interacting with chats' data which we get from database.
  * We used single tone pattern for the class.
  */
-public class ChatRoomsDAOimpl implements DAOHandler {
+public class ChatRoomsDAOimpl {
+    private static final String getChatRooms = "SELECT * FROM CHATS WHERE CHAT_NAME='";
+    private static final String insertIntoChats = "INSERT INTO CHATS (CHAT_NAME, ISPRIVATE) VALUES (?, ?)";
+    private static final String deleteUsrfromChat = "DELETE FROM CHATS WHERE CHAT_NAME='";
+    private static final String delUsrFromChatSec = "' AND CHAT_USER_NAME = '";
+    private static final String resetQuery = "UPDATE USERS SET USER_STATUS =";
+    private static final String insertIntoChatUsersQuery = "INSERT INTO CHAT_USERS (CHAT_ID, USER_ID) VALUES (?, ?)";
+    private static final String getChatIdByNameQuery = "SELECT CHAT_ID FROM CHATS WHERE CHAT_NAME='";
+    private static final String isPrivateChatByIdQuery = "SELECT ISPRIVATE FROM CHATS WHERE CHAT_ID='";
+    private static final String getChatListForUserQuery = "SELECT CHATS.CHAT_ID, CHATS.CHAT_NAME, CHATS.ISPRIVATE " +
+            "from CHATS, CHAT_USERS WHERE CHATS.CHAT_ID = CHAT_USERS.CHAT_ID and CHAT_USERS.USER_ID ='" ;
+    private static final String getDataForNewChatQuery = "SELECT * FROM CHATS WHERE " +
+            "CHAT_ID=(SELECT MAX(CHAT_ID) FROM CHATS)";
+    private static final String deletePrivateChatFromChatUsersQuery = "DELETE FROM CHAT_USERS WHERE CHAT_ID='";
+    private static final String deleteUserFromChatQuery = "DELETE FROM CHAT_USERS WHERE CHAT_ID='";
+    private static final String deleteChatQuery = "DELETE FROM CHATS WHERE CHAT_ID='";
+    private static final String getChatNameByIdQuery = "SELECT CHAT_NAME FROM CHATS WHERE CHAT_ID='";
 
-    private static final ChatRoomsDAOimpl instance = new ChatRoomsDAOimpl();
-    private Connection connection;
-    private Statement prepStatement;
-    private ResultSet resultSet;
     private static final Logger logger = LogManager.getLogger(UsersDAOimpl.class);
+    private static final ChatRoomsDAOimpl instance = new ChatRoomsDAOimpl();
+    private PreparedStatement preparedStatement;
+    private ResultSet resultSet;
+
+    private Connection connection = DAOHandler.getInstance().getConnection();
 
     public static ChatRoomsDAOimpl getInstance() {
-        return instance;
+        if (instance != null)
+            return instance;
+        else
+            return new ChatRoomsDAOimpl();
     }
-
-    private Properties prps = new Properties();
 
     private ChatRoomsDAOimpl() {
-        super();
-    }
 
-    private String name;
-    private String passwrd;
-    private String url;
-
-    /*
-     * The method is used for configuring oracle database account.
-     * Here we read from properties file, where you are able to
-     * write any credits which are needed for connecting to your
-     * database.
-     */
-    public void init() {
-        try {
-            String path = "db.properties";
-            String file = new File(path).getAbsolutePath();
-            prps.load(new FileInputStream(file));
-            name = prps.getProperty("user");
-            passwrd = prps.getProperty("password");
-            url = prps.getProperty("dburl");
-        } catch (IOException e) {
-            logger.error("Reading from properties file failed");
-        }
-    }
-
-    /**
-     * This method is used for connection to your database.
-     * <p>
-     * Here we invoke 'init' method for getting database config
-     * then we get oracle db driver and instantiate connection between
-     * app and database.
-     */
-    public boolean connect() {
-        try {
-            init();
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            connection = DriverManager.getConnection(url, name, passwrd);
-            if (!connection.isClosed()) {
-                System.out.println("Connected to << Chats >> table!");
-                return true;
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    /**
-     * The method is used for disconnecting from database
-     * after server was turned off.
-     * <p>
-     * We close all statements, result sets & connections.
-     */
-    public void disconnect() {
-        try {
-            if (prepStatement != null) {
-                prepStatement.close();
-            }
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -108,14 +56,14 @@ public class ChatRoomsDAOimpl implements DAOHandler {
     public List<ChatRoom> getChatRooms(String str) {
         List<ChatRoom> list = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM CHATS WHERE CHAT_NAME='" + str + "'");
+            preparedStatement = connection.prepareStatement( getChatRooms + str + "'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 list.add(parseChatRoom(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            logger.error("Problem with inserting to group chats table");
+            logger.error("Problem with inserting data to group chats table - > str: " + str);
         }
         return list;
     }
@@ -125,14 +73,13 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      */
     public void insertIntoChats(String chatRoomName, Integer isprivate) {
         try {
-            PreparedStatement prepStatement = connection.prepareStatement("INSERT INTO CHATS (CHAT_NAME, ISPRIVATE) " + "VALUES (?, ?)");
-            prepStatement.setString(1, chatRoomName);
-            prepStatement.setInt(2, isprivate);
-            resultSet = prepStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(insertIntoChats);
+            preparedStatement.setString(1, chatRoomName);
+            preparedStatement.setInt(2, isprivate);
+            resultSet = preparedStatement.executeQuery();
             getDataForNewChat();
         } catch (SQLException e) {
-            e.printStackTrace();
-            logger.info("Inserting to db failed");
+            logger.info("Inserting to db process failed chatRoom: " + chatRoomName + "; isPrivate: " + isprivate);
         }
     }
 
@@ -151,7 +98,7 @@ public class ChatRoomsDAOimpl implements DAOHandler {
             Integer isPrivate = resultSet.getInt("isprivate");
             room = new ChatRoom(id, fromuser, isPrivate);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.info("parseChatRoom process failed");
         }
         return room;
     }
@@ -165,24 +112,11 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      */
     public void deleteUsrFromChat(String chatname, String username) {
         try {
-            prepStatement = connection.createStatement();
-            resultSet = prepStatement.executeQuery("DELETE FROM CHATS WHERE CHAT_NAME='" + chatname
-                    + "' AND CHAT_USER_NAME = '" + username + "'");
+            preparedStatement = connection.prepareStatement(deleteUsrfromChat + chatname
+                    + delUsrFromChatSec + username + "'");
+            resultSet = preparedStatement.executeQuery( );
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Here we reset user status every time when server starts again.
-     * It was made because of
-     */
-    public void resetAll() {
-        try {
-            prepStatement = connection.createStatement();
-            resultSet = prepStatement.executeQuery("UPDATE USERS SET USER_STATUS =" + 0);
-        } catch (SQLException e) {
-            logger.info("Reset failed");
+            logger.error("Deleting user from chat failed");
         }
     }
 
@@ -194,13 +128,12 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      */
     public void insertIntoChatUsers(int chat_id, int user_id) {
         try {
-            PreparedStatement prepStatement = connection.prepareStatement("INSERT INTO CHAT_USERS (CHAT_ID, USER_ID) " + "VALUES (?, ?)");
-            prepStatement.setInt(1, chat_id);
-            prepStatement.setInt(2, user_id);
-            resultSet = prepStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(insertIntoChatUsersQuery);
+            preparedStatement.setInt(1, chat_id);
+            preparedStatement.setInt(2, user_id);
+            resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
-            logger.error("Inserting to db failed", e);
+            logger.error("Inserting to db CHATS_USERS failed");
         }
     }
 
@@ -213,13 +146,13 @@ public class ChatRoomsDAOimpl implements DAOHandler {
     public int getChatIdByName(String str) {
         int id = 0;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT CHAT_ID FROM CHATS WHERE CHAT_NAME='" +
+            preparedStatement = connection.prepareStatement( getChatIdByNameQuery+
                     str + "'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 id = resultSet.getInt("chat_id");
         } catch (SQLException e) {
-            logger.error("Error with getting chat id", e);
+            logger.error("Process failed in getChatIdByName chatName: " + str);
         }
         return id;
     }
@@ -233,14 +166,13 @@ public class ChatRoomsDAOimpl implements DAOHandler {
     public boolean isPrivateChatById(Integer chatId) {
         int priv = 0;
         boolean ispriv;
-        String query = "SELECT ISPRIVATE FROM CHATS WHERE CHAT_ID='" + chatId + "'";
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(isPrivateChatByIdQuery + chatId + "'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 priv = resultSet.getInt("isprivate");
         } catch (SQLException e) {
-            logger.error("Error with getting chat id", e);
+            logger.error("Process failed in method isPrivateChatById, chatId: " + chatId);
         }
         ispriv = priv == 1;
         return ispriv;
@@ -255,9 +187,9 @@ public class ChatRoomsDAOimpl implements DAOHandler {
     public Chat[] getChatListForUser(String username) {
         List<Chat> chatList = new ArrayList<>();
         int userId = UsersDAOimpl.getInstance().getUserIdByName(username);
-        String query = "SELECT CHATS.CHAT_ID, CHATS.CHAT_NAME, CHATS.ISPRIVATE from CHATS, CHAT_USERS WHERE CHATS.CHAT_ID = CHAT_USERS.CHAT_ID and CHAT_USERS.USER_ID ='" + userId + "'";
+
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(getChatListForUserQuery + userId + "'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Integer chatId = resultSet.getInt("chat_id");
@@ -266,7 +198,7 @@ public class ChatRoomsDAOimpl implements DAOHandler {
                 chatList.add(new Chat(chatId, chatName, chatType));
             }
         } catch (SQLException e) {
-            logger.debug("EXCEPTION IN getChatListForUser()", e);
+            logger.debug("Process failed: getChatListForUser()");
         }
         Chat[] chatArray = new Chat[chatList.size()];
         for (int i = 0; i < chatArray.length; i++) {
@@ -280,11 +212,10 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      *
      * @return chat object
      */
-    private Chat getDataForNewChat() {
+    private void getDataForNewChat() {
         Chat chat = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(
-                    "SELECT * FROM CHATS WHERE CHAT_ID=(SELECT MAX(CHAT_ID) FROM CHATS)");
+            preparedStatement = connection.prepareStatement(getDataForNewChatQuery);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 chat = new Chat(resultSet.getInt("chat_id"),
@@ -292,10 +223,8 @@ public class ChatRoomsDAOimpl implements DAOHandler {
                         resultSet.getString("isprivate"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            logger.error("Problem with getting data from chats");
+            logger.error("Problem with getting data for new chat from CHATS table");
         }
-        return chat;
     }
 
     /**
@@ -305,12 +234,12 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      * @param chatId chat id
      */
     public void deletePrivateChatFromChatUsers(Integer chatId) {
-        String query = "DELETE FROM CHAT_USERS WHERE CHAT_ID='" + chatId + "'";
+        String query = chatId + "'";
         try {
-            PreparedStatement prepStatement = connection.prepareStatement(query);
-            resultSet = prepStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(deletePrivateChatFromChatUsersQuery + query);
+            resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
-            logger.error("Chat with chatID " + chatId + " was not deleted !", e);
+            logger.error("Failed to delete private chat - > Chat with chatID " + chatId + " was not deleted !", e);
         }
     }
 
@@ -322,12 +251,12 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      * @param chatId
      */
     public void deleteUserFromChat(Integer usersId, Integer chatId) {
-        String query = "DELETE FROM CHAT_USERS WHERE CHAT_ID='" + chatId + "' AND USER_ID='" + usersId + "'";
+        String secondQuery =  chatId + "' AND USER_ID='" + usersId + "'";
         try {
-            PreparedStatement prepStatement = connection.prepareStatement(query);
-            resultSet = prepStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(deleteUserFromChatQuery + secondQuery);
+            resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
-            logger.error("Chat with chatID " + chatId + " was not deleted !", e);
+            logger.error("Failed to delete user from chat - > Chat with chatID " + chatId + " was not deleted !", e);
         }
     }
 
@@ -337,13 +266,13 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      * @param chatId
      */
     public void deleteChat(Integer chatId) {
-        String query = "DELETE FROM CHATS WHERE CHAT_ID='" + chatId + "'";
+        String query = chatId + "'";
         try {
-            PreparedStatement prepStatement = connection.prepareStatement(query);
-            resultSet = prepStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(deleteChatQuery + query);
+            resultSet = preparedStatement.executeQuery();
             logger.info("Chat with chatID " + chatId + " was deleted !");
         } catch (SQLException e) {
-            logger.error("Chat with chatID " + chatId + " was not deleted !", e);
+            logger.error("Failed to delete Chat with chatID " + chatId + " was not deleted !", e);
         }
     }
 
@@ -354,15 +283,15 @@ public class ChatRoomsDAOimpl implements DAOHandler {
      * @return string chat name
      */
     public String getChatNameById(Integer chatId) {
-        String query = "SELECT CHAT_NAME FROM CHATS WHERE CHAT_ID='" + chatId + "'";
+        String query = chatId + "'";
         String chatName = "";
         try {
-            PreparedStatement prepStatement = connection.prepareStatement(query);
-            resultSet = prepStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(getChatNameByIdQuery + query);
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 chatName = resultSet.getString("chat_name");
         } catch (SQLException e) {
-            logger.error("Chat with chatID " + chatId + " was not deleted !", e);
+            logger.error("Process getChatNameById failed -> Chat with chatID " + chatId + " was not deleted !", e);
         }
         return chatName;
     }

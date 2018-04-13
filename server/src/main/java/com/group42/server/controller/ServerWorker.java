@@ -170,7 +170,7 @@ public class ServerWorker extends Thread {
                 case "addMemberToGroup":
                     addMembersToGroupChat();
                     break;
-                default: /*"sendUserChatsList":*/
+                default:
                     sendUserChatsList();
                     break;
             }

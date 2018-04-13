@@ -13,14 +13,12 @@ import java.util.List;
  *
  * Here we init server port and start infinite loop for maintaining
  * connections to our initialized server port.
- * Every new connection is a new thread. Also here is protocol part.
- * In a nutshell, we combined protocol and server part together.
+ * Every new connection is a new thread.
  */
 public class Server extends Thread {
     private int serverPort = 3000;
     private LinkedList<ServerWorker> workerList = new LinkedList<>();
     private ArrayList<String> onlineUsers = new ArrayList<>();
-
     List<ServerWorker> getWorkerList() {
         return workerList;
     }
@@ -33,9 +31,7 @@ public class Server extends Thread {
         try {
             ServerSocket listener = new ServerSocket(serverPort);
 
-            UsersDAOimpl.getInstance().connect();
-            ChatRoomsDAOimpl.getInstance().connect();
-            ChatMessagesDAOimpl.getInstance().connect();
+            DAOHandler.getInstance().connect();
 
             while (true) {
                 System.out.println("Wait for client");
@@ -47,7 +43,9 @@ public class Server extends Thread {
             }
         } catch (IOException e) {
             System.err.println("Connection is failed !");
+            DAOHandler.getInstance().disconnect();
         }
+        DAOHandler.getInstance().disconnect();
     }
 
     /**

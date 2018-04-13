@@ -3,6 +3,7 @@ package com.group42.server.controller;
 
 import com.group42.server.protocol.StringCrypter;
 import com.group42.server.model.User;
+import oracle.jdbc.proxy.annotation.Pre;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,94 +21,38 @@ import java.util.Properties;
  *
  * @author Paul Horiachyi
  * */
-public class UsersDAOimpl implements DAOHandler {
-
+public class UsersDAOimpl {
+    private static final String getUsersQuery = "SELECT * FROM USERS";
+    private static final String getOnlineUsersQuery = "SELECT * FROM USERS WHERE USER_STATUS='1'";
+    private static final String getOfflineUsersQuery = "SELECT * FROM USERS WHERE USER_STATUS='0'";
+    private static final String insesrtIntoTableQuery = "INSERT INTO users " +
+            "(user_login, user_password, USER_EMAIL, USER_STATUS," +
+            " USER_SECNAME, USER_BIRTH, USER_PHONENUMBER, USER_FIRSTNAME) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String updateUsrStatusQuery = "UPDATE USERS SET USER_STATUS =";
+    private static final String updateUsrStatusSecQuery = " WHERE USER_ID = ";
+    private static final String resetAllQuery = "UPDATE USERS SET USER_STATUS ='0'";
+    private static final String getUserIdByNameQuery = "SELECT USER_ID FROM USERS WHERE USER_LOGIN='";
+    private static final String getUsersForGroupQuery = "SELECT USERS.USER_LOGIN from USERS, CHAT_USERS " +
+            "WHERE USERS.USER_ID = CHAT_USERS.USER_ID and CHAT_USERS.CHAT_ID ='";
+    private static final String getUserStatusQuery = "SELECT USERS.USER_STATUS from USERS WHERE USERS.USER_LOGIN = '";
     private static final UsersDAOimpl instance = new UsersDAOimpl();
-    private Connection connection;
-    private PreparedStatement preparedStatement;
+
+    private Connection connection = DAOHandler.getInstance().getConnection();
     private ResultSet resultSet;
+    private PreparedStatement preparedStatement;
     private StringCrypter crypter = new StringCrypter(new byte[]{1, 4, 5, 6, 8, 9, 7, 8});
     private static final Logger logger = LogManager.getLogger(UsersDAOimpl.class);
 
     public static UsersDAOimpl getInstance() {
-        return instance;
+        if (instance != null)
+            return instance;
+        else
+            return new UsersDAOimpl();
     }
-
-    private Properties properties = new Properties();
 
     private UsersDAOimpl() {
-        super();
     }
 
-    private String usrname;
-    private String pswrd;
-    private String url;
-    private boolean dbAccess;
-
-    /*
-    * The method is used for configuring oracle database account.
-    * Here we read from properties file, where you are able to
-    * write any credits which are needed for connecting to your
-    * database.
-    * */
-    @Override
-    public void init() {
-        try {
-            String path = "db.properties";
-            String pathToFile = new File(path).getAbsolutePath();
-            properties.load(new FileInputStream(pathToFile));
-            usrname = properties.getProperty("user");
-            pswrd = properties.getProperty("password");
-            url = properties.getProperty("dburl");
-        } catch (IOException e) {
-            logger.error("Reading from properties file failed");
-        }
-    }
-    /**
-     * This method is used for connection to your database.
-     *
-     * Here we invoke 'init' method for getting database config
-     * then we get oracle db driver and instantiate connection between
-     * app and database.
-     * */
-    @Override
-    public boolean connect() {
-        try {
-            init();
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            connection = DriverManager.getConnection(url, usrname, pswrd);
-            if (!connection.isClosed()) {
-                System.out.println("Connected to << Users >> table!");
-                resetAll();
-                return true;
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    /**
-     * The method is used for disconnecting from database
-     * after server was turned off.
-     *
-     * We close all statements, result sets & connections.
-     * */
-    @Override
-    public void disconnect() {
-        try {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
     /**
      * Here we parse all data which got from database
      *
@@ -116,13 +61,13 @@ public class UsersDAOimpl implements DAOHandler {
     public List<User> getUsers() {
         List<User> list = new ArrayList<>();
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM USERS");
+            preparedStatement = connection.prepareStatement(getUsersQuery);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 list.add(parseUser(resultSet));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Getting all users failed");
         }
         return list;
     }
@@ -134,13 +79,14 @@ public class UsersDAOimpl implements DAOHandler {
     public List<String> getOnlineUsers() {
         List<String> list = new ArrayList<>();
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM USERS WHERE USER_STATUS='1'");
+            preparedStatement = connection.prepareStatement(getOnlineUsersQuery);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 list.add(resultSet.getString("user_login"));
             }
+            preparedStatement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Getting online Users failed");
         }
         return list;
     }
@@ -152,13 +98,14 @@ public class UsersDAOimpl implements DAOHandler {
     public List<String> getOfflineUsers() {
         List<String> list = new ArrayList<>();
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM USERS WHERE USER_STATUS='0'");
+            preparedStatement = connection.prepareStatement(getOfflineUsersQuery);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 list.add(resultSet.getString("user_login"));
             }
+            preparedStatement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Getting offline users failed");
         }
         return list;
     }
@@ -173,9 +120,7 @@ public class UsersDAOimpl implements DAOHandler {
     public void insertInto(String login, String pswrd, String email, String secName,
                            Date birthday, String phone, String firstName) {
         try {
-            preparedStatement = connection.prepareStatement(
-                    "INSERT INTO users (user_login, user_password, USER_EMAIL, USER_STATUS," +
-                            " USER_SECNAME, USER_BIRTH, USER_PHONENUMBER, USER_FIRSTNAME) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement = connection.prepareStatement(insesrtIntoTableQuery);
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, crypter.encrypt(pswrd));
             preparedStatement.setString(3, email);
@@ -185,8 +130,9 @@ public class UsersDAOimpl implements DAOHandler {
             preparedStatement.setString(7, phone);
             preparedStatement.setString(8, firstName);
             resultSet = preparedStatement.executeQuery();
+            preparedStatement.close();
         } catch (SQLException e) {
-           logger.error("Something wrong with DB", e);
+            logger.error("insertInto proces failed; Login: " + login);
         }
     }
 
@@ -209,10 +155,11 @@ public class UsersDAOimpl implements DAOHandler {
             Date birth = resultSet.getDate("user_birth");
             String phoneNumber = resultSet.getString("user_phonenumber");
             String firstName = resultSet.getString("user_firstname");
+
             String password = crypter.decrypt(pswrd);
             user = new User(login, secondName, birth, phoneNumber, password, email, id, usr_status, firstName);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("parseUser process failed");
         }
         return user;
     }
@@ -225,10 +172,12 @@ public class UsersDAOimpl implements DAOHandler {
      * */
     public void updateUsrStatus(Integer user_id, Integer status) {
         try {
-            preparedStatement = connection.prepareStatement("UPDATE USERS SET USER_STATUS =" + status + " WHERE USER_ID = " + user_id);
+            preparedStatement = connection.prepareStatement( updateUsrStatusQuery + status +
+                    updateUsrStatusSecQuery + user_id);
             resultSet = preparedStatement.executeQuery();
+            preparedStatement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("updateUsrStatus process failed with user_id: " + user_id + "; status: " + status);
         }
     }
     /**
@@ -237,10 +186,11 @@ public class UsersDAOimpl implements DAOHandler {
      */
     public void resetAll() {
         try {
-            preparedStatement = connection.prepareStatement("UPDATE USERS SET USER_STATUS =" + 0);
+            preparedStatement = connection.prepareStatement(resetAllQuery);
             resultSet = preparedStatement.executeQuery();
+            preparedStatement.close();
         } catch (SQLException e) {
-            logger.info("Reset failed");
+            logger.info("ResetAll process failed with query: " + resetAllQuery);
         }
     }
 
@@ -253,13 +203,14 @@ public class UsersDAOimpl implements DAOHandler {
     public int getUserIdByName(String str) {
         int id = 0;
         try {
-            preparedStatement = connection.prepareStatement("SELECT USER_ID FROM USERS WHERE USER_LOGIN='" +
+            preparedStatement = connection.prepareStatement( getUserIdByNameQuery +
                     str +"'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 id = resultSet.getInt("user_id");
+            preparedStatement.close();
         } catch (SQLException e) {
-            logger.error("Error with getting user id", e);
+            logger.error("getUserIdByName process failed with string: " + str);
         }
         return id;
     }
@@ -272,15 +223,14 @@ public class UsersDAOimpl implements DAOHandler {
      */
     public List<String> getUsersForGroup(Integer chatId){
         List<String> users = new ArrayList<>();
-        String query = "SELECT USERS.USER_LOGIN from USERS, CHAT_USERS WHERE USERS.USER_ID = CHAT_USERS.USER_ID and CHAT_USERS.CHAT_ID ='" + chatId + "'";
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(getUsersForGroupQuery + chatId + "'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 users.add(resultSet.getString("user_login"));
             }
         } catch (SQLException e) {
-            logger.debug("EXCEPTION IN getChatListForUser()", e);
+            logger.debug("getUsersForGroup process failed with chatID " + chatId);
         }
         return users;
     }
@@ -292,15 +242,15 @@ public class UsersDAOimpl implements DAOHandler {
      * @return status (Integer)
      */
     public int getUserStatus(String login) {
-        String query = "SELECT USERS.USER_STATUS from USERS WHERE USERS.USER_LOGIN = '" + login + "'";
         int status = 0;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(getUserStatusQuery + login + "'");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 status = resultSet.getInt("user_status");
+            preparedStatement.close();
         } catch (SQLException e) {
-            logger.debug("EXCEPTION IN getChatListForUser()", e);
+            logger.debug("getUserStatus process failed; Login: " + login);
         }
         return status;
     }

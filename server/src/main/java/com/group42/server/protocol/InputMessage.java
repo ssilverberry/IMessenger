@@ -2,8 +2,21 @@ package com.group42.server.protocol;
 
 import java.time.LocalDate;
 import java.util.List;
-
-/**
+/*************************************************************************
+ 1 - Authorisation
+ request: 1,  "login", "password"
+ 2 - Registration
+ request: 2, "email", "login", "password"
+ 3 - Main chat:
+ request: 31                                     - get online users
+ request: 32  "fromUser", "message"              - send message to chat.
+ request: 34  "fromUser", "toUser"               - create private chat
+ request: 35  "fromUser"                         - log out and get chat list.
+ request: 36  "groupName"                        - get general chat history
+ request: 37 "groupName", List<String> members   - create group room
+ request: 38 "login"                             - get user info
+ *************************************************************************
+ *
  * New Version Protocol.
  *
  * This class is using for getting
@@ -15,7 +28,7 @@ import java.util.List;
  *
  * Input message for server is an output message
  * for client.
- **/
+ **************************************************************************/
 public class InputMessage {
     private String groupName;
     private List<String> members;

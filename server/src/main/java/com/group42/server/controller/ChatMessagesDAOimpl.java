@@ -15,85 +15,28 @@ import java.util.*;
  * The class is used for getting and updating data from / to database.
  * We use single tone pattern for the class.
  */
-public class ChatMessagesDAOimpl implements DAOHandler {
+public class ChatMessagesDAOimpl {
+    private static final String getChatHistoryForChatQuery = "SELECT MSG_CONTENT, MSG_AUTHOR, MSG_DATE " +
+            "FROM CHAT_MESSAGES WHERE CHAT_ID='";
+    private static final String getChatHistoryForChatSecQuery = "' ORDER BY MSG_DATE ASC";
+    private static final String insertIntoChatMessagesQuery = "INSERT INTO CHAT_MESSAGES " +
+            "(CHAT_ID, MSG_AUTHOR, MSG_DATE, MSG_CONTENT) " + "VALUES (?, ?, ?, ?)";
+    private static final String deleteChatHistoryByChatIdQuery = "DELETE FROM CHAT_MESSAGES WHERE CHAT_ID='";
+    private static final Logger logger = LogManager.getLogger(UsersDAOimpl.class);
     private static final ChatMessagesDAOimpl instance = new ChatMessagesDAOimpl();
-    private Connection connection;
+    private Connection connection = DAOHandler.getInstance().getConnection();
     private PreparedStatement prepStatement;
     private ResultSet resultSet;
-    private static final Logger logger = LogManager.getLogger(UsersDAOimpl.class);
-    private String username;
-    private String password;
-    private String url;
+
 
     public static ChatMessagesDAOimpl getInstance() {
-        return instance;
+        if (instance != null)
+            return instance;
+        else
+            return new ChatMessagesDAOimpl();
     }
-
-    private Properties props = new Properties();
 
     private ChatMessagesDAOimpl() {
-        super();
-    }
-
-    /**
-     * Here we get data from properties file in init method.
-     * And after it we connect to our schema with tables.
-     *
-     * @return false as default and true if connection was successful
-     */
-    @Override
-    public boolean connect() {
-        try {
-            init();
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            connection = DriverManager.getConnection(url, username, password);
-            if (!connection.isClosed()) {
-                System.out.println("Connected to << Chat Messages >> table !");
-                return true;
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            logger.error("Reading from properties file failed");
-        }
-        return false;
-    }
-
-    /**
-     * We use the method for closing all statements, connections and result sets.
-     */
-    @Override
-    public void disconnect() {
-        try {
-            if (prepStatement != null) {
-                prepStatement.close();
-            }
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Here we get data from properties file.
-     * In that file you are able to write your credentials
-     * for connecting to your own schema and database.
-     */
-    @Override
-    public void init() {
-        try {
-            String path = "db.properties";
-            String localfile = new File(path).getAbsolutePath();
-            props.load(new FileInputStream(localfile));
-            username = props.getProperty("user");
-            password = props.getProperty("password");
-            url = props.getProperty("dburl");
-        } catch (IOException e) {
-            logger.error("Reading from properties file failed");
-        }
     }
 
     /**
@@ -111,7 +54,7 @@ public class ChatMessagesDAOimpl implements DAOHandler {
             builder.append(resultSet.getString("msg_author")).append(" > ");
             builder.append(resultSet.getString("msg_content"));
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Parsing message failed");
         }
         return builder.toString();
     }
@@ -126,11 +69,14 @@ public class ChatMessagesDAOimpl implements DAOHandler {
         List<String> list = new ArrayList<>();
         try {
             prepStatement = connection.prepareStatement(
-                    "SELECT MSG_CONTENT, MSG_AUTHOR, MSG_DATE FROM CHAT_MESSAGES WHERE CHAT_ID='" + chatId + "' ORDER BY MSG_DATE ASC");
+                    getChatHistoryForChatQuery +
+                            chatId +
+                            getChatHistoryForChatSecQuery);
             resultSet = prepStatement.executeQuery();
             while (resultSet.next()) {
                 list.add(parseMsg(resultSet));
             }
+
         } catch (SQLException e) {
             logger.error("Something wrong with db", e);
         }
@@ -147,13 +93,13 @@ public class ChatMessagesDAOimpl implements DAOHandler {
      */
     public void insertIntoChatMessages(Integer chat_id, String msgFrom, String msgBody) {
         try {
-            prepStatement = connection.prepareStatement(
-                    "INSERT INTO CHAT_MESSAGES (CHAT_ID, MSG_AUTHOR, MSG_DATE, MSG_CONTENT) " + "VALUES (?, ?, ?, ?)");
+            prepStatement = connection.prepareStatement(insertIntoChatMessagesQuery);
             prepStatement.setInt(1, chat_id);
             prepStatement.setString(2, msgFrom);
             prepStatement.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
             prepStatement.setString(4, msgBody);
             resultSet = prepStatement.executeQuery();
+
         } catch (SQLException e) {
             logger.error("Inserting to db failed", e);
         }
@@ -165,10 +111,8 @@ public class ChatMessagesDAOimpl implements DAOHandler {
      * @param chatId private chat id.
      */
     public void deleteChatHistoryByChatId(Integer chatId) {
-        String query;
         try {
-            prepStatement = connection.prepareStatement(
-                    "DELETE FROM CHAT_MESSAGES WHERE CHAT_ID='" + chatId + "'");
+            prepStatement = connection.prepareStatement(deleteChatHistoryByChatIdQuery + chatId + "'");
             resultSet = prepStatement.executeQuery();
         } catch (SQLException e) {
             logger.error("Chat with chatID " + chatId + " was not deleted !", e);

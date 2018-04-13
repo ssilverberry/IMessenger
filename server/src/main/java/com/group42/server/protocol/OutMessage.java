@@ -5,15 +5,27 @@ import com.group42.server.model.ChatMessages;
 
 import java.time.LocalDate;
 import java.util.List;
-
-/**
+/*************************************************************************
+ 1 - Authorisation
+ request: 1,  "login", "password"
+ 2 - Registration
+ request: 2, "email", "login", "password"
+ 3 - Main chat:
+ request: 31                                     - get online users
+ request: 32  "fromUser", "message"              - send message to chat.
+ request: 34  "fromUser", "toUser"               - create private chat
+ request: 35  "fromUser"                         - log out and get chat list.
+ request: 36  "groupName"                        - get general chat history
+ request: 37 "groupName", List<String> members   - create group room
+ request: 38 "login"                             - get user info
+ *************************************************************************
  * New Version Protocol.
  *
  * Here is class witch is used for creating
  * output message for client.
  *
  * In other words it is a "server response" for client
- **/
+ *************************************************************************/
 public class OutMessage {
     private List<String> members;
     private String groupName;
