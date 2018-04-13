@@ -1,2 +1,0 @@
-# IMessenger
-Chat messenger application.

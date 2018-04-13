@@ -329,15 +329,18 @@ public class MainController extends Controller {
     }
 
     /**
-     * Creates new private room with chosen user, <tt>toUser</tt>
-     * @param userName is username of another user.
+     * Creates new private room with chosen user
+     * @param privateName
      */
-    private void createPrivateRoom(Integer chatId, String userName){
-        Chat chat = new Chat(chatId, userName, "1");
+    private void createPrivateRoom(Integer chatId, String privateName){
+        Chat chat = new Chat(chatId, privateName, "1");
         chatList.add(chat);
         model.getChatHistoryMap().put(chat, FXCollections.observableArrayList());
         ChatIOController.getInstance().writeChatsToFile(model.getChatHistoryMap().keySet());
-        ChatIOController.getInstance().createFileForPrivateHistory(userName);
+        ChatIOController.getInstance().createFileForPrivateHistory(privateName);
+        if (!privateName.equals(Model.getInstance().getUser().getLogin())) {
+            pushNotification(chat, "You have a new private chat!");
+        }
     }
 
     /**
