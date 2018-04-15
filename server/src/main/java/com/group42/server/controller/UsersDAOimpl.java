@@ -132,7 +132,7 @@ public class UsersDAOimpl {
             resultSet = preparedStatement.executeQuery();
             preparedStatement.close();
         } catch (SQLException e) {
-            logger.error("insertInto proces failed; Login: " + login);
+           logger.error("insertInto proces failed; Login: " + login);
         }
     }
 

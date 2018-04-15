@@ -148,21 +148,21 @@ public class ServerHandler {
             usrList = UsersDAOimpl.getInstance().getUsers();
             if (usrList.size() != 0) {
                 for (User user : usrList) {
-                    lOGGER.debug("password from database: " +
-                            user.getPassword() + " " + "password from client " + msgUsr.getPassword());
-                    if (user.getLogin().equals(msgUsr.getLogin()) & user.getPassword().equals(msgUsr.getPassword())) {
-                        if (UsersDAOimpl.getInstance().getUserStatus(user.getLogin()) == 0) {
-                            setStatus("access " + user.getLogin());
-                            return true;
-                        } else {
-                            setStatus("accessDenied");
-                            return false;
-                        }
+                        lOGGER.debug("password from database: " +
+                                user.getPassword() + " " + "password from client " + msgUsr.getPassword());
+                        if (user.getLogin().equals(msgUsr.getLogin()) & user.getPassword().equals(msgUsr.getPassword())) {
+                            if (UsersDAOimpl.getInstance().getUserStatus(user.getLogin()) == 0) {
+                                setStatus("access " + user.getLogin());
+                                return true;
+                            } else {
+                                setStatus("accessDenied");
+                                return false;
+                            }
 
-                    } else {
-                        setStatus("noRegUser");
+                        } else {
+                            setStatus("noRegUser");
+                        }
                     }
-                }
             } else {
                 setStatus("noRegUser");
             }

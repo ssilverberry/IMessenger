@@ -70,8 +70,8 @@ public class ChatMessagesDAOimpl {
         try {
             prepStatement = connection.prepareStatement(
                     getChatHistoryForChatQuery +
-                            chatId +
-                            getChatHistoryForChatSecQuery);
+                        chatId +
+                        getChatHistoryForChatSecQuery);
             resultSet = prepStatement.executeQuery();
             while (resultSet.next()) {
                 list.add(parseMsg(resultSet));
@@ -96,7 +96,7 @@ public class ChatMessagesDAOimpl {
             prepStatement = connection.prepareStatement(insertIntoChatMessagesQuery);
             prepStatement.setInt(1, chat_id);
             prepStatement.setString(2, msgFrom);
-            prepStatement.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
+            prepStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
             prepStatement.setString(4, msgBody);
             resultSet = prepStatement.executeQuery();
 
