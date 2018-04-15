@@ -1,3 +1,3 @@
 @echo off
 @echo "Building..."
-mvn package
+mvn package -Dmaven.test.skip=true
