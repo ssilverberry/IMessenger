@@ -35,7 +35,7 @@ Client-server application for real-time messaging
   *	Notification of a new message in the chat, adding to the group or a private dialogue;
   *	Local storage of the chat list and history of private user chats;
   
-## Build
+## Build Client
   ### Maven
   To build IMessenger, run the following file:
   
@@ -48,7 +48,23 @@ Client-server application for real-time messaging
   **NOTE** : You need to set JAVA_HOME environment variable to point to Java 1.8 directory.
   
   **NOTE** : IMessenger requires Java 1.8u60 and above.
-  
+## Build Server
+   ### Maven:
+   ### Create required database tables.
+   To generate all needed db tables you have to run the following file
+   
+    init.sql
+   ### Fill the properties file with your own database credentials.
+    Path to file ./resources/db.properties
+    
+    For example:
+    user = Paul
+    password = someSuperSecretCode
+    dburl = jdbc:oracle:thin:@//localhost:1521/XE
+  ### Build server with .bat file which located here:
+    ./server/buildServer.bat
+  ### Then, simply start <i>server</i> with run.bat file which located here:
+    ./server/runServer.bat
 ## UI:
 #### Main window
 
@@ -61,9 +77,3 @@ Client-server application for real-time messaging
 #### Registration window
 
 ![main](https://github.com/YuraLampak/IMessenger/blob/master/client/src/main/resources/icons/preview/registration.jpg)
-
-
-
-
-
-
