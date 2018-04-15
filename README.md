@@ -65,6 +65,8 @@ Client-server application for real-time messaging
    **NOTE** : You need to set JAVA_HOME environment variable to point to Java 1.8 directory.
     
    **NOTE** : IMessenger requires Java 1.8u60 and above.
+   
+   **NOTE** : <b>Build and run server from system disk. In our case it is a DISK "C"</b>
 ## UI:
 #### Main window
 
