@@ -60,7 +60,7 @@ Client-server application for real-time messaging
     dburl = jdbc:oracle:thin:@//localhost:1521/XE
   ### Build server with .bat file which located here:
     ./server/buildServer.bat
-  ### Then, simply start <i>server</i> with run.bat file which located here:
+  ### Then, simply start <i>server</i> with file which located here:
     ./server/runServer.bat
    **NOTE** : You need to set JAVA_HOME environment variable to point to Java 1.8 directory.
     
