@@ -58,7 +58,7 @@ Client-server application for real-time messaging
     user = Paul
     password = someSuperSecretCode
     dburl = jdbc:oracle:thin:@//localhost:1521/XE
-  ### Build server with .bat file which located here:
+  ### Build server with file which located here:
     ./server/buildServer.bat
   ### Then, simply start <i>server</i> with file which located here:
     ./server/runServer.bat
