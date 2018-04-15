@@ -13,7 +13,7 @@ import java.util.*;
 
 /**
  * The class is used for getting and updating data from / to database.
- * We use single tone pattern for the class.
+ * We use singletone pattern for the class.
  */
 public class ChatMessagesDAOimpl {
     private static final String getChatHistoryForChatQuery = "SELECT MSG_CONTENT, MSG_AUTHOR, MSG_DATE " +
