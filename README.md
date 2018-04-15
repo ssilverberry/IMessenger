@@ -39,11 +39,11 @@ Client-server application for real-time messaging
   ### Maven
   To build IMessenger, run the following file:
   
-    build.bat
+    build.cmd
     
   To run IMessenger, run the following file:
   
-    run.bat
+    run.cmd
     
 ## Build Server
    ### Maven:
