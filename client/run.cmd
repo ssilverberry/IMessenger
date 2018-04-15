@@ -1,3 +1,3 @@
 @echo off
 cd target
-java -jar Client-0.8.jar
+java -jar Client-1.0.jar
