@@ -45,9 +45,6 @@ Client-server application for real-time messaging
   
     run.cmd
     
-  **NOTE** : You need to set JAVA_HOME environment variable to point to Java 1.8 directory.
-  
-  **NOTE** : IMessenger requires Java 1.8u60 and above.
 ## Build Server
    ### Maven:
    ### Create required database tables.
@@ -65,6 +62,9 @@ Client-server application for real-time messaging
     ./server/buildServer.bat
   ### Then, simply start <i>server</i> with run.bat file which located here:
     ./server/runServer.bat
+   **NOTE** : You need to set JAVA_HOME environment variable to point to Java 1.8 directory.
+    
+   **NOTE** : IMessenger requires Java 1.8u60 and above.
 ## UI:
 #### Main window
 
